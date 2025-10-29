@@ -6,7 +6,6 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import * as LucideIcons from 'lucide-react';
 import MapComponent from './properties/[id]/map-component';
-import AttractionFinder from './properties/[id]/attraction-finder';
 import CalendarSection from './properties/[id]/calendar-section';
 
 export default function SinglePropertyPage() {
@@ -77,9 +76,6 @@ export default function SinglePropertyPage() {
             
              <Separator />
             
-            <section>
-                <AttractionFinder locationDescription={property.locationDescription} />
-            </section>
         </div>
 
         <div className="lg:col-span-1">
