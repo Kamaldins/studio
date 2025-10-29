@@ -5,7 +5,7 @@ import ImageGallery from './properties/[id]/image-gallery';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import * as LucideIcons from 'lucide-react';
-import MapComponent from './properties/[id]/map-component';
+import MapSection from './properties/[id]/map-component';
 import CalendarSection from './properties/[id]/calendar-section';
 
 export default function SinglePropertyPage() {
@@ -69,8 +69,8 @@ export default function SinglePropertyPage() {
 
              <section id="objekti">
                 <h2 className="font-headline text-3xl font-bold">Atrašanās vieta</h2>
-                <div className="mt-6 rounded-lg overflow-hidden h-96 border">
-                <MapComponent location={property.location} />
+                <div className="mt-6">
+                 <MapSection />
                 </div>
             </section>
             

@@ -1,41 +1,47 @@
 'use client';
+import { Car } from 'lucide-react';
+import { properties } from '@/lib/data';
 
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
-import { MapPin } from 'lucide-react';
+const MapSection = () => {
+  const property = properties.find(p => p.id === '1');
 
-type MapComponentProps = {
-  location: {
-    lat: number;
-    lng: number;
-  };
-};
-
-export default function MapComponent({ location }: MapComponentProps) {
-  const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
-
-  if (!apiKey) {
-    return (
-      <div className="w-full h-full bg-muted flex flex-col items-center justify-center text-center p-4">
-        <MapPin className="w-12 h-12 text-muted-foreground mb-4" />
-        <h3 className="font-bold text-lg">Map Unavailable</h3>
-        <p className="text-sm text-muted-foreground">
-          Google Maps API key is not configured. Please add NEXT_PUBLIC_GOOGLE_MAPS_API_KEY to your environment variables.
-        </p>
-      </div>
-    );
+  if (!property) {
+    return null;
   }
+  
+  const { location, locationDescription } = property;
+  const MEZLICI_LAT = location.lat;
+  const MEZLICI_LNG = location.lng;
+  const MEZLICI_ADDRESS = locationDescription;
+  const MEZLICI_COORDINATES = `${MEZLICI_LAT},${MEZLICI_LNG}`;
+
 
   return (
-    <APIProvider apiKey={apiKey}>
-      <Map
-        defaultCenter={location}
-        defaultZoom={12}
-        mapId="a3f74b6cf5196b0"
-        gestureHandling={'greedy'}
-        disableDefaultUI={true}
-      >
-        <Marker position={location} />
-      </Map>
-    </APIProvider>
+    <section>
+      <div className="rounded-lg overflow-hidden shadow-lg border mb-8">
+        <iframe
+          src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2233.5!2d${MEZLICI_LNG}!3d${MEZLICI_LAT}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${encodeURIComponent(`${MEZLICI_LAT}°N ${MEZLICI_LNG}°E`)}!5e0!3m2!1slv!2slv!4v1735740000000!5m2!1slv!2slv&markers=color:red%7Clabel:M%7C${MEZLICI_LAT},${MEZLICI_LNG}&q=${encodeURIComponent(MEZLICI_ADDRESS)}`}
+          width="100%"
+          height="450"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        />
+      </div>
+      <div className="text-center">
+        <a
+          href={`https://waze.com/ul?ll=${MEZLICI_COORDINATES.replace(',', '%2C')}&navigate=yes&q=${encodeURIComponent(MEZLICI_ADDRESS)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 sm:gap-3 bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-xl transition-all duration-300 transform hover:scale-105 font-semibold shadow-lg text-sm sm:text-base"
+        >
+          <Car size={16} className="sm:w-5 sm:h-5" />
+          Atvērt Waze navigācijā
+        </a>
+      </div>
+    </section>
   );
-}
+};
+
+export default MapSection;
