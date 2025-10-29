@@ -5,8 +5,8 @@ import { SiteHeader } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'Mežlīči Retreat',
-  description: 'Book your perfect getaway at Mežlīči Retreat. Discover serene vacation rentals surrounded by nature.',
+  title: 'Brīvdienu māja "Mežlīči"',
+  description: 'Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties',
 };
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
         <div className="relative flex min-h-dvh flex-col">
