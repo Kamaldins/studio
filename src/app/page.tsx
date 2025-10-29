@@ -12,6 +12,7 @@ import CalendarSection from './properties/[id]/calendar-section';
 import ContactSection from './properties/[id]/contact-section';
 import HeroSection from './properties/[id]/hero-section';
 import ImageSliderModal from './properties/[id]/lightbox';
+import InfoSection from './properties/[id]/info-section';
 
 export default function SinglePropertyPage() {
   const [sliderOpen, setSliderOpen] = React.useState(false);
@@ -54,6 +55,20 @@ export default function SinglePropertyPage() {
   const prevMiniGallery = () => {
     setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
   };
+
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (sliderOpen) {
+        if (e.key === 'Escape') closeSlider();
+        if (e.key === 'ArrowRight') nextImage();
+        if (e.key === 'ArrowLeft') prevImage();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [sliderOpen, nextImage, prevImage]);
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 space-y-12">
@@ -133,6 +148,8 @@ export default function SinglePropertyPage() {
       <Separator />
 
        <ContactSection />
+
+       <InfoSection />
 
       <Separator />
 

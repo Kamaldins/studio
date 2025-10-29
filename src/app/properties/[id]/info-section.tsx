@@ -1,0 +1,31 @@
+import React from 'react';
+import { Calendar, MapPin } from 'lucide-react';
+
+const InfoSection = () => {
+  return (
+    <section className="py-16 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl text-center">
+            <Calendar size={40} className="sm:w-12 sm:h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">Pieejamība</h3>
+            <p className="text-slate-700 dark:text-slate-300 text-sm sm:text-base">
+              Māja ir pieejama no <strong>pl. 17:00 - 13:00</strong><br />
+              iepriekš piesakoties
+            </p>
+          </div>
+          
+          <div className="bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-6 sm:p-8 shadow-xl text-center">
+            <MapPin size={40} className="sm:w-12 sm:h-12 text-blue-600 dark:text-blue-400 mx-auto mb-4" />
+            <h3 className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100 mb-4">Adrese</h3>
+            <p className="text-slate-700 dark:text-slate-300 font-semibold text-sm sm:text-base">
+              Mežlīči, Tomes pagasts
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default InfoSection;
