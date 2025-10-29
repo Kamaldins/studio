@@ -1,3 +1,82 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-1",
+      "description": "A stunning sunset over a tranquil lake with a wooden pier in the foreground.",
+      "imageUrl": "https://images.unsplash.com/photo-1595368246398-ad3593bd8996?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxsYWtlJTIwc3Vuc2V0fGVufDB8fHx8MTc2MTY2NjkzN3ww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lake sunset"
+    },
+    {
+      "id": "cabin-1",
+      "description": "Exterior of a modern wooden cabin by a lake, surrounded by trees.",
+      "imageUrl": "https://images.unsplash.com/photo-1697807650304-907257330a3e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBjYWJpbnxlbnwwfHx8fDE3NjE3NDI5NTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern cabin"
+    },
+    {
+      "id": "cabin-2",
+      "description": "Interior of the cabin's living room with a cozy fireplace and large windows overlooking the lake.",
+      "imageUrl": "https://images.unsplash.com/photo-1737737210863-387afd35344e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxjb3p5JTIwaW50ZXJpb3J8ZW58MHx8fHwxNzYxNzEzNTUxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cozy interior"
+    },
+    {
+      "id": "cabin-3",
+      "description": "Bedroom of the cabin with a large bed and a view of the forest.",
+      "imageUrl": "https://images.unsplash.com/photo-1699629208190-672f7ef56d7b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxjYWJpbiUyMGJlZHJvb218ZW58MHx8fHwxNzYxNzYzNDIxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cabin bedroom"
+    },
+    {
+      "id": "cabin-4",
+      "description": "A wooden deck with two chairs looking out over the calm lake at sunrise.",
+      "imageUrl": "https://images.unsplash.com/photo-1610675871913-e3d959e97d78?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsYWtlJTIwdmlld3xlbnwwfHx8fDE3NjE3NjM0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "lake view"
+    },
+    {
+      "id": "forest-1",
+      "description": "A large, modern house nestled in a dense pine forest.",
+      "imageUrl": "https://images.unsplash.com/photo-1631183717450-e2461860311e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxmb3Jlc3QlMjBob3VzZXxlbnwwfHx8fDE3NjE3NjM0MjF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "forest house"
+    },
+    {
+      "id": "forest-2",
+      "description": "The spacious living room of the forest house with high ceilings and a minimalist design.",
+      "imageUrl": "https://images.unsplash.com/photo-1642632014636-285221957cf6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBsaXZpbmd8ZW58MHx8fHwxNzYxNjU4MDkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern living"
+    },
+    {
+      "id": "forest-3",
+      "description": "A wooden sauna with a traditional stove inside the forest house.",
+      "imageUrl": "https://images.unsplash.com/photo-1757940807425-5d2afa01ddd0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx3b29kZW4lMjBzYXVuYXxlbnwwfHx8fDE3NjE3NjM0MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "wooden sauna"
+    },
+    {
+      "id": "forest-4",
+      "description": "A large outdoor terrace with a dining table surrounded by tall pine trees.",
+      "imageUrl": "https://images.unsplash.com/photo-1703783028657-5905a1662aa8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxmb3Jlc3QlMjB0ZXJyYWNlfGVufDB8fHx8MTc2MTc2MzQyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "forest terrace"
+    },
+    {
+      "id": "villa-1",
+      "description": "A sleek, white modern villa with large glass windows and a view of the sea.",
+      "imageUrl": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxtb2Rlcm4lMjB2aWxsYXxlbnwwfHx8fDE3NjE3MTQ4NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "modern villa"
+    },
+    {
+      "id": "villa-2",
+      "description": "An open-plan kitchen and dining area in the villa with luxurious furnishings.",
+      "imageUrl": "https://images.unsplash.com/photo-1622372738946-62e02505feb3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxsdXh1cnklMjBraXRjaGVufGVufDB8fHx8MTc2MTc2MzQyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "luxury kitchen"
+    },
+    {
+      "id": "villa-3",
+      "description": "A master bedroom with a king-size bed and a balcony overlooking the sea.",
+      "imageUrl": "https://images.unsplash.com/photo-1715342835819-58a2676b4900?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxiZWRyb29tJTIwc2VhfGVufDB8fHx8MTc2MTc2MzQyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "bedroom sea"
+    },
+    {
+      "id": "villa-4",
+      "description": "A private garden with a manicured lawn and a path leading to the sandy beach.",
+      "imageUrl": "https://images.unsplash.com/photo-1633531919423-7e95c382e3ab?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxwcml2YXRlJTIwZ2FyZGVufGVufDB8fHx8MTc2MTc2MzQyMXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "private garden"
+    }
+  ]
 }
