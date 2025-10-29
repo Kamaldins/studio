@@ -21,27 +21,27 @@ export default function SinglePropertyPage() {
     .filter((p): p is ImagePlaceholder => !!p);
     
   return (
-    <div className="max-w-5xl mx-auto py-8 px-4 md:px-8 space-y-12">
-        <section className="text-center pt-12">
-            <h1 className="font-headline text-5xl md:text-7xl font-black">
-                Brīvdienu māja <span className="text-primary">"Mežlīči"</span>
+    <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 space-y-12">
+        <section className="text-center pt-24 md:pt-32">
+            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">
+                Brīvdienu māja<br/> <span className="text-primary">"Mežlīči"</span>
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
                 Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties
             </p>
         </section>
 
-      <section id="foto">
+      <section id="foto" className="px-4">
         <ImageGallery images={propertyImages} />
       </section>
       
       <Separator />
 
-      <section id="par" className="space-y-12">
+      <section id="par" className="space-y-12 py-12 px-4">
         <h2 className="font-headline text-4xl font-bold text-center">Kas jūs sagaida</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg">
-            <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg max-w-4xl mx-auto">
+            <div className="space-y-4">
                 <h3 className="font-headline text-2xl font-bold mb-4">Mājā pieejams</h3>
                 <ul className="space-y-3">
                     <li className="flex items-center gap-3"><LucideIcons.Check className="w-6 h-6 text-primary" />Pirts relaksācijai</li>
@@ -50,7 +50,7 @@ export default function SinglePropertyPage() {
                     <li className="flex items-center gap-3"><LucideIcons.Check className="w-6 h-6 text-primary" />Guļamvieta mansardā (līdz 10 viesiem)</li>
                 </ul>
             </div>
-            <div>
+            <div className="space-y-4">
                 <h3 className="font-headline text-2xl font-bold mb-4">Āra aktivitātes</h3>
                  <ul className="space-y-3">
                     <li className="flex items-center gap-3"><LucideIcons.Check className="w-6 h-6 text-primary" />Plaša pļava ar telšu vietām</li>
@@ -62,7 +62,7 @@ export default function SinglePropertyPage() {
             </div>
         </div>
         
-        <div className="text-center bg-card p-6 rounded-lg shadow-md">
+        <div className="text-center bg-card p-6 rounded-2xl shadow-lg max-w-2xl mx-auto border">
             <h3 className="font-headline text-2xl font-bold">Atrašanās vieta</h3>
             <p className="mt-2 text-muted-foreground text-lg">Daugavas kreisajā krastā pie Ķeguma HES</p>
         </div>
@@ -71,19 +71,19 @@ export default function SinglePropertyPage() {
 
       <Separator />
 
-      <section id="cenas">
+      <section id="cenas" className="py-12 px-4">
           <h2 className="font-headline text-4xl font-bold text-center mb-8">Izcenojums</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto">
-              <div className="bg-card p-6 rounded-lg shadow-md text-center">
-                  <p className="text-5xl mb-2">🏠</p>
+              <div className="bg-card p-8 rounded-2xl shadow-lg text-center border">
+                  <p className="text-6xl mb-4">🏠</p>
                   <h3 className="font-headline text-2xl font-bold">Brīvdienu māja</h3>
-                  <p className="text-4xl font-black text-primary my-2">200€</p>
+                  <p className="text-5xl font-black text-primary my-4">200€</p>
                   <p className="text-muted-foreground">Par nakti (pirts iekļauta cenā)</p>
               </div>
-              <div className="bg-card p-6 rounded-lg shadow-md text-center">
-                  <p className="text-5xl mb-2">🛁</p>
+              <div className="bg-card p-8 rounded-2xl shadow-lg text-center border">
+                  <p className="text-6xl mb-4">🛁</p>
                   <h3 className="font-headline text-2xl font-bold">Hidromasāžas kubls</h3>
-                  <p className="text-4xl font-black text-primary my-2">50€</p>
+                  <p className="text-5xl font-black text-primary my-4">50€</p>
                   <p className="text-muted-foreground">Par izmantošanu</p>
               </div>
           </div>
@@ -91,22 +91,22 @@ export default function SinglePropertyPage() {
       
       <Separator />
 
-       <section id="sazinities" className="text-center">
-          <h2 className="font-headline text-4xl font-bold text-center mb-8">Sazinies ar mums</h2>
-           <p className="max-w-xl mx-auto text-lg text-muted-foreground mb-8">Mēs palīdzēsim rezervēt perfektu brīvdienu vietu</p>
+       <section id="sazinities" className="py-12 px-4 text-center">
+          <h2 className="font-headline text-4xl font-bold text-center mb-6">Sazinies ar mums</h2>
+           <p className="max-w-xl mx-auto text-lg text-muted-foreground mb-10">Mēs palīdzēsim rezervēt perfektu brīvdienu vietu</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="bg-card p-6 rounded-2xl shadow-lg border">
                   <h3 className="font-headline text-xl font-bold mb-2">Telefons</h3>
                   <a href="tel:+37129294621" className="flex items-center justify-center gap-2 text-primary hover:underline">
                       <Phone className="w-5 h-5" />
                       <span className="text-lg">+371 29294621</span>
                   </a>
               </div>
-              <div className="bg-card p-6 rounded-lg shadow-md">
+              <div className="bg-card p-6 rounded-2xl shadow-lg border">
                   <h3 className="font-headline text-xl font-bold mb-2">Pieejamība</h3>
                   <p className="text-lg text-muted-foreground">Māja ir pieejama no pl. 17:00 - 13:00 iepriekš piesakoties</p>
               </div>
-               <div className="bg-card p-6 rounded-lg shadow-md">
+               <div className="bg-card p-6 rounded-2xl shadow-lg border">
                   <h3 className="font-headline text-xl font-bold mb-2">Adrese</h3>
                   <p className="text-lg text-muted-foreground">Mežlīči, Tomes pagasts</p>
               </div>
@@ -115,14 +115,14 @@ export default function SinglePropertyPage() {
 
       <Separator />
 
-      <section id="objekti">
+      <section id="objekti" className="py-12 px-4">
          <h2 className="font-headline text-4xl font-bold text-center mb-8">Atrašanās vieta</h2>
          <MapSection />
       </section>
 
       <Separator />
 
-      <section id="kalendars">
+      <section id="kalendars" className="py-12 px-4">
         <CalendarSection />
       </section>
 

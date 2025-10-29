@@ -3,6 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
+import { ThemeProvider } from '@/components/theme-provider';
 
 export const metadata: Metadata = {
   title: 'Brīvdienu māja "Mežlīči"',
@@ -15,21 +16,28 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;900&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <div className="relative flex min-h-dvh flex-col">
-          <SiteHeader />
-          <main className="flex-1">
-            {children}
-          </main>
-          <SiteFooter />
-        </div>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <div className="relative flex min-h-dvh flex-col">
+            <SiteHeader />
+            <main className="flex-1">
+              {children}
+            </main>
+            <SiteFooter />
+          </div>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );
