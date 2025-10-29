@@ -1,15 +1,23 @@
+
+'use client';
+
+import * as React from 'react';
 import { notFound } from 'next/navigation';
 import { properties } from '@/lib/data';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
-import ImageGallery from './properties/[id]/image-gallery';
 import { Separator } from '@/components/ui/separator';
 import * as LucideIcons from 'lucide-react';
 import MapSection from './properties/[id]/map-component';
 import CalendarSection from './properties/[id]/calendar-section';
 import ContactSection from './properties/[id]/contact-section';
+import HeroSection from './properties/[id]/hero-section';
+import LightBox from './properties/[id]/lightbox';
 
 export default function SinglePropertyPage() {
-  // Since this is a single property site, we hardcode the ID '1'.
+  const [lightboxOpen, setLightboxOpen] = React.useState(false);
+  const [lightboxIndex, setLightboxIndex] = React.useState(0);
+  const [miniGalleryIndex, setMiniGalleryIndex] = React.useState(0);
+
   const property = properties.find(p => p.id === '1');
 
   if (!property) {
@@ -20,20 +28,39 @@ export default function SinglePropertyPage() {
     .map(id => PlaceHolderImages.find(p => p.id === id))
     .filter((p): p is ImagePlaceholder => !!p);
     
+  const imageUrls = propertyImages.map(p => p.imageUrl);
+
+  const openSlider = (index?: number) => {
+    setLightboxIndex(index ?? 0);
+    setLightboxOpen(true);
+  };
+  
+  const nextMiniGallery = () => {
+    setMiniGalleryIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+  };
+
+  const prevMiniGallery = () => {
+    setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
+  };
+
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 space-y-12">
-        <section className="text-center pt-24 md:pt-32">
-            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">
-                Brīvdienu māja<br/> <span className="text-primary">"Mežlīči"</span>
-            </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
-                Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties
-            </p>
-        </section>
+        
+      <HeroSection 
+        images={imageUrls}
+        openSlider={openSlider}
+        miniGalleryIndex={miniGalleryIndex}
+        nextMiniGallery={nextMiniGallery}
+        prevMiniGallery={prevMiniGallery}
+      />
 
-      <section id="foto" className="px-4">
-        <ImageGallery images={propertyImages} />
-      </section>
+      {lightboxOpen && (
+        <LightBox
+          images={imageUrls}
+          startIndex={lightboxIndex}
+          onClose={() => setLightboxOpen(false)}
+        />
+      )}
       
       <Separator />
 
