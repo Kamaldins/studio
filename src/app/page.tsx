@@ -6,7 +6,7 @@ import { Separator } from '@/components/ui/separator';
 import * as LucideIcons from 'lucide-react';
 import MapSection from './properties/[id]/map-component';
 import CalendarSection from './properties/[id]/calendar-section';
-import { Phone } from 'lucide-react';
+import ContactSection from './properties/[id]/contact-section';
 
 export default function SinglePropertyPage() {
   // Since this is a single property site, we hardcode the ID '1'.
@@ -91,27 +91,7 @@ export default function SinglePropertyPage() {
       
       <Separator />
 
-       <section id="sazinities" className="py-12 px-4 text-center">
-          <h2 className="font-headline text-4xl font-bold text-center mb-6">Sazinies ar mums</h2>
-           <p className="max-w-xl mx-auto text-lg text-muted-foreground mb-10">Mēs palīdzēsim rezervēt perfektu brīvdienu vietu</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="bg-card p-6 rounded-2xl shadow-lg border">
-                  <h3 className="font-headline text-xl font-bold mb-2">Telefons</h3>
-                  <a href="tel:+37129294621" className="flex items-center justify-center gap-2 text-primary hover:underline">
-                      <Phone className="w-5 h-5" />
-                      <span className="text-lg">+371 29294621</span>
-                  </a>
-              </div>
-              <div className="bg-card p-6 rounded-2xl shadow-lg border">
-                  <h3 className="font-headline text-xl font-bold mb-2">Pieejamība</h3>
-                  <p className="text-lg text-muted-foreground">Māja ir pieejama no pl. 17:00 - 13:00 iepriekš piesakoties</p>
-              </div>
-               <div className="bg-card p-6 rounded-2xl shadow-lg border">
-                  <h3 className="font-headline text-xl font-bold mb-2">Adrese</h3>
-                  <p className="text-lg text-muted-foreground">Mežlīči, Tomes pagasts</p>
-              </div>
-          </div>
-       </section>
+       <ContactSection />
 
       <Separator />
 
