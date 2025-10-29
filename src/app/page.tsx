@@ -11,11 +11,11 @@ import MapSection from './properties/[id]/map-component';
 import CalendarSection from './properties/[id]/calendar-section';
 import ContactSection from './properties/[id]/contact-section';
 import HeroSection from './properties/[id]/hero-section';
-import LightBox from './properties/[id]/lightbox';
+import ImageSliderModal from './properties/[id]/lightbox';
 
 export default function SinglePropertyPage() {
-  const [lightboxOpen, setLightboxOpen] = React.useState(false);
-  const [lightboxIndex, setLightboxIndex] = React.useState(0);
+  const [sliderOpen, setSliderOpen] = React.useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [miniGalleryIndex, setMiniGalleryIndex] = React.useState(0);
 
   const property = properties.find(p => p.id === '1');
@@ -31,8 +31,20 @@ export default function SinglePropertyPage() {
   const imageUrls = propertyImages.map(p => p.imageUrl);
 
   const openSlider = (index?: number) => {
-    setLightboxIndex(index ?? 0);
-    setLightboxOpen(true);
+    setCurrentImageIndex(index ?? 0);
+    setSliderOpen(true);
+  };
+
+  const closeSlider = () => {
+    setSliderOpen(false);
+  }
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
   };
   
   const nextMiniGallery = () => {
@@ -54,13 +66,15 @@ export default function SinglePropertyPage() {
         prevMiniGallery={prevMiniGallery}
       />
 
-      {lightboxOpen && (
-        <LightBox
-          images={imageUrls}
-          startIndex={lightboxIndex}
-          onClose={() => setLightboxOpen(false)}
-        />
-      )}
+      <ImageSliderModal
+        sliderOpen={sliderOpen}
+        images={imageUrls}
+        currentImageIndex={currentImageIndex}
+        closeSlider={closeSlider}
+        prevImage={prevImage}
+        nextImage={nextImage}
+        setCurrentImageIndex={setCurrentImageIndex}
+      />
       
       <Separator />
 
