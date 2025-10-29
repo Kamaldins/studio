@@ -5,9 +5,9 @@ import ImageGallery from './properties/[id]/image-gallery';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import * as LucideIcons from 'lucide-react';
-import BookingWidget from './properties/[id]/booking-widget';
 import MapComponent from './properties/[id]/map-component';
 import AttractionFinder from './properties/[id]/attraction-finder';
+import CalendarSection from './properties/[id]/calendar-section';
 
 export default function SinglePropertyPage() {
   // Since this is a single property site, we hardcode the ID '1'.
@@ -62,6 +62,12 @@ export default function SinglePropertyPage() {
 
              <Separator />
 
+             <section id="cenas">
+                <CalendarSection />
+             </section>
+
+             <Separator />
+
              <section id="objekti">
                 <h2 className="font-headline text-3xl font-bold">Atrašanās vieta</h2>
                 <div className="mt-6 rounded-lg overflow-hidden h-96 border">
@@ -78,9 +84,26 @@ export default function SinglePropertyPage() {
 
         <div className="lg:col-span-1">
           <div className="sticky top-24">
-             <div id="cenas">
-                <BookingWidget property={property} />
-            </div>
+            <Card className="shadow-lg">
+                <CardHeader>
+                    <CardTitle>Cenas</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-2">
+                    <div className="flex justify-between">
+                        <span>Brīvdienu māja (25 personām)</span>
+                        <span className="font-bold">no 150 EUR</span>
+                    </div>
+                     <div className="flex justify-between">
+                        <span>Kubls</span>
+                        <span className="font-bold">70 EUR</span>
+                    </div>
+                     <div className="flex justify-between">
+                        <span>Laivu noma</span>
+                        <span className="font-bold">15 EUR/dienā</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground pt-4">Lai precizētu cenas un pieejamību, lūdzam sazināties ar mums.</p>
+                </CardContent>
+            </Card>
           </div>
         </div>
       </section>
