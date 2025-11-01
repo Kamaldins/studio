@@ -104,5 +104,10 @@ calendar: {
         text: 'We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no security measure is perfect, and we cannot guarantee the security of your information.'
       }
     ]
+  },
+  notFoundPage: {
+    title: 'Page Not Found',
+    message: 'Sorry, we couldn’t find the page you’re looking for.',
+    buttonText: 'Go to Homepage'
   }
 };

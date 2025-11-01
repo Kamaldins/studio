@@ -104,5 +104,10 @@ export const dictionary = {
         text: 'Wir ergreifen angemessene Maßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, unbefugter Verwendung oder Offenlegung zu schützen. Keine Sicherheitsmaßnahme ist jedoch perfekt, und wir können die Sicherheit Ihrer Daten nicht garantieren.'
       }
     ]
+  },
+  notFoundPage: {
+    title: 'Seite nicht gefunden',
+    message: 'Entschuldigung, wir konnten die gesuchte Seite nicht finden.',
+    buttonText: 'Zur Startseite'
   }
 };

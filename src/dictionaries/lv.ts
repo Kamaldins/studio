@@ -104,5 +104,10 @@ export const dictionary = {
         text: 'Mēs veicam saprātīgus pasākumus, lai aizsargātu jūsu personisko informāciju no nesankcionētas piekļuves, izmantošanas vai izpaušanas. Tomēr neviena drošības metode nav perfekta, un mēs nevaram garantēt jūsu informācijas drošību.'
       }
     ]
+  },
+  notFoundPage: {
+    title: 'Lapa nav atrasta',
+    message: 'Atvainojiet, mēs nevarējām atrast jūsu meklēto lapu.',
+    buttonText: 'Uz sākumlapu'
   }
 };
