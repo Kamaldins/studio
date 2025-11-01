@@ -50,7 +50,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                 src={images[0]}
                 alt="Mežlīči brīvdienu māja"
                 fill
-                className="object-cover transition-all duration-700 group-hover:scale-105"
+                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
                 priority
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1024px"
                 />
@@ -82,11 +82,11 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                     src={item.image} 
                     alt={`Galerijas foto ${item.originalIndex + 1}`}
                     fill
-                    className="object-cover rounded-xl sm:rounded-2xl shadow-lg group-hover:scale-110 transition-transform duration-300 border-2 border-slate-700 group-hover:border-primary"
+                    className="object-cover rounded-xl sm:rounded-2xl shadow-lg transition-all duration-300 border-2 border-slate-700 group-hover:border-primary group-hover:shadow-primary/30 group-hover:shadow-2xl"
                     sizes="15vw"
                   />
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 rounded-xl sm:rounded-2xl transition-colors duration-300 flex items-center justify-center">
-                    <div className="text-white font-bold text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center">
+                    <div className="text-white font-bold text-xs opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
                       #{item.originalIndex + 1}
                     </div>
                   </div>
