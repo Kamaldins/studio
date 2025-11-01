@@ -53,6 +53,12 @@
       "description": "A sleek, white modern villa with large glass windows and a view of the sea.",
       "imageUrl": "https://images.unsplash.com/photo-1564078516393-cf04bd966897?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxob3QlMjB0dWJ8ZW58MHx8fHwxNzYxODQyMjYxfDA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hot tub"
+    },
+    {
+      "id": "hot-tub-1",
+      "description": "A mobile wooden hot tub with a red cover, sitting on a trailer.",
+      "imageUrl": "https://images.unsplash.com/photo-1668461363398-1fd41bf2ca79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aG90JTIwdHVifGVufDB8fHx8MTc2MTk2MzA4NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "hot tub"
     }
   ]
 }
