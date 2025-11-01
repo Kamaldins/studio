@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -11,7 +12,6 @@ import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { MEZLICI_COORDINATES } from '@/lib/data';
 import { attractions, type Attraction } from '@/lib/attractions';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-
 
 interface PageClientProps {
   dictionary: Awaited<ReturnType<typeof getDictionary>>;
@@ -38,10 +38,7 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
     { id: 'location', name: dictionary.gallery.categories.location },
   ];
 
-  const saunaImages = [
-    { id: 'sauna-1', imageUrl: 'https://i.ibb.co/4wzDncbR/Whats-App-Image-2025-10-25-at-16-40-19-5.jpg', description: 'Sauna exterior view' },
-    { id: 'sauna-2', imageUrl: 'https://i.ibb.co/hxtqWnNq/Whats-App-Image-2025-10-25-at-16-40-19-4.jpg', description: 'Sauna interior view' }
-  ];
+  const saunaImages = propertyImages.filter(p => p.category === 'sauna');
   const imageUrls = propertyImages.map(p => p.imageUrl);
 
 
@@ -225,7 +222,6 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
           </div>
         </TabsContent>
       </Tabs>
-
 
       <ImageSliderModal
         isOpen={sliderOpen}
