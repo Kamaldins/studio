@@ -10,6 +10,7 @@ import InfoSection from './info-section';
 import ContactSection from './contact-section';
 import AboutSection from './about-section';
 import CalendarSection from './calendar-section';
+import MapSection from './map-section';
 
 type Props = {
   params: { lang: Locale };
@@ -40,6 +41,9 @@ export default async function SinglePropertyPage({ params }: Props) {
       </div>
       <div id="calendar">
         <CalendarSection dictionary={dictionary.calendar} />
+      </div>
+      <div id="map">
+        <MapSection dictionary={dictionary.map} />
       </div>
       <InfoSection dictionary={dictionary.info} />
       <div id="contact">

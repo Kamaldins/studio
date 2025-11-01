@@ -1,5 +1,10 @@
 import type { Property } from '@/types';
 
+export const MEZLICI_LAT = 56.63;
+export const MEZLICI_LNG = 25.35;
+export const MEZLICI_COORDINATES = `${MEZLICI_LAT},${MEZLICI_LNG}`;
+export const MEZLICI_ADDRESS = 'Mežlīči, Tomes pagasts, Ogres novads';
+
 export const properties: Property[] = [
   {
     id: '1',
@@ -20,7 +25,7 @@ export const properties: Property[] = [
       { icon: 'GanttChartSquare', text: 'Aizveramas terases svinību zona' },
       { icon: 'Droplets', text: 'Kubls ar hidromasāžu' },
     ],
-    location: { lat: 56.63, lng: 25.35 },
+    location: { lat: MEZLICI_LAT, lng: MEZLICI_LNG },
     locationDescription: 'Mežlīči, Tomes pagasts, Ogres novads',
     images: [
       'mezlici-9',

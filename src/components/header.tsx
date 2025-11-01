@@ -43,16 +43,21 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
     { href: '/', icon: Home, label: dictionary.navigation.home, anchor: false },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery, anchor: false },
     { href: '#about', icon: User, label: dictionary.navigation.about, anchor: true },
-    { href: '#map', icon: Map, label: dictionary.navigation.location, anchor: true },
     { href: '#calendar', icon: Calendar, label: dictionary.navigation.calendar, anchor: true },
+    { href: '#map', icon: Map, label: dictionary.navigation.location, anchor: true },
     { href: '#contact', icon: Phone, label: dictionary.navigation.contact, anchor: true },
   ];
 
   const NavLink = ({ href, icon: Icon, label, isMobile = false, anchor = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, anchor?: boolean }) => {
-    const fullHref = anchor ? `/${lang}${href}` : `/${lang}${href === '/' ? '' : href}`;
+    const fullHref = anchor ? (isHomePage ? href : `/${lang}/${href}`) : `/${lang}${href === '/' ? '' : href}`;
     
     if (anchor && !isHomePage) {
-        return null;
+        return (
+             <Link href={`/${lang}/${href}`} className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2">
+                <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
+                {label}
+            </Link>
+        )
     }
 
     const linkContent = (

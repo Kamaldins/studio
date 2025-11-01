@@ -61,7 +61,7 @@ export const dictionary = {
     addressText: 'Mežlīči, Gemeinde Tome',
   },
   map: {
-    title: 'Entdecken Sie die Umgebung',
+    title: 'Standort',
     subtitle: 'Sehen Sie sich den Standort der Unterkunft an und erhalten Sie Empfehlungen für nahegelegene Sehenswürdigkeiten.',
     attractionsTitle: 'Nahegelegene Sehenswürdigkeiten',
     getAttractions: 'Empfehlungen erhalten',

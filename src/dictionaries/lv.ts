@@ -61,7 +61,7 @@ export const dictionary = {
     addressText: 'Mežlīči, Tomes pagasts',
   },
   map: {
-    title: 'Atklājiet apkārtni',
+    title: 'Atrašanās vieta',
     subtitle: 'Apskatiet naktsmītnes atrašanās vietu un saņemiet ieteikumus par tuvējiem apskates objektiem.',
     attractionsTitle: 'Tuvākie apskates objekti',
     getAttractions: 'Saņemt ieteikumus',
