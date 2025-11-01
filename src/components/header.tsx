@@ -1,4 +1,3 @@
-
 'use client';
 
 import * as React from 'react';
@@ -84,13 +83,21 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
 
   const renderNavLinks = (isMobile = false) => (
     <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-1 lg:gap-2 md:flex"}>
-       <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
+      {navLinksConfig.map(link => (
+        <NavLink key={link.href} {...link} isMobile={isMobile} />
+      ))}
+    </nav>
+  );
+  
+  const renderMobileNav = () => (
+    <nav className={"flex flex-col gap-2 p-4"}>
+       <Link href={`/${lang}`} className="mb-4 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
           </Link>
       {navLinksConfig.map(link => (
-        <NavLink key={link.href} {...link} isMobile={isMobile} />
+        <NavLink key={link.href} {...link} isMobile={true} />
       ))}
     </nav>
   );
@@ -108,7 +115,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
-                {renderNavLinks(true)}
+                {renderMobileNav()}
               </SheetContent>
             </Sheet>
              <Link href={`/${lang}`} className="ml-4 flex items-center space-x-2">
@@ -118,9 +125,14 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
             </Link>
           </>
         ) : (
-          renderNavLinks()
+           <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
+            <span className="font-bold sm:inline-block">
+              {dictionary.siteName}
+            </span>
+          </Link>
         )}
         <div className="flex flex-1 items-center justify-end space-x-2">
+           {renderNavLinks()}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
