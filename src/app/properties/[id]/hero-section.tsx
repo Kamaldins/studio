@@ -78,13 +78,14 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
         
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
-            <button
-              onClick={prevMiniGallery}
-              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={!canScroll}
-            >
-              <ChevronLeft size={isMobile ? 16 : 20} />
-            </button>
+            {canScroll && (
+              <button
+                onClick={prevMiniGallery}
+                className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ChevronLeft size={isMobile ? 16 : 20} />
+              </button>
+            )}
             
             <div className="flex gap-1.5 sm:gap-2 lg:gap-3 justify-center overflow-hidden flex-1">
               {visibleImages.map((item, index) => (
@@ -108,13 +109,14 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
               ))}
             </div>
             
-            <button
-              onClick={nextMiniGallery}
-              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={!canScroll}
-            >
-              <ChevronRight size={isMobile ? 16 : 20} />
-            </button>
+            {canScroll && (
+              <button
+                onClick={nextMiniGallery}
+                className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                <ChevronRight size={isMobile ? 16 : 20} />
+              </button>
+            )}
           </div>
         </div>
       </div>
