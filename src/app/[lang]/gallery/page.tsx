@@ -5,9 +5,9 @@ import { type Locale } from '@/i18n-config';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import GalleryClient from './page-client';
 
+// Correctly type the props for a Next.js Page Component
 type GalleryPageProps = {
   params: { lang: Locale };
-  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
