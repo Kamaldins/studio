@@ -1,8 +1,9 @@
+
 'use client';
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Moon, Sun, Globe, Menu, Home } from 'lucide-react';
+import { Camera, Moon, Sun, Globe, Menu, Home, User, Map, Calendar, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -35,14 +36,24 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
     segments[1] = locale;
     return segments.join('/');
   };
+  
+  const isHomePage = pathname === `/${lang}` || pathname === '/';
 
   const navLinksConfig = [
-    { href: '/', icon: Home, label: dictionary.navigation.home },
-    { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
+    { href: '/', icon: Home, label: dictionary.navigation.home, anchor: false },
+    { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery, anchor: false },
+    { href: '#about', icon: User, label: dictionary.navigation.about, anchor: true },
+    { href: '#map', icon: Map, label: dictionary.navigation.location, anchor: true },
+    { href: '#calendar', icon: Calendar, label: dictionary.navigation.calendar, anchor: true },
+    { href: '#contact', icon: Phone, label: dictionary.navigation.contact, anchor: true },
   ];
 
-  const NavLink = ({ href, icon: Icon, label, isMobile = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean }) => {
-    const fullHref = `/${lang}${href}`;
+  const NavLink = ({ href, icon: Icon, label, isMobile = false, anchor = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, anchor?: boolean }) => {
+    const fullHref = anchor ? `/${lang}${href}` : `/${lang}${href === '/' ? '' : href}`;
+    
+    if (anchor && !isHomePage) {
+        return null;
+    }
 
     const linkContent = (
       <div
@@ -71,14 +82,14 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   }
 
   const renderNavLinks = (isMobile = false) => (
-    <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-4 lg:gap-6 md:flex"}>
+    <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-1 lg:gap-2 md:flex"}>
        <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
           </Link>
       {navLinksConfig.map(link => (
-        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile={isMobile} />
+        <NavLink key={link.href} {...link} isMobile={isMobile} />
       ))}
     </nav>
   );

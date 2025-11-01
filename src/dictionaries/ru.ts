@@ -10,6 +10,8 @@ export const dictionary = {
     about: 'О нас',
     gallery: 'Галерея',
     contact: 'Контакты',
+    location: 'Местоположение',
+    calendar: 'Календарь',
   },
   hero: {
     title1: 'Дом отдыха',

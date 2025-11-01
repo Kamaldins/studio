@@ -9,6 +9,8 @@ import PageClient from './page-client';
 import InfoSection from './info-section';
 import ContactSection from './contact-section';
 import AboutSection from './about-section';
+import MapSection from './map-component';
+import CalendarSection from './calendar-section';
 
 type Props = {
   params: { lang: Locale };
@@ -34,9 +36,19 @@ export default async function SinglePropertyPage({ params }: Props) {
         imageUrls={imageUrls}
         propertyImages={propertyImages} 
       />
-      <AboutSection dictionary={dictionary.about} />
+      <div id="about">
+        <AboutSection dictionary={dictionary.about} />
+      </div>
+      <div id="map">
+        <MapSection dictionary={dictionary} />
+      </div>
+      <div id="calendar">
+        <CalendarSection dictionary={dictionary.calendar} />
+      </div>
       <InfoSection dictionary={dictionary.info} />
-      <ContactSection dictionary={dictionary.contact} />
+      <div id="contact">
+        <ContactSection dictionary={dictionary.contact} />
+      </div>
     </>
   );
 }

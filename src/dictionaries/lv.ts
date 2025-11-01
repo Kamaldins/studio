@@ -10,6 +10,8 @@ export const dictionary = {
     about: 'Par mums',
     gallery: 'Galerija',
     contact: 'Saziņa',
+    location: 'Atrašanās vieta',
+    calendar: 'Kalendārs',
   },
   hero: {
     title1: 'Brīvdienu māja',
