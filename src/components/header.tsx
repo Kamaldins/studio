@@ -16,6 +16,7 @@ import { type getDictionary } from '@/lib/get-dictionary';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 import Link from 'next/link';
+import { Logo } from './logo';
 
 interface SiteHeaderProps {
   lang: Locale;
@@ -92,7 +93,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const renderMobileNav = () => (
     <nav className={"flex flex-col gap-2 p-4"}>
        <Link href={`/${lang}`} className="mb-4 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-foreground"><path d="M16.025 23.35q-.5.3-1.037.475T13.875 24q-1.6 0-2.725-1.137T10.025 20.1q0-.575.163-1.1t.487-1q-.325-.475-.488-1.025t-.162-1.125q0-1.6 1.125-2.725T13.875 12q.575 0 1.125.163t1.025.487q.475-.325 1.025-.487T18.175 12q1.6 0 2.725 1.113t1.125 2.687q0 .575-.162 1.125t-.488 1.025q.325.5.488 1.063t.162 1.137q0 1.6-1.137 2.725T18.125 24q-.575 0-1.1-.175t-1-.475Zm3.35-4.575l-.9-.8l1-.85q.275-.225.413-.563t.137-.712q0-.775-.537-1.312T18.175 14q-.4 0-.738.138t-.562.412l-.875 1l-.85-1q-.225-.275-.563-.413T13.85 14q-.75 0-1.287.55t-.538 1.35q0 .375.163.713t.462.612l.9.75l-1 .85q-.25.225-.388.55t-.137.725q0 .8.538 1.35t1.287.55q.375 0 .738-.175t.662-.525l.75-.85l.875 1q.225.275.563.413t.737.137q.775 0 1.313-.55t.537-1.35q0-.35-.162-.7t-.488-.625Zm-3.35.625q.575 0 .988-.412t.412-.988q0-.575-.413-.988t-.987-.412q-.575 0-.987.413t-.413.987q0 .575.413.988t.987.412ZM4 20V9.95H1L12 1l11 8.95h-3V11h-2V8.45l-6-4.9l-6 4.9V18h3v2H4Zm12.025-2Z"/></svg>
+            <Logo className="fill-foreground" />
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
@@ -120,7 +121,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
               </SheetContent>
             </Sheet>
              <Link href={`/${lang}`} className="ml-4 flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-foreground"><path d="M16.025 23.35q-.5.3-1.037.475T13.875 24q-1.6 0-2.725-1.137T10.025 20.1q0-.575.163-1.1t.487-1q-.325-.475-.488-1.025t-.162-1.125q0-1.6 1.125-2.725T13.875 12q.575 0 1.125.163t1.025.487q.475-.325 1.025-.487T18.175 12q1.6 0 2.725 1.113t1.125 2.687q0 .575-.162 1.125t-.488 1.025q.325.5.488 1.063t.162 1.137q0 1.6-1.137 2.725T18.125 24q-.575 0-1.1-.175t-1-.475Zm3.35-4.575l-.9-.8l1-.85q.275-.225.413-.563t.137-.712q0-.775-.537-1.312T18.175 14q-.4 0-.738.138t-.562.412l-.875 1l-.85-1q-.225-.275-.563-.413T13.85 14q-.75 0-1.287.55t-.538 1.35q0 .375.163.713t.462.612l.9.75l-1 .85q-.25.225-.388.55t-.137.725q0 .8.538 1.35t1.287.55q.375 0 .738-.175t.662-.525l.75-.85l.875 1q.225.275.563.413t.737.137q.775 0 1.313-.55t.537-1.35q0-.35-.162-.7t-.488-.625Zm-3.35.625q.575 0 .988-.412t.412-.988q0-.575-.413-.988t-.987-.412q-.575 0-.987.413t-.413.987q0 .575.413.988t.987.412ZM4 20V9.95H1L12 1l11 8.95h-3V11h-2V8.45l-6-4.9l-6 4.9V18h3v2H4Zm12.025-2Z"/></svg>
+                <Logo className="fill-foreground" />
                 <span className="font-bold">
                 {dictionary.siteName}
                 </span>
@@ -128,7 +129,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
           </>
         ) : (
            <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-foreground"><path d="M16.025 23.35q-.5.3-1.037.475T13.875 24q-1.6 0-2.725-1.137T10.025 20.1q0-.575.163-1.1t.487-1q-.325-.475-.488-1.025t-.162-1.125q0-1.6 1.125-2.725T13.875 12q.575 0 1.125.163t1.025.487q.475-.325 1.025-.487T18.175 12q1.6 0 2.725 1.113t1.125 2.687q0 .575-.162 1.125t-.488 1.025q.325.5.488 1.063t.162 1.137q0 1.6-1.137 2.725T18.125 24q-.575 0-1.1-.175t-1-.475Zm3.35-4.575l-.9-.8l1-.85q.275-.225.413-.563t.137-.712q0-.775-.537-1.312T18.175 14q-.4 0-.738.138t-.562.412l-.875 1l-.85-1q-.225-.275-.563-.413T13.85 14q-.75 0-1.287.55t-.538 1.35q0 .375.163.713t.462.612l.9.75l-1 .85q-.25.225-.388.55t-.137.725q0 .8.538 1.35t1.287.55q.375 0 .738-.175t.662-.525l.75-.85l.875 1q.225.275.563.413t.737.137q.775 0 1.313-.55t.537-1.35q0-.35-.162-.7t-.488-.625Zm-3.35.625q.575 0 .988-.412t.412-.988q0-.575-.413-.988t-.987-.412q-.575 0-.987.413t-.413.987q0 .575.413.988t.987.412ZM4 20V9.95H1L12 1l11 8.95h-3V11h-2V8.45l-6-4.9l-6 4.9V18h3v2H4Zm12.025-2Z"/></svg>
+            <Logo className="fill-foreground" />
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
