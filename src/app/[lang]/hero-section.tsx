@@ -51,10 +51,10 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
     <section id="foto" className="pt-24 md:pt-32 pb-4 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 lg:mb-12">
-           <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight text-slate-100">
+           <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">
                 {dictionary.title1}<br/> <span className="text-primary">{dictionary.title2}</span>
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400">
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-muted-foreground">
                 {dictionary.subtitle}
             </p>
         </div>
@@ -87,7 +87,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={prevMiniGallery}
-                className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-card hover:bg-accent text-card-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={isMobile ? 16 : 20} />
               </button>
@@ -104,7 +104,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                     src={item.image} 
                     alt={`Galerijas foto ${item.originalIndex + 1}`}
                     fill
-                    className="object-cover rounded-xl sm:rounded-2xl shadow-lg transition-all duration-300 border-2 border-slate-700 group-hover:border-primary group-hover:shadow-primary/30 group-hover:shadow-2xl"
+                    className="object-cover rounded-xl sm:rounded-2xl shadow-lg transition-all duration-300 border-2 border-transparent group-hover:border-primary group-hover:shadow-primary/30 group-hover:shadow-2xl"
                     sizes="15vw"
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center">
@@ -118,7 +118,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={nextMiniGallery}
-                className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-card hover:bg-accent text-card-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight size={isMobile ? 16 : 20} />
               </button>
