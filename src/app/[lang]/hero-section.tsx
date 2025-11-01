@@ -63,7 +63,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 lg:mb-12">
            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">
-                {dictionary.title1}<br/> <span className="text-primary">{dictionary.title2}</span>
+                <span className="text-foreground">{dictionary.title1}</span><br/> <span className="text-primary">{dictionary.title2}</span>
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-white/80">
                 {dictionary.subtitle}
