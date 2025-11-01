@@ -1,4 +1,3 @@
-import type { Property } from '@/types';
 
 export const MEZLICI_LAT = 56.63;
 export const MEZLICI_LNG = 25.35;
