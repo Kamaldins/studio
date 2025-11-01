@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { notFound } from 'next/navigation';
-import { properties, MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
+import { MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
@@ -13,12 +13,6 @@ export default async function SinglePropertyPage({
   params: { lang: Locale };
 }) {
   const dictionary = await getDictionary(params.lang);
-  
-  const property = properties.find(p => p.id === '1');
-
-  if (!property) {
-    notFound();
-  }
     
   const imageUrls = PlaceHolderImages.map(p => p.imageUrl);
 

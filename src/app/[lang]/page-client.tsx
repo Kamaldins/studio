@@ -4,7 +4,6 @@ import * as React from 'react';
 import HeroSection from './hero-section';
 import ImageSliderModal from './lightbox';
 import type { getDictionary } from '@/lib/get-dictionary';
-import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import AboutSection from './about-section';
 import CalendarSection from './calendar-section';
 import MapSection from './map-section';
