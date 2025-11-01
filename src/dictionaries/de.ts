@@ -83,5 +83,26 @@ export const dictionary = {
     ru: 'Русский',
     en: 'English',
     de: 'Deutsch',
+  },
+  privacyPage: {
+    title: 'Datenschutzrichtlinie',
+    content: [
+      {
+        heading: '1. Einführung',
+        text: 'Willkommen bei Mežlīči. Wir verpflichten uns, Ihre Privatsphäre zu schützen. Diese Datenschutzrichtlinie erklärt, wie wir Ihre persönlichen Daten erfassen, verwenden, offenlegen und schützen.'
+      },
+      {
+        heading: '2. Datenerfassung',
+        text: 'Wir erfassen möglicherweise personenbezogene Daten von Ihnen, wie z. B. Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer, wenn Sie eine Buchung vornehmen oder uns kontaktieren. Wir erfassen auch automatisch einige Informationen, wenn Sie unsere Website besuchen, wie z. B. Ihre IP-Adresse und Ihren Browsertyp.'
+      },
+      {
+        heading: '3. Datennutzung',
+        text: 'Wir verwenden Ihre Daten, um Ihre Buchungen zu verwalten, mit Ihnen zu kommunizieren, unsere Dienstleistungen zu verbessern und gesetzlichen Verpflichtungen nachzukommen. Wir verwenden Ihre Daten nicht für Marketingzwecke ohne Ihre Zustimmung.'
+      },
+      {
+        heading: '4. Datensicherheit',
+        text: 'Wir ergreifen angemessene Maßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, unbefugter Verwendung oder Offenlegung zu schützen. Keine Sicherheitsmaßnahme ist jedoch perfekt, und wir können die Sicherheit Ihrer Daten nicht garantieren.'
+      }
+    ]
   }
 };

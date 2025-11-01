@@ -83,5 +83,26 @@ calendar: {
     ru: 'Русский',
     en: 'English',
     de: 'Deutsch',
+  },
+  privacyPage: {
+    title: 'Privacy Policy',
+    content: [
+      {
+        heading: '1. Introduction',
+        text: 'Welcome to Mežlīči. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.'
+      },
+      {
+        heading: '2. Information Collection',
+        text: 'We may collect personal information from you, such as your name, email address, and phone number when you make a booking or contact us. We also automatically collect some information when you visit our website, such as your IP address and browser type.'
+      },
+      {
+        heading: '3. Information Use',
+        text: 'We use your information to manage your bookings, communicate with you, improve our services, and comply with legal obligations. We will not use your information for marketing purposes without your consent.'
+      },
+      {
+        heading: '4. Data Security',
+        text: 'We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no security measure is perfect, and we cannot guarantee the security of your information.'
+      }
+    ]
   }
 };

@@ -83,5 +83,26 @@ export const dictionary = {
     ru: 'Русский',
     en: 'English',
     de: 'Deutsch',
+  },
+  privacyPage: {
+    title: 'Privātuma politika',
+    content: [
+      {
+        heading: '1. Ievads',
+        text: 'Laipni lūdzam Mežlīčos. Mēs esam apņēmušies aizsargāt jūsu privātumu. Šī Privātuma politika izskaidro, kā mēs apkopojam, izmantojam, izpaužam un aizsargājam jūsu informāciju.'
+      },
+      {
+        heading: '2. Informācijas apkopošana',
+        text: 'Mēs varam apkopot personisku informāciju no jums, piemēram, jūsu vārdu, e-pasta adresi un tālruņa numuru, kad veicat rezervāciju vai sazināties ar mums. Mēs arī automātiski apkopojam noteiktu informāciju, kad apmeklējat mūsu vietni, piemēram, jūsu IP adresi un pārlūkprogrammas veidu.'
+      },
+      {
+        heading: '3. Informācijas izmantošana',
+        text: 'Mēs izmantojam jūsu informāciju, lai pārvaldītu jūsu rezervācijas, sazinātos ar jums, uzlabotu mūsu pakalpojumus un izpildītu juridiskās saistības. Mēs neizmantosim jūsu informāciju mārketinga nolūkos bez jūsu piekrišanas.'
+      },
+      {
+        heading: '4. Datu drošība',
+        text: 'Mēs veicam saprātīgus pasākumus, lai aizsargātu jūsu personisko informāciju no nesankcionētas piekļuves, izmantošanas vai izpaušanas. Tomēr neviena drošības metode nav perfekta, un mēs nevaram garantēt jūsu informācijas drošību.'
+      }
+    ]
   }
 };

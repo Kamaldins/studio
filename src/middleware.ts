@@ -25,17 +25,18 @@ function getLocale(request: NextRequest): string | undefined {
 
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
+  
+  const publicFiles = [
+    '/manifest.json',
+    '/favicon.ico',
+    '/next.svg',
+    '/vercel.svg',
+  ];
 
-  if (
-    [
-      '/manifest.json',
-      '/favicon.ico',
-      '/next.svg',
-      '/vercel.svg'
-      // Your other files in `public`
-    ].includes(pathname)
-  )
+  // Check if the request is for a public file that should be ignored
+  if (publicFiles.some(file => pathname.startsWith(file))) {
     return;
+  }
 
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -54,5 +55,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
+  matcher: ['/((?!api|_next/static|_next/image|images|favicon.ico).*)'],
 };
