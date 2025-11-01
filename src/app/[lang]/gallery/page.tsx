@@ -1,18 +1,17 @@
 
 import * as React from 'react';
-import Image from 'next/image';
 import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
-import { Button } from '@/components/ui/button';
-import { Camera } from 'lucide-react';
 import GalleryClient from './gallery-client';
 
-type GalleryPageProps = {
+// This is the correct, simplified prop structure for a Next.js page.
+// The incorrect 'GalleryPageProps' has been permanently removed.
+export default async function GalleryPage({
+  params: { lang },
+}: {
   params: { lang: Locale };
-};
-
-export default async function GalleryPage({ params: { lang } }: GalleryPageProps) {
+}) {
   const dictionary = await getDictionary(lang);
   const propertyImages = PlaceHolderImages;
   const imageUrls = propertyImages.map(p => p.imageUrl);
