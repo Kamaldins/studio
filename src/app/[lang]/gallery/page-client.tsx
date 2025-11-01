@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -11,6 +12,7 @@ import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { MEZLICI_COORDINATES } from '@/lib/data';
 import { attractions, type Attraction } from '@/lib/attractions';
+import MapSection from '../map-component';
 
 
 interface PageClientProps {
@@ -160,54 +162,65 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
           </div>
         </TabsContent>
         <TabsContent value="location">
-          <div className="space-y-6 sm:space-y-8">
-            <div className="text-center">
-              <h2 className="font-headline text-4xl font-bold text-primary mb-3 sm:mb-4">
-                {dictionary.map.attractionsTitle}
-              </h2>
-              <p className="text-muted-foreground mb-6 sm:mb-8 text-lg px-4">
-                {dictionary.map.subtitle}
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {attractions.map((attraction: Attraction) => (
-                <div
-                  key={attraction.id}
-                  className="group overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 bg-card border"
-                >
-                  <div className="relative overflow-hidden">
-                    <Image 
-                      src={attraction.image} 
-                      alt={dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name}
-                      width={400}
-                      height={225}
-                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-card/90 rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-xl sm:text-2xl shadow-lg transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
-                      {attraction.icon}
-                    </div>
-                  </div>
-                  <div className="p-4 sm:p-6">
-                     <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name}</h3>
-                    <div className="flex items-center justify-between mb-3">
-                      <p className="text-primary font-semibold flex items-center gap-2 text-sm">
-                        <MapPin size={16} />
-                        {attraction.distance}
-                      </p>
-                      <Button
-                        onClick={() => handleLocationClick(dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name, attraction.coordinates)}
-                        size="sm"
-                      >
-                        {dictionary.map.directions}
-                      </Button>
-                    </div>
-                    <p className="text-muted-foreground text-sm leading-relaxed">
-                      {dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.description}
-                    </p>
-                  </div>
+          <div className="space-y-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div className="space-y-6 sm:space-y-8">
+                <div className="text-center md:text-left">
+                  <h2 className="font-headline text-4xl font-bold text-primary mb-3 sm:mb-4">
+                    {dictionary.map.attractionsTitle}
+                  </h2>
+                  <p className="text-muted-foreground mb-6 sm:mb-8 text-lg px-4 md:px-0">
+                    {dictionary.map.subtitle}
+                  </p>
                 </div>
-              ))}
+                
+                <div className="space-y-6">
+                  {attractions.map((attraction: Attraction) => {
+                    const attractionDict = dictionary.attractions[attraction.name as keyof typeof dictionary.attractions];
+                    return (
+                      <div
+                        key={attraction.id}
+                        className="group overflow-hidden rounded-2xl sm:rounded-3xl shadow-lg hover:shadow-xl transition-all duration-300 bg-card border flex flex-col sm:flex-row"
+                      >
+                        <div className="relative w-full sm:w-1/3 h-40 sm:h-auto overflow-hidden">
+                          <Image 
+                            src={attraction.image} 
+                            alt={attractionDict?.name}
+                            fill
+                            className="object-cover group-hover:scale-110 transition-transform duration-700"
+                            sizes="(max-width: 640px) 100vw, 33vw"
+                          />
+                        </div>
+                        <div className="p-4 sm:p-5 flex flex-col justify-between flex-1">
+                          <div>
+                            <h3 className="text-lg sm:text-xl font-bold mb-1 group-hover:text-primary transition-colors duration-300">{attractionDict?.name}</h3>
+                            <p className="text-muted-foreground text-sm leading-relaxed mb-3">
+                              {attractionDict?.description}
+                            </p>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <p className="text-primary font-semibold flex items-center gap-2 text-sm">
+                              <MapPin size={16} />
+                              {attraction.distance}
+                            </p>
+                            <Button
+                              onClick={() => handleLocationClick(attractionDict?.name, attraction.coordinates)}
+                              size="sm"
+                            >
+                              {dictionary.map.directions}
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    )
+                  })}
+                </div>
+              </div>
+              
+              <div className="md:sticky md:top-24">
+                <MapSection dictionary={dictionary} />
+              </div>
+
             </div>
           </div>
         </TabsContent>
