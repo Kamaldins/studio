@@ -4,17 +4,13 @@ import * as React from 'react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Camera, Check, Loader } from 'lucide-react';
+import { Camera, Check, MapPin } from 'lucide-react';
 import ImageSliderModal from '../lightbox';
 import type { getDictionary } from '@/lib/get-dictionary';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
-import {
-  APIProvider,
-  Map,
-  AdvancedMarker,
-} from '@vis.gl/react-google-maps';
-import { properties } from '@/lib/data';
-import { getAttractionRecommendations } from '@/ai/flows/attraction-recommendations';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { MEZLICI_COORDINATES } from '@/lib/data';
+import { attractions, type Attraction } from '@/lib/attractions';
 
 
 interface PageClientProps {
@@ -25,24 +21,14 @@ interface PageClientProps {
 export default function GalleryClient({ dictionary, propertyImages }: PageClientProps) {
   const [sliderOpen, setSliderOpen] = React.useState(false);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
-  const [recommendations, setRecommendations] = React.useState<string[]>([]);
-  const [loading, setLoading] = React.useState(false);
-  const property = properties[0];
-  const position = property.location;
+  const isMobile = useIsMobile();
 
 
-  const handleGetRecommendations = async () => {
-    setLoading(true);
-    try {
-      const result = await getAttractionRecommendations({
-        locationDescription: property.locationDescription,
-        userInterests: 'restaurants, parks, viewpoints, museums',
-      });
-      setRecommendations(result.recommendations);
-    } catch (e) {
-      console.error(e);
-    } finally {
-      setLoading(false);
+  const handleLocationClick = (locationName: string, coordinates: string) => {
+    const confirmationMessage = dictionary.attractions.confirmNavigation.replace('{locationName}', locationName);
+    const confirmed = window.confirm(confirmationMessage);
+    if (confirmed) {
+      window.open(`https://www.google.com/maps/dir/${MEZLICI_COORDINATES}/${coordinates}`, '_blank');
     }
   };
 
@@ -174,52 +160,56 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
           </div>
         </TabsContent>
         <TabsContent value="location">
-          <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY!}>
+          <div className="space-y-6 sm:space-y-8">
             <div className="text-center">
-              <h2 className="font-headline text-4xl font-bold text-primary mb-2">
+              <h2 className="font-headline text-4xl font-bold text-primary mb-3 sm:mb-4">
                 {dictionary.map.attractionsTitle}
               </h2>
-              <p className="text-muted-foreground mb-8">
+              <p className="text-muted-foreground mb-6 sm:mb-8 text-lg px-4">
                 {dictionary.map.subtitle}
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div className="md:col-span-2 w-full h-[500px] rounded-lg overflow-hidden">
-                  <Map
-                    defaultCenter={position}
-                    defaultZoom={11}
-                    mapId={process.env.NEXT_PUBLIC_GOOGLE_MAPS_MAP_ID}
-                  >
-                    <AdvancedMarker position={position} />
-                  </Map>
-                </div>
-                <div className="bg-card p-6 rounded-2xl shadow-lg border">
-                  <h3 className="font-headline text-2xl font-bold text-primary mb-4">
-                    {dictionary.map.attractionsTitle}
-                  </h3>
-                  <Button onClick={handleGetRecommendations} disabled={loading}>
-                    {loading ? (
-                      <>
-                        <Loader className="mr-2 h-4 w-4 animate-spin" />
-                        {dictionary.map.loading}
-                      </>
-                    ) : (
-                      dictionary.map.getAttractions
-                    )}
-                  </Button>
-                  {recommendations.length > 0 && (
-                    <ul className="mt-4 space-y-2 text-left text-muted-foreground">
-                      {recommendations.map((rec, index) => (
-                        <li key={index} className="flex items-start">
-                          <span className="text-primary mr-2">&#8226;</span>
-                          <span>{rec}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              </div>
             </div>
-          </APIProvider>
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+              {attractions.map((attraction: Attraction) => (
+                <div
+                  key={attraction.id}
+                  className="group overflow-hidden rounded-2xl sm:rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:scale-105 bg-card border"
+                >
+                  <div className="relative overflow-hidden">
+                    <Image 
+                      src={attraction.image} 
+                      alt={dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name}
+                      width={400}
+                      height={225}
+                      className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-700"
+                    />
+                    <div className="absolute top-2 sm:top-4 left-2 sm:left-4 bg-card/90 rounded-full w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center text-xl sm:text-2xl shadow-lg transform group-hover:scale-110 group-hover:rotate-12 transition-transform duration-300">
+                      {attraction.icon}
+                    </div>
+                  </div>
+                  <div className="p-4 sm:p-6">
+                     <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">{dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name}</h3>
+                    <div className="flex items-center justify-between mb-3">
+                      <p className="text-primary font-semibold flex items-center gap-2 text-sm">
+                        <MapPin size={16} />
+                        {attraction.distance}
+                      </p>
+                      <Button
+                        onClick={() => handleLocationClick(dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.name, attraction.coordinates)}
+                        size="sm"
+                      >
+                        {dictionary.map.directions}
+                      </Button>
+                    </div>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {dictionary.attractions[attraction.name as keyof typeof dictionary.attractions]?.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </TabsContent>
       </Tabs>
 

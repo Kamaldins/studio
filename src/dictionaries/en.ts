@@ -62,11 +62,12 @@ export const dictionary = {
   },
   map: {
     title: 'Location',
-    subtitle: 'Check out the property location and get recommendations for nearby attractions.',
+    subtitle: 'Interesting places to visit nearby',
     attractionsTitle: 'Nearby Attractions',
     getAttractions: 'Get Recommendations',
     loading: 'Loading...',
     openWaze: 'Open in Waze',
+    directions: 'Route'
   },
   calendar: {
     title: 'Availability Calendar',
@@ -94,6 +95,21 @@ export const dictionary = {
     setupTitle: 'Sauna Features',
     setupText1: 'Our sauna is equipped with everything you need for relaxation - from traditional wooden benches to modern amenities.',
     setupText2: 'The sauna is included in the house rental price and is available 24/7.',
+  },
+  attractions: {
+    kegumaHES: {
+      name: "Ķegums HPP",
+      description: "Hydroelectric power plant with interesting architecture"
+    },
+    lielvardesPils: {
+      name: "Lielvārde Castle",
+      description: "Historic castle ruins with a rich history"
+    },
+    daugavasAtputasZona: {
+      name: "Daugava Recreation Area",
+      description: "Beautiful recreation spots by the Daugava river"
+    },
+    confirmNavigation: "Do you want to navigate to {locationName} in Google Maps?"
   },
   footer: {
     copyright: 'Holiday House "Mežlīči"',

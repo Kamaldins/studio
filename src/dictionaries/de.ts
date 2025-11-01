@@ -62,11 +62,12 @@ export const dictionary = {
   },
   map: {
     title: 'Standort',
-    subtitle: 'Sehen Sie sich den Standort der Unterkunft an und erhalten Sie Empfehlungen für nahegelegene Sehenswürdigkeiten.',
+    subtitle: 'Interessante Orte in der Nähe',
     attractionsTitle: 'Nahegelegene Sehenswürdigkeiten',
     getAttractions: 'Empfehlungen erhalten',
     loading: 'Wird geladen...',
     openWaze: 'In Waze öffnen',
+    directions: 'Route'
   },
   calendar: {
     title: 'Verfügbarkeitskalender',
@@ -94,6 +95,21 @@ export const dictionary = {
     setupTitle: 'Sauna-Ausstattung',
     setupText1: 'Unsere Sauna ist mit allem ausgestattet, was Sie zur Entspannung benötigen - von traditionellen Holzbänken bis hin zu modernen Annehmlichkeiten.',
     setupText2: 'Die Sauna ist im Mietpreis des Hauses inbegriffen und rund um die Uhr verfügbar.',
+  },
+  attractions: {
+    kegumaHES: {
+      name: "Wasserkraftwerk Ķegums",
+      description: "Wasserkraftwerk mit interessanter Architektur"
+    },
+    lielvardesPils: {
+      name: "Schloss Lielvārde",
+      description: "Historische Burgruine mit reicher Geschichte"
+    },
+    daugavasAtputasZona: {
+      name: "Erholungsgebiet Daugava",
+      description: "Schöne Erholungsorte am Fluss Daugava"
+    },
+    confirmNavigation: "Möchten Sie zu {locationName} in Google Maps navigieren?"
   },
   footer: {
     copyright: 'Ferienhaus "Mežlīči"',

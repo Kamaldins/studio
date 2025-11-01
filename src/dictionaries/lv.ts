@@ -62,11 +62,12 @@ export const dictionary = {
   },
   map: {
     title: 'Atrašanās vieta',
-    subtitle: 'Apskatiet naktsmītnes atrašanās vietu un saņemiet ieteikumus par tuvējiem apskates objektiem.',
+    subtitle: 'Interesantas vietas, ko apmeklēt tuvumā',
     attractionsTitle: 'Tuvākie apskates objekti',
     getAttractions: 'Saņemt ieteikumus',
     loading: 'Ielādē...',
     openWaze: 'Atvērt Waze navigācijā',
+    directions: 'Maršruts'
   },
   calendar: {
     title: 'Pieejamības kalendārs',
@@ -94,6 +95,21 @@ export const dictionary = {
     setupTitle: 'Pirts iekārtojums',
     setupText1: 'Mūsu pirts ir aprīkota ar visu nepieciešamo atpūtai - no tradicionāliem koka soliem līdz mūsdienīgām ērtībām.',
     setupText2: 'Pirts ir iekļauta mājas īres cenā un pieejama visu diennakti.',
+  },
+  attractions: {
+    kegumaHES: {
+      name: "Ķeguma HES",
+      description: "Hidroelektrostacija ar interesantu arhitektūru"
+    },
+    lielvardesPils: {
+      name: "Lielvārdes pils",
+      description: "Vēsturiski pils drupas ar bagātu vēsturi"
+    },
+    daugavasAtputasZona: {
+      name: "Daugavas atpūtas zona",
+      description: "Skaistas atpūtas vietas pie Daugavas"
+    },
+    confirmNavigation: "Vai vēlaties doties uz {locationName} Google Maps?"
   },
   footer: {
     copyright: 'Brīvdienu māja "Mežlīči"',
