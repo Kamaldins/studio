@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Moon, Sun, Globe, Menu, Home, Sauna, DollarSign } from 'lucide-react';
+import { Camera, Moon, Sun, Globe, Menu, Home, Bath, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -43,7 +43,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
-    { href: '/sauna', icon: Sauna, label: dictionary.gallery.categories.sauna },
+    { href: '/sauna', icon: Bath, label: dictionary.gallery.categories.sauna },
     { href: '/pricing', icon: DollarSign, label: dictionary.gallery.categories.pricing },
   ];
 
