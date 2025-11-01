@@ -1,8 +1,9 @@
+
 'use client';
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Moon, Sun, Globe, Menu, Home } from 'lucide-react';
+import { Camera, Moon, Sun, Globe, Menu, Home, Sauna, DollarSign } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -40,22 +41,15 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const isHomePage = pathname === `/${lang}` || pathname === '/';
 
   const navLinksConfig = [
-    { href: '/', icon: Home, label: dictionary.navigation.home, anchor: false },
-    { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery, anchor: false },
+    { href: '/', icon: Home, label: dictionary.navigation.home },
+    { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
+    { href: '/sauna', icon: Sauna, label: dictionary.gallery.categories.sauna },
+    { href: '/pricing', icon: DollarSign, label: dictionary.gallery.categories.pricing },
   ];
 
-  const NavLink = ({ href, icon: Icon, label, isMobile = false, anchor = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, anchor?: boolean }) => {
-    const fullHref = anchor ? (isHomePage ? href : `/${lang}/${href}`) : `/${lang}${href === '/' ? '' : href}`;
+  const NavLink = ({ href, icon: Icon, label, isMobile = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean }) => {
+    const fullHref = `/${lang}${href === '/' ? '' : href}`;
     
-    if (anchor && !isHomePage) {
-        return (
-             <Link href={`/${lang}/${href}`} className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2">
-                <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
-                {label}
-            </Link>
-        )
-    }
-
     const linkContent = (
       <div
         className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"

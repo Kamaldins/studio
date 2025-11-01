@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ? `https://${process.env.VERCEL_URL}`
     : 'http://localhost:3000';
 
-  const pages = ['', '/gallery', '/privacy'];
+  const pages = ['', '/gallery', '/sauna', '/pricing', '/privacy'];
 
   const sitemapEntries = i18n.locales.flatMap((locale) =>
     pages.map((page) => ({
