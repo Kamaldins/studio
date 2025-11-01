@@ -5,12 +5,12 @@ import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
 import PageClient from './page-client';
 
-type Props = {
+export default async function GalleryPage({
+  params,
+}: {
   params: { lang: Locale };
   searchParams: { [key: string]: string | string[] | undefined };
-};
-
-export default async function GalleryPage({ params }: Props) {
+}) {
   const dictionary = await getDictionary(params.lang);
   
   const propertyImages: ImagePlaceholder[] = PlaceHolderImages;
