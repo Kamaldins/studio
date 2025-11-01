@@ -55,7 +55,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1024px"
                 />
             </div>
-            <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-primary/80 hover:bg-primary text-primary-foreground px-2 sm:px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1 sm:gap-2 shadow-lg transition-all duration-300 hover:scale-110">
+            <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-primary/80 hover:bg-primary text-primary-foreground px-2 sm:px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1 sm:gap-2 shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-primary">
               <Camera size={isMobile ? 12 : 16} className="group-hover:rotate-12 transition-transform duration-300" />
               <span>FOTO</span>
             </div>
@@ -108,3 +108,4 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
 };
 
 export default HeroSection;
+
