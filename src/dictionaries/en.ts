@@ -8,10 +8,7 @@ export const dictionary = {
   navigation: {
     home: 'Home',
     about: 'About',
-    photos: 'Photos',
-    prices: 'Prices',
-    location: 'Location',
-    calendar: 'Calendar',
+    gallery: 'Gallery',
     contact: 'Contact',
   },
   hero: {
@@ -62,21 +59,35 @@ export const dictionary = {
     addressText: 'Mežlīči, Tomes parish',
   },
   map: {
-    title: 'Location',
+    title: 'Nearby Attractions',
     openWaze: 'Open in Waze',
   },
   calendar: {
     title: 'Availability Calendar',
   },
   gallery: {
-    title: 'Photo Gallery',
+    title: 'Gallery',
     subtitle: 'Explore photos of our holiday house and the surrounding area',
     categories: {
-      all: 'All',
-      house: 'House',
+      all: 'Photos',
       sauna: 'Sauna',
-      yard: 'Yard'
+      pricing: 'Pricing',
+      location: 'Nearby Attractions'
     }
+  },
+  sauna: {
+    title: 'Sauna for Relaxation',
+    subtitle: 'Authentic wooden sauna with everything needed for your rest',
+    offerTitle: 'Sauna Offer',
+    offers: [
+      'Authentic wooden sauna',
+      'Comfortable wooden benches',
+      'Quality accessories',
+      'Traditional atmosphere',
+    ],
+    setupTitle: 'Sauna Features',
+    setupText1: 'Our sauna is equipped with everything you need for relaxation - from traditional wooden benches to modern amenities.',
+    setupText2: 'The sauna is included in the house rental price and is available 24/7.',
   },
   footer: {
     copyright: 'Holiday House "Mežlīči"',
@@ -123,3 +134,5 @@ export const dictionary = {
     buttonText: 'Go to Homepage'
   }
 };
+
+    

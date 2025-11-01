@@ -8,10 +8,7 @@ export const dictionary = {
   navigation: {
     home: 'Sākums',
     about: 'Par mums',
-    photos: 'Foto',
-    prices: 'Cenas',
-    location: 'Atrašanās vieta',
-    calendar: 'Kalendārs',
+    gallery: 'Galerija',
     contact: 'Saziņa',
   },
   hero: {
@@ -62,21 +59,35 @@ export const dictionary = {
     addressText: 'Mežlīči, Tomes pagasts',
   },
   map: {
-    title: 'Atrašanās vieta',
+    title: 'Tuvākie objekti',
     openWaze: 'Atvērt Waze navigācijā',
   },
   calendar: {
     title: 'Pieejamības kalendārs',
   },
   gallery: {
-    title: 'Foto galerija',
+    title: 'Galerija',
     subtitle: 'Apskatiet mūsu brīvdienu mājas un apkārtnes fotogrāfijas',
     categories: {
-      all: 'Visi',
-      house: 'Māja',
+      all: 'Fotogrāfijas',
       sauna: 'Pirts',
-      yard: 'Ārā'
+      pricing: 'Izcenojumi',
+      location: 'Tuvākie objekti'
     }
+  },
+  sauna: {
+    title: 'Pirts relaksācijai',
+    subtitle: 'Autentiska koka pirts ar visu nepieciešamo atpūtai',
+    offerTitle: 'Pirts piedāvājums',
+    offers: [
+      'Autentiska koka pirts',
+      'Ērti koka soli',
+      'Kvalitatīvi aksesuāri',
+      'Tradicionāla atmosfēra',
+    ],
+    setupTitle: 'Pirts iekārtojums',
+    setupText1: 'Mūsu pirts ir aprīkota ar visu nepieciešamo atpūtai - no tradicionāliem koka soliem līdz mūsdienīgām ērtībām.',
+    setupText2: 'Pirts ir iekļauta mājas īres cenā un pieejama visu diennakti.',
   },
   footer: {
     copyright: 'Brīvdienu māja "Mežlīči"',
@@ -123,3 +134,5 @@ export const dictionary = {
     buttonText: 'Uz sākumlapu'
   }
 };
+
+    

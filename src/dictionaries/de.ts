@@ -8,10 +8,7 @@ export const dictionary = {
   navigation: {
     home: 'Startseite',
     about: 'Über uns',
-    photos: 'Fotos',
-    prices: 'Preise',
-    location: 'Standort',
-    calendar: 'Kalender',
+    gallery: 'Galerie',
     contact: 'Kontakt',
   },
   hero: {
@@ -62,21 +59,35 @@ export const dictionary = {
     addressText: 'Mežlīči, Gemeinde Tome',
   },
   map: {
-    title: 'Standort',
+    title: 'Sehenswürdigkeiten in der Nähe',
     openWaze: 'In Waze öffnen',
   },
   calendar: {
     title: 'Verfügbarkeitskalender',
   },
   gallery: {
-    title: 'Fotogalerie',
+    title: 'Galerie',
     subtitle: 'Entdecken Sie Fotos von unserem Ferienhaus und der Umgebung',
     categories: {
-      all: 'Alle',
-      house: 'Haus',
+      all: 'Fotos',
       sauna: 'Sauna',
-      yard: 'Garten'
+      pricing: 'Preise',
+      location: 'Sehenswürdigkeiten'
     }
+  },
+  sauna: {
+    title: 'Sauna zur Entspannung',
+    subtitle: 'Authentische Holzsauna mit allem, was Sie zum Entspannen brauchen',
+    offerTitle: 'Sauna-Angebot',
+    offers: [
+      'Authentische Holzsauna',
+      'Bequeme Holzbänke',
+      'Hochwertiges Zubehör',
+      'Traditionelle Atmosphäre',
+    ],
+    setupTitle: 'Sauna-Ausstattung',
+    setupText1: 'Unsere Sauna ist mit allem ausgestattet, was Sie zur Entspannung benötigen - von traditionellen Holzbänken bis hin zu modernen Annehmlichkeiten.',
+    setupText2: 'Die Sauna ist im Mietpreis des Hauses inbegriffen und rund um die Uhr verfügbar.',
   },
   footer: {
     copyright: 'Ferienhaus "Mežlīči"',
@@ -123,3 +134,5 @@ export const dictionary = {
     buttonText: 'Zur Startseite'
   }
 };
+
+    

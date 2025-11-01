@@ -37,52 +37,50 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   };
 
   const navLinksConfig = [
-    { href: '/', icon: Home, label: dictionary.navigation.home, isNextLink: true },
-    { href: '/about', icon: Info, label: dictionary.navigation.about, isNextLink: true },
-    { href: '/gallery', icon: Camera, label: dictionary.navigation.photos, isNextLink: true },
-    { href: '/pricing', icon: Euro, label: dictionary.navigation.prices, isNextLink: true },
-    { href: '/location', icon: NavigationIcon, label: dictionary.navigation.location, isNextLink: true },
-    { href: '/contact', icon: Phone, label: dictionary.navigation.contact, isNextLink: true },
+    { href: '/', icon: Home, label: dictionary.navigation.home },
+    { href: '/about', icon: Info, label: dictionary.navigation.about },
+    { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
+    { href: '/contact', icon: Phone, label: dictionary.navigation.contact },
   ];
 
-  const NavLink = ({ href, icon: Icon, label, isMobile = false, isNextLink = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, isNextLink?: boolean }) => {
-    const LinkComponent = isNextLink ? Link : 'a';
-    const fullHref = href.startsWith('/') ? `/${lang}${href}` : href;
+  const NavLink = ({ href, icon: Icon, label, isMobile = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean }) => {
+    const fullHref = `/${lang}${href}`;
+
+    const linkContent = (
+      <div
+        className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
+      >
+        <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
+        {label}
+      </div>
+    );
 
     if (isMobile) {
       return (
         <SheetClose asChild>
-          <LinkComponent
-            href={fullHref}
-            className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
-          >
-            <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
-            {label}
-          </LinkComponent>
+          <Link href={fullHref}>
+            {linkContent}
+          </Link>
         </SheetClose>
       )
     }
 
     return (
-      <LinkComponent
-        href={fullHref}
-        className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
-      >
-        <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
-        {label}
-      </LinkComponent>
+      <Link href={fullHref}>
+        {linkContent}
+      </Link>
     );
   }
 
   const renderNavLinks = (isMobile = false) => (
     <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-4 lg:gap-6 md:flex"}>
-       <a href={`/${lang}`} className="mr-6 flex items-center space-x-2">
+       <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
-          </a>
+          </Link>
       {navLinksConfig.map(link => (
-        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile={isMobile} isNextLink={link.isNextLink} />
+        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile={isMobile} />
       ))}
     </nav>
   );
@@ -103,11 +101,11 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
                 {renderNavLinks(true)}
               </SheetContent>
             </Sheet>
-             <a href={`/${lang}`} className="ml-4 flex items-center space-x-2">
+             <Link href={`/${lang}`} className="ml-4 flex items-center space-x-2">
                 <span className="font-bold">
                 {dictionary.siteName}
                 </span>
-            </a>
+            </Link>
           </>
         ) : (
           renderNavLinks()
@@ -154,3 +152,5 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
     </header>
   );
 };
+
+    
