@@ -66,6 +66,16 @@ export const dictionary = {
   calendar: {
     title: 'Verfügbarkeitskalender',
   },
+  gallery: {
+    title: 'Fotogalerie',
+    subtitle: 'Entdecken Sie Fotos von unserem Ferienhaus und der Umgebung',
+    categories: {
+      all: 'Alle',
+      house: 'Haus',
+      sauna: 'Sauna',
+      yard: 'Garten'
+    }
+  },
   footer: {
     copyright: 'Ferienhaus "Mežlīči"',
     rights: 'Alle Rechte vorbehalten',

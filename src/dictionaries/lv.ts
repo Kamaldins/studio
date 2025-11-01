@@ -66,6 +66,16 @@ export const dictionary = {
   calendar: {
     title: 'Pieejamības kalendārs',
   },
+  gallery: {
+    title: 'Foto galerija',
+    subtitle: 'Apskatiet mūsu brīvdienu mājas un apkārtnes fotogrāfijas',
+    categories: {
+      all: 'Visi',
+      house: 'Māja',
+      sauna: 'Pirts',
+      yard: 'Ārā'
+    }
+  },
   footer: {
     copyright: 'Brīvdienu māja "Mežlīči"',
     rights: 'Visas tiesības aizsargātas',

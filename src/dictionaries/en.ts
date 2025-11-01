@@ -63,8 +63,18 @@ export const dictionary = {
     title: 'Location',
     openWaze: 'Open in Waze',
   },
-calendar: {
+  calendar: {
     title: 'Availability Calendar',
+  },
+  gallery: {
+    title: 'Photo Gallery',
+    subtitle: 'Explore photos of our holiday house and the surrounding area',
+    categories: {
+      all: 'All',
+      house: 'House',
+      sauna: 'Sauna',
+      yard: 'Yard'
+    }
   },
   footer: {
     copyright: 'Holiday House "Mežlīči"',

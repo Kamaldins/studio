@@ -16,6 +16,7 @@ import { i18n, type Locale } from '@/i18n-config';
 import { type getDictionary } from '@/lib/get-dictionary';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import Link from 'next/link';
 
 interface SiteHeaderProps {
   lang: Locale;
@@ -37,24 +38,39 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   };
 
   const navLinksConfig = [
-    { href: '#foto', icon: Camera, label: dictionary.navigation.photos },
+    { href: '/gallery', icon: Camera, label: dictionary.navigation.photos, isNextLink: true },
     { href: '#cenas', icon: Euro, label: dictionary.navigation.prices },
     { href: '#objekti', icon: NavigationIcon, label: dictionary.navigation.map },
     { href: '#kalendars', icon: Calendar, label: dictionary.navigation.calendar },
     { href: '#sazinities', icon: Phone, label: dictionary.navigation.contact },
   ];
 
-  const NavLink = ({ href, icon: Icon, label, isMobile = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean }) => {
+  const NavLink = ({ href, icon: Icon, label, isMobile = false, isNextLink = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, isNextLink?: boolean }) => {
     const Component = isMobile ? SheetClose : 'a';
+    const LinkComponent = isNextLink ? Link : 'a';
+
+    if (isMobile) {
+      return (
+        <SheetClose asChild>
+          <LinkComponent
+            href={href.startsWith('/') ? `/${lang}${href}` : href}
+            className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
+          >
+            <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
+            {label}
+          </LinkComponent>
+        </SheetClose>
+      )
+    }
+
     return (
-      <Component
-        href={href}
+      <LinkComponent
+        href={href.startsWith('/') ? `/${lang}${href}` : href}
         className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
-        onClick={() => isMobile && setIsSheetOpen(false)}
       >
         <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
         {label}
-      </Component>
+      </LinkComponent>
     );
   }
 
@@ -65,11 +81,8 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
               {dictionary.siteName}
             </span>
           </a>
-      {!isMobile && navLinksConfig.map(link => (
-        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} />
-      ))}
-      {isMobile && navLinksConfig.map(link => (
-        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile />
+      {navLinksConfig.map(link => (
+        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile={isMobile} isNextLink={link.isNextLink} />
       ))}
     </nav>
   );
