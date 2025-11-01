@@ -6,15 +6,13 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import GalleryClient from './gallery-client';
 
 // This is the correct, simplified prop structure for a Next.js page.
-// The incorrect 'GalleryPageProps' has been permanently removed.
 export default async function GalleryPage({
   params: { lang },
 }: {
   params: { lang: Locale };
 }) {
   const dictionary = await getDictionary(lang);
-  const propertyImages = PlaceHolderImages;
-  const imageUrls = propertyImages.map(p => p.imageUrl);
+  const propertyImages = PlaceHolderImages.map(p => p.imageUrl);
 
   return (
     <div className="container mx-auto max-w-7xl px-4 py-12 md:px-8">
@@ -27,7 +25,7 @@ export default async function GalleryPage({
         </p>
       </div>
 
-      <GalleryClient images={propertyImages} imageUrls={imageUrls} />
+      <GalleryClient images={propertyImages} />
     </div>
   );
 }
