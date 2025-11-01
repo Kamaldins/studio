@@ -26,7 +26,6 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
       return [];
     }
     
-    // Adjust logic to handle smaller number of images gracefully
     const numVisible = Math.min(visibleCount, images.length);
 
     for (let i = 0; i < numVisible; i++) {
@@ -43,9 +42,9 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
 
 
   return (
-    <section id="foto" className="pt-24 md:pt-32 pb-4 sm:pb-8 px-4 sm:px-6">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-6 sm:mb-8 lg:mb-12">
+    <section id="foto" className="pt-24 md:pt-32 pb-4 sm:pb-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8 lg:mb-12">
            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight text-slate-100">
                 Brīvdienu māja<br/> <span className="text-primary">"Mežlīči"</span>
             </h1>
@@ -55,7 +54,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
         </div>
 
         {mainImage && (
-          <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
+          <div className="max-w-5xl mx-auto mb-6 sm:mb-8">
             <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(0)}>
                <Image
                   src={mainImage}
@@ -63,7 +62,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1024px"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <Button 
@@ -77,7 +76,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
           </div>
         )}
         
-        <div className="max-w-4xl mx-auto px-4 sm:px-0">
+        <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             <button
               onClick={prevMiniGallery}
