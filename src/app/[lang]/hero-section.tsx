@@ -7,6 +7,12 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 
 interface HeroSectionProps {
+  dictionary: {
+    title1: string;
+    title2: string;
+    subtitle: string;
+    photoButton: string;
+  };
   images: string[];
   openSlider: (index?: number) => void;
   miniGalleryIndex: number;
@@ -14,7 +20,7 @@ interface HeroSectionProps {
   prevMiniGallery: () => void;
 }
 
-const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, prevMiniGallery }: HeroSectionProps) => {
+const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMiniGallery, prevMiniGallery }: HeroSectionProps) => {
   const isMobile = useIsMobile();
   
   const getVisibleImages = () => {
@@ -46,10 +52,10 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 lg:mb-12">
            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight text-slate-100">
-                Brīvdienu māja<br/> <span className="text-primary">"Mežlīči"</span>
+                {dictionary.title1}<br/> <span className="text-primary">{dictionary.title2}</span>
             </h1>
             <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-slate-400">
-                Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties
+                {dictionary.subtitle}
             </p>
         </div>
 
@@ -70,7 +76,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                   onClick={(e) => { e.stopPropagation(); openSlider(0); }}
                   className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm hover:bg-background"
                 >
-                  <Camera className="w-4 h-4 mr-2" /> FOTO
+                  <Camera className="w-4 h-4 mr-2" /> {dictionary.photoButton}
                 </Button>
             </div>
           </div>

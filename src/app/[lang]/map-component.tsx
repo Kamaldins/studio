@@ -1,3 +1,4 @@
+
 'use client';
 import { Car } from 'lucide-react';
 import { properties } from '@/lib/data';

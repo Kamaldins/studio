@@ -1,26 +1,41 @@
 
 import type { Metadata } from 'next';
-import './globals.css';
+import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
 import { ThemeProvider } from '@/components/theme-provider';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { getDictionary } from '@/lib/get-dictionary';
+import { i18n, type Locale } from '@/i18n-config';
 
-// This is the root layout, it does not have access to the dictionary
-// The dictionary is passed to the [lang] layout
-export const metadata: Metadata = {
-  title: 'Brīvdienu māja "Mežlīči"',
-  description: 'Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties',
-};
+export async function generateStaticParams() {
+  return i18n.locales.map((locale) => ({ lang: locale }));
+}
 
-export default function RootLayout({
+export async function generateMetadata({
+  params,
+}: {
+  params: { lang: Locale };
+}): Promise<Metadata> {
+  const dictionary = await getDictionary(params.lang);
+  return {
+    title: dictionary.meta.title,
+    description: dictionary.meta.description,
+  };
+}
+
+export default async function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: Locale };
 }>) {
+  const dictionary = await getDictionary(params.lang);
+
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang={params.lang} className="scroll-smooth" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -41,7 +56,13 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <div className="relative flex min-h-dvh flex-col bg-background">
+            <SiteHeader lang={params.lang} dictionary={dictionary} />
+            <main className="flex-1">
+              {children}
+            </main>
+            <SiteFooter dictionary={dictionary.footer} />
+          </div>
           <Toaster />
         </ThemeProvider>
       </body>

@@ -10,35 +10,39 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
-  DropdownMenuPortal,
 } from '@/components/ui/dropdown-menu';
+import { usePathname, useRouter } from 'next/navigation';
+import { i18n, type Locale } from '@/i18n-config';
+import { type getDictionary } from '@/lib/get-dictionary';
 
-const locales = [
-  { code: 'lv', name: 'Latviešu' },
-  { code: 'ru', name: 'Русский' },
-  { code: 'en', name: 'English' },
-  { code: 'de', name: 'Deutsch' },
-];
+interface SiteHeaderProps {
+  lang: Locale;
+  dictionary: Awaited<ReturnType<typeof getDictionary>>;
+}
 
-const navLinksConfig = [
-    { href: '#foto', icon: Camera, label: 'Foto' },
-    { href: '#cenas', icon: Euro, label: 'Cenas' },
-    { href: '#objekti', icon: NavigationIcon, label: 'Karte' },
-    { href: '#kalendars', icon: Calendar, label: 'Kalendārs' },
-    { href: '#sazinities', icon: Phone, label: 'Saziņa' },
-];
-
-
-export function SiteHeader() {
+export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const { setTheme } = useTheme();
-  const [currentLocale, setCurrentLocale] = React.useState('lv');
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const redirectedPathName = (locale: Locale) => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
+
+  const navLinksConfig = [
+    { href: '#foto', icon: Camera, label: dictionary.navigation.photos },
+    { href: '#cenas', icon: Euro, label: dictionary.navigation.prices },
+    { href: '#objekti', icon: NavigationIcon, label: dictionary.navigation.map },
+    { href: '#kalendars', icon: Calendar, label: dictionary.navigation.calendar },
+    { href: '#sazinities', icon: Phone, label: dictionary.navigation.contact },
+];
 
   const NavLink = ({ href, icon: Icon, label }: { href: string; icon: React.ElementType; label: string }) => (
     <a
-      href={`/${currentLocale}${href}`}
+      href={href}
       className="group flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
     >
       <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
@@ -50,9 +54,9 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <nav className="flex items-center gap-4 lg:gap-6">
-          <a href={`/${currentLocale}`} className="mr-6 flex items-center space-x-2">
+          <a href={`/${lang}`} className="mr-6 flex items-center space-x-2">
             <span className="font-bold sm:inline-block">
-              Mežlīči
+              {dictionary.siteName}
             </span>
           </a>
           {navLinksConfig.map(link => (
@@ -68,9 +72,9 @@ export function SiteHeader() {
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              {locales.map(locale => (
-                <DropdownMenuItem key={locale.code} onClick={() => setCurrentLocale(locale.code)}>
-                  {locale.name}
+              {i18n.locales.map(locale => (
+                <DropdownMenuItem key={locale} onClick={() => router.push(redirectedPathName(locale))}>
+                  {dictionary.locales[locale as keyof typeof dictionary.locales]}
                 </DropdownMenuItem>
               ))}
             </DropdownMenuContent>
@@ -86,13 +90,13 @@ export function SiteHeader() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuItem onClick={() => setTheme('light')}>
-                Light
+                {dictionary.theme.light}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme('dark')}>
-                Dark
+                {dictionary.theme.dark}
               </DropdownMenuItem>
               <DropdownMenuItem onClick={() => setTheme('system')}>
-                System
+                {dictionary.theme.system}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
