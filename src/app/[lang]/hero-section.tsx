@@ -98,7 +98,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={prevMiniGallery}
-                className="flex-shrink-0 bg-white/10 hover:bg-white/20 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-background/50 hover:bg-background/80 text-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={isMobile ? 16 : 20} />
               </button>
@@ -126,7 +126,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={nextMiniGallery}
-                className="flex-shrink-0 bg-white/10 hover:bg-white/20 text-white p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-background/50 hover:bg-background/80 text-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight size={isMobile ? 16 : 20} />
               </button>
