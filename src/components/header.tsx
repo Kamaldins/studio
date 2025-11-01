@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Moon, Sun, Globe, Menu, Home, User, Map, Calendar, Phone } from 'lucide-react';
+import { Camera, Moon, Sun, Globe, Menu, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -42,10 +42,6 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home, anchor: false },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery, anchor: false },
-    { href: '#about', icon: User, label: dictionary.navigation.about, anchor: true },
-    { href: '#calendar', icon: Calendar, label: dictionary.navigation.calendar, anchor: true },
-    { href: '#map', icon: Map, label: dictionary.navigation.location, anchor: true },
-    { href: '#contact', icon: Phone, label: dictionary.navigation.contact, anchor: true },
   ];
 
   const NavLink = ({ href, icon: Icon, label, isMobile = false, anchor = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, anchor?: boolean }) => {
