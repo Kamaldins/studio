@@ -2,6 +2,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import useEmblaCarousel from 'embla-carousel-react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
@@ -57,6 +58,11 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
   const [selectedIndex, setSelectedIndex] = useState(startIndex);
   const [mainApi, setMainApi] = useState<any>();
   const [thumbApi, setThumbApi] = useState<any>();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const [mainRef, mainApiInstance] = useEmblaCarousel({
     loop: true,
@@ -119,9 +125,9 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
     };
   }, [isOpen, onClose, scrollNext, scrollPrev]);
 
-  if (!isOpen) return null;
+  if (!isMounted || !isOpen) return null;
 
-  return (
+  return createPortal(
     <div 
       className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/60 p-4 backdrop-blur-xl" 
       onClick={onClose}
@@ -184,7 +190,8 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
             </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
