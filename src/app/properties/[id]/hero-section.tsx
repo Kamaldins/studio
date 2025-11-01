@@ -39,6 +39,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
 
   const visibleImages = getVisibleImages();
   const mainImage = images[0];
+  const secondMainImage = images[8];
   const canScroll = images.length > 5;
 
 
@@ -77,6 +78,28 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
           </div>
         )}
         
+        {secondMainImage && (
+          <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
+            <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(8)}>
+               <Image
+                  src={secondMainImage}
+                  alt="Brīvdienu māja Mežlīči ar kublu"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <Button 
+                  variant="secondary"
+                  onClick={(e) => { e.stopPropagation(); openSlider(8); }}
+                  className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm hover:bg-background"
+                >
+                  <Camera className="w-4 h-4 mr-2" /> FOTO
+                </Button>
+            </div>
+          </div>
+        )}
+
         <div className="max-w-4xl mx-auto px-4 sm:px-0">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             <button
