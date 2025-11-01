@@ -59,7 +59,11 @@ export const dictionary = {
     addressText: 'Mežlīči, Gemeinde Tome',
   },
   map: {
-    title: 'Sehenswürdigkeiten in der Nähe',
+    title: 'Entdecken Sie die Umgebung',
+    subtitle: 'Sehen Sie sich den Standort der Unterkunft an und erhalten Sie Empfehlungen für nahegelegene Sehenswürdigkeiten.',
+    attractionsTitle: 'Nahegelegene Sehenswürdigkeiten',
+    getAttractions: 'Empfehlungen erhalten',
+    loading: 'Wird geladen...',
     openWaze: 'In Waze öffnen',
   },
   calendar: {

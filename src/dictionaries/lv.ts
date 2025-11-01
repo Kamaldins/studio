@@ -59,7 +59,11 @@ export const dictionary = {
     addressText: 'Mežlīči, Tomes pagasts',
   },
   map: {
-    title: 'Tuvākie objekti',
+    title: 'Atklājiet apkārtni',
+    subtitle: 'Apskatiet naktsmītnes atrašanās vietu un saņemiet ieteikumus par tuvējiem apskates objektiem.',
+    attractionsTitle: 'Tuvākie apskates objekti',
+    getAttractions: 'Saņemt ieteikumus',
+    loading: 'Ielādē...',
     openWaze: 'Atvērt Waze navigācijā',
   },
   calendar: {

@@ -147,10 +147,7 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
           </div>
         </TabsContent>
         <TabsContent value="location">
-            <div className="text-center">
-                <h2 className="font-headline text-4xl font-bold text-primary mb-8">{dictionary.map.title}</h2>
-                <MapSection />
-            </div>
+          <MapSection dictionary={dictionary} />
         </TabsContent>
       </Tabs>
 

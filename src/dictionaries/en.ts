@@ -59,7 +59,11 @@ export const dictionary = {
     addressText: 'Mežlīči, Tomes parish',
   },
   map: {
-    title: 'Nearby Attractions',
+    title: 'Explore the Area',
+    subtitle: 'Check out the property location and get recommendations for nearby attractions.',
+    attractionsTitle: 'Nearby Attractions',
+    getAttractions: 'Get Recommendations',
+    loading: 'Loading...',
     openWaze: 'Open in Waze',
   },
   calendar: {
