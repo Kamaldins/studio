@@ -67,6 +67,7 @@ export const dictionary = {
     getAttractions: 'Get Recommendations',
     loading: 'Loading...',
     openWaze: 'Open in Waze',
+    openGoogleMaps: 'Open in Google Maps',
     directions: 'Route'
   },
   calendar: {

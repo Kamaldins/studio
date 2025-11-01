@@ -67,6 +67,7 @@ export const dictionary = {
     getAttractions: 'Empfehlungen erhalten',
     loading: 'Wird geladen...',
     openWaze: 'In Waze öffnen',
+    openGoogleMaps: 'In Google Maps öffnen',
     directions: 'Route'
   },
   calendar: {

@@ -67,6 +67,7 @@ info: {
     getAttractions: 'Получить рекомендации',
     loading: 'Загрузка...',
     openWaze: 'Открыть в Waze',
+    openGoogleMaps: 'Открыть в Google Maps',
     directions: 'Маршрут'
   },
   calendar: {

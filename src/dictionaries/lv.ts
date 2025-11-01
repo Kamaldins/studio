@@ -66,7 +66,8 @@ export const dictionary = {
     attractionsTitle: 'Tuvākie apskates objekti',
     getAttractions: 'Saņemt ieteikumus',
     loading: 'Ielādē...',
-    openWaze: 'Atvērt Waze navigācijā',
+    openWaze: 'Atvērt Waze',
+    openGoogleMaps: 'Atvērt Google Maps',
     directions: 'Maršruts'
   },
   calendar: {

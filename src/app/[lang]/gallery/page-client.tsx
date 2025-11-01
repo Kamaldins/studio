@@ -5,12 +5,13 @@ import * as React from 'react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Camera, Check, MapPin } from 'lucide-react';
+import { Camera, Check, MapPin, Navigation } from 'lucide-react';
 import ImageSliderModal from '../lightbox';
 import type { getDictionary } from '@/lib/get-dictionary';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import { MEZLICI_COORDINATES } from '@/lib/data';
 import { attractions, type Attraction } from '@/lib/attractions';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 
 
 interface PageClientProps {
@@ -21,15 +22,6 @@ interface PageClientProps {
 export default function GalleryClient({ dictionary, propertyImages }: PageClientProps) {
   const [sliderOpen, setSliderOpen] = React.useState(false);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
-
-
-  const handleLocationClick = (locationName: string, coordinates: string) => {
-    const confirmationMessage = dictionary.attractions.confirmNavigation.replace('{locationName}', locationName);
-    const confirmed = window.confirm(confirmationMessage);
-    if (confirmed) {
-      window.open(`https://www.google.com/maps/dir/${MEZLICI_COORDINATES}/${coordinates}`, '_blank');
-    }
-  };
 
   const openSlider = (index: number) => {
     setCurrentImageIndex(index);
@@ -175,6 +167,8 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
             <div className="max-w-4xl mx-auto space-y-6">
               {attractions.map((attraction: Attraction) => {
                 const attractionDict = dictionary.attractions[attraction.name as keyof typeof dictionary.attractions];
+                const gmapsUrl = `https://www.google.com/maps/dir/${MEZLICI_COORDINATES}/${attraction.coordinates}`;
+                const wazeUrl = `https://waze.com/ul?ll=${attraction.coordinates}&navigate=yes`;
                 return (
                   <div
                     key={attraction.id}
@@ -201,11 +195,28 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
                           <MapPin size={16} />
                           {attraction.distance}
                         </p>
-                        <Button
-                          onClick={() => handleLocationClick(attractionDict?.name, attraction.coordinates)}
-                        >
-                          {dictionary.map.directions}
-                        </Button>
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button>
+                                    <Navigation className="mr-2 h-4 w-4" />
+                                    {dictionary.map.directions}
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                <DropdownMenuItem onClick={() => window.open(gmapsUrl, '_blank')}>
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 9.652v-.002a2.25 2.25 0 012.25-2.25h8.998a2.25 2.25 0 012.25 2.25v.002l-6.748 4.498-6.75-4.498z" fill="#FBBC04"></path><path d="M5.25 9.652v9.096a2.25 2.25 0 002.25 2.25h9a2.25 2.25 0 002.25-2.25v-9.096L12 14.15 5.25 9.652z" fill="#EA4335"></path><path d="M5.44 7.502L12 12l6.56-4.498a2.25 2.25 0 00-1.076-.252H7.516a2.25 2.25 0 00-2.076.252z" fill="#34A853"></path></svg>
+                                        {dictionary.map.openGoogleMaps}
+                                    </div>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem onClick={() => window.open(wazeUrl, '_blank')}>
+                                    <div className="flex items-center">
+                                        <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 24c-2.4 0-4.8-.8-7.1-2.9-3.2-3-3.6-7.8-1-11.2l-1-2.9 3.2.3c2.4-2.4 5.3-3.4 8.2-3.2 4.1.3 7.8 2.5 9.8 6.1s1.3 7.9-1.5 11.2C20.1 22.8 16.1 24 12 24zm-1.8-4.4c.5 0 .9.4.9.9s-.4.9-.9.9c-.5 0-.9-.4-.9-.9s.4-.9.9-.9zm-3.1-6.5c-1.3 0-2.4-1.1-2.4-2.4s1.1-2.4 2.4-2.4 2.4 1.1 2.4 2.4-1.1 2.4-2.4 2.4zm10.7-2.3c-1.3 0-2.4 1.1-2.4 2.4s1.1 2.4 2.4 2.4 2.4-1.1 2.4-2.4c.1-1.3-1-2.4-2.4-2.4zm-4.3 3.9c-2.2 0-3.3-2.1-3.3-3.3s.5-3.2 3-3.2c2.1 0 3.3 1.7 3.3 3.3s-1.2 3.2-3 3.2z"></path></svg>
+                                        {dictionary.map.openWaze}
+                                    </div>
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
                       </div>
                     </div>
                   </div>
