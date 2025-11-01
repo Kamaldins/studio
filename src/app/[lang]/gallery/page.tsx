@@ -7,6 +7,7 @@ import PageClient from './page-client';
 
 type Props = {
   params: { lang: Locale };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export default async function GalleryPage({ params }: Props) {
