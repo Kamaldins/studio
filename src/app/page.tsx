@@ -49,15 +49,13 @@ export default function SinglePropertyPage() {
   };
   
   const nextMiniGallery = () => {
-    // Ensure there are enough images to scroll
     if (imageUrls.length <= 5) return;
-    setMiniGalleryIndex((prevIndex) => (prevIndex + 1) % (imageUrls.length - 5));
+    setMiniGalleryIndex((prevIndex) => (prevIndex + 1) % (imageUrls.length - 4));
   };
 
   const prevMiniGallery = () => {
-    // Ensure there are enough images to scroll
     if (imageUrls.length <= 5) return;
-    setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + (imageUrls.length - 5)) % (imageUrls.length - 5));
+    setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + (imageUrls.length - 4)) % (imageUrls.length - 4));
   };
 
 

@@ -4,6 +4,7 @@ import React from 'react';
 import { Camera, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Image from 'next/image';
+import { Button } from '@/components/ui/button';
 
 interface HeroSectionProps {
   images: string[];
@@ -17,16 +18,18 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
   const isMobile = useIsMobile();
   
   const getVisibleImages = () => {
-    const visibleCount = isMobile ? 3 : 6;
+    const visibleCount = isMobile ? 3 : 5;
     const startIndex = miniGalleryIndex;
     const visibleImages = [];
     
-    // Ensure there are images to display
     if (images.length === 0) {
       return [];
     }
     
-    for (let i = 0; i < visibleCount; i++) {
+    // Adjust logic to handle smaller number of images gracefully
+    const numVisible = Math.min(visibleCount, images.length);
+
+    for (let i = 0; i < numVisible; i++) {
       const index = (startIndex + i) % images.length;
       visibleImages.push({ image: images[index], originalIndex: index });
     }
@@ -35,6 +38,9 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
   };
 
   const visibleImages = getVisibleImages();
+  const mainImage = images[0];
+  const canScroll = images.length > 5;
+
 
   return (
     <section id="foto" className="pt-24 md:pt-32 pb-4 sm:pb-8 px-4 sm:px-6">
@@ -47,23 +53,46 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                 Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties
             </p>
         </div>
+
+        {mainImage && (
+          <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
+            <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden">
+               <Image
+                  src={mainImage}
+                  alt="Brīvdienu māja Mežlīči"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  priority
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+               />
+               <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+                <Button 
+                  variant="secondary"
+                  onClick={() => openSlider(0)}
+                  className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm hover:bg-background"
+                >
+                  <Camera className="w-4 h-4 mr-2" /> FOTO
+                </Button>
+            </div>
+          </div>
+        )}
         
-        <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
+        <div className="max-w-4xl mx-auto px-4 sm:px-0">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             <button
               onClick={prevMiniGallery}
               className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={images.length <= 6}
+              disabled={!canScroll}
             >
               <ChevronLeft size={isMobile ? 16 : 20} />
             </button>
             
-            <div className="flex gap-1.5 sm:gap-2 lg:gap-3 justify-center overflow-hidden flex-1 max-w-4xl">
+            <div className="flex gap-1.5 sm:gap-2 lg:gap-3 justify-center overflow-hidden flex-1">
               {visibleImages.map((item, index) => (
                 <button
                   key={`${miniGalleryIndex}-${index}`}
                   onClick={() => openSlider(item.originalIndex)}
-                  className="flex-shrink-0 relative group w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32"
+                  className="flex-shrink-0 relative group w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32"
                 >
                   <Image
                     src={item.image} 
@@ -75,7 +104,6 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center">
                      <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary transition-all duration-300"></div>
                      <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-300 rounded-xl sm:rounded-2xl"></div>
-                     <Camera className="w-6 h-6 text-white/50 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
                   </div>
                 </button>
               ))}
@@ -84,7 +112,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
             <button
               onClick={nextMiniGallery}
               className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
-              disabled={images.length <= 6}
+              disabled={!canScroll}
             >
               <ChevronRight size={isMobile ? 16 : 20} />
             </button>
