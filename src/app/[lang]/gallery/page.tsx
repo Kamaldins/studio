@@ -5,9 +5,11 @@ import { type Locale } from '@/i18n-config';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import GalleryClient from './page-client';
 
-// Correctly type the props for a Next.js Page Component
+// This defines the props that Next.js will pass to the page component.
+// It includes route parameters (params) and URL query parameters (searchParams).
 type GalleryPageProps = {
   params: { lang: Locale };
+  searchParams: { [key: string]: string | string[] | undefined };
 };
 
 export default async function GalleryPage({ params }: GalleryPageProps) {
@@ -15,9 +17,9 @@ export default async function GalleryPage({ params }: GalleryPageProps) {
   const propertyImages = PlaceHolderImages;
 
   return (
-    <GalleryClient 
-      dictionary={dictionary} 
-      propertyImages={propertyImages} 
+    <GalleryClient
+      dictionary={dictionary}
+      propertyImages={propertyImages}
     />
   );
 }
