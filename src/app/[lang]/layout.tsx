@@ -35,7 +35,7 @@ export default async function RootLayout({
   const dictionary = await getDictionary(params.lang);
 
   return (
-    <html lang={params.lang} className="scroll-smooth" suppressHydrationWarning>
+    <div lang={params.lang}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -66,6 +66,6 @@ export default async function RootLayout({
           <Toaster />
         </ThemeProvider>
       </body>
-    </html>
+    </div>
   );
 }
