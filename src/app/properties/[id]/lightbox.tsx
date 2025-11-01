@@ -31,7 +31,7 @@ const Thumb: React.FC<ThumbProps> = ({ selected, imgSrc, onClick }) => {
         />
         <div
           className={cn(
-            'absolute inset-0 rounded-md ring-offset-4 ring-offset-black transition-all duration-200',
+            'absolute inset-0 rounded-md ring-offset-4 ring-offset-background transition-all duration-200',
             selected ? 'ring-2 ring-primary' : ''
           )}
         />
@@ -123,7 +123,7 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/80 p-4 backdrop-blur-md" 
+      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/60 p-4 backdrop-blur-xl" 
       onClick={onClose}
     >
       <button 
