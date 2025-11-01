@@ -47,7 +47,10 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
     { id: 'location', name: dictionary.gallery.categories.location },
   ];
 
-  const saunaImages = propertyImages.filter(image => image.category === 'sauna');
+  const saunaImages = [
+    { id: 'sauna-1', imageUrl: 'https://i.ibb.co/4wzDncbR/Whats-App-Image-2025-10-25-at-16-40-19-5.jpg', description: 'Sauna exterior view' },
+    { id: 'sauna-2', imageUrl: 'https://i.ibb.co/hxtqWnNq/Whats-App-Image-2025-10-25-at-16-40-19-4.jpg', description: 'Sauna interior view' }
+  ];
   const imageUrls = propertyImages.map(p => p.imageUrl);
 
 
@@ -101,7 +104,7 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
               <p className="mt-2 text-lg text-muted-foreground">{dictionary.sauna.subtitle}</p>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {saunaImages.slice(0, 2).map((image) => (
+              {saunaImages.map((image) => (
                 <div key={image.id} className="group relative aspect-video w-full overflow-hidden rounded-xl">
                   <Image
                     src={image.imageUrl}
@@ -224,3 +227,4 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
   );
 }
 
+    
