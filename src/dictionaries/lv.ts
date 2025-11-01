@@ -130,35 +130,14 @@ export const dictionary = {
   privacyPage: {
     title: 'Privātuma politika',
     content: [
-      {
-        heading: '1. Mūsu apkopotā informācija',
-        text: 'Mēs varam apkopot personiski identificējamu informāciju, piemēram, jūsu vārdu, e-pasta adresi un tālruņa numuru, kad jūs sazināties ar mums vai veicat rezervāciju. Mēs arī automātiski apkopojam nepersonisku informāciju, piemēram, jūsu IP adresi un pārlūkprogrammas veidu, izmantojot mūsu tīmekļa servera žurnālus.'
-      },
-      {
-        heading: '2. Kā mēs izmantojam jūsu informāciju',
-        text: 'Jūsu informācija tiek izmantota, lai pārvaldītu jūsu rezervācijas, sazinātos ar jums un uzlabotu mūsu pakalpojumus. Mēs neizmantosim jūsu personas informāciju mārketinga nolūkos bez jūsu nepārprotamas piekrišanas.'
-      },
-      {
-        heading: '3. Sīkdatnes un izsekošanas tehnoloģijas',
-        text: 'Mūsu vietne izmanto sīkdatnes, lai uzlabotu lietotāja pieredzi, nodrošinātu funkcionalitāti un apkopotu analītiku. Tas palīdz mums saprast, kā mūsu vietne tiek izmantota, un to uzlabot. Jūs varat kontrolēt sīkdatņu iestatījumus savā pārlūkprogrammā.'
-      },
-      {
-        heading: '4. Trešo pušu pakalpojumi',
-        text: 'Mēs iegulstam saturu un pakalpojumus no trešajām pusēm, piemēram, Google (Maps, Calendar, Fonts). Šie pakalpojumu sniedzēji var apkopot datus saskaņā ar savām privātuma politikām. Mēs neesam atbildīgi par šo pakalpojumu privātuma praksi.'
-      },
-      {
-        heading: '5. Fotogrāfijas un mediji',
-        text: 'Mēs varam uzņemt īpašuma un tā apkārtnes fotogrāfijas vai video reklāmas nolūkos. Ja kāds no viesiem ir identificējams, mēs iegūsim nepārprotamu piekrišanu pirms šādu mediju izmantošanas. Mēs cienām jūsu privātumu un neizmantosim jūsu attēlu bez atļaujas.'
-      },
-      {
-        heading: '6. Jūsu datu tiesības (VDAR)',
-        text: 'Ja esat Eiropas Ekonomikas zonas (EEZ) iedzīvotājs, jums ir noteiktas datu aizsardzības tiesības. Jūs varat pieprasīt piekļuvi savai personiskajai informācijai, tās labošanu vai dzēšanu. Lūdzu, sazinieties ar mums, lai iesniegtu šādu pieprasījumu.'
-      },
-      {
-        heading: '7. Datu drošība',
-        text: 'Mēs īstenojam saprātīgus drošības pasākumus, lai aizsargātu jūsu informāciju. Tomēr neviena pārraides metode internetā nav 100% droša, un mēs nevaram garantēt tās absolūtu drošību.'
-      }
-    ]
+      '<h2 class="font-headline text-2xl font-bold text-foreground">1. Mūsu apkopotā informācija</h2><p>Mēs varam apkopot personiski identificējamu informāciju, piemēram, jūsu vārdu, e-pasta adresi un tālruņa numuru, kad jūs sazināties ar mums vai veicat rezervāciju. Mēs arī automātiski apkopojam nepersonisku informāciju, piemēram, jūsu IP adresi un pārlūkprogrammas veidu, izmantojot mūsu tīmekļa servera žurnālus.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">2. Kā mēs izmantojam jūsu informāciju</h2><p>Jūsu informācija tiek izmantota, lai pārvaldītu jūsu rezervācijas, sazinātos ar jums un uzlabotu mūsu pakalpojumus. Mēs neizmantosim jūsu personas informāciju mārketinga nolūkos bez jūsu nepārprotamas piekrišanas.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">3. Sīkdatnes un izsekošanas tehnoloģijas</h2><p>Mūsu vietne izmanto sīkdatnes, lai uzlabotu lietotāja pieredzi, nodrošinātu funkcionalitāti un apkopotu analītiku. Tas palīdz mums saprast, kā mūsu vietne tiek izmantota, un to uzlabot. Jūs varat kontrolēt sīkdatņu iestatījumus savā pārlūkprogrammā.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">4. Trešo pušu pakalpojumi</h2><p>Mēs iegulstam saturu un pakalpojumus no trešajām pusēm, piemēram, Google (Maps, Calendar, Fonts). Šie pakalpojumu sniedzēji var apkopot datus saskaņā ar savām privātuma politikām. Mēs neesam atbildīgi par šo pakalpojumu privātuma praksi.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">5. Fotogrāfijas un mediji</h2><p>Mēs varam uzņemt īpašuma un tā apkārtnes fotogrāfijas vai video reklāmas nolūkos. Ja kāds no viesiem ir identificējams, mēs iegūsim nepārprotamu piekrišanu pirms šādu mediju izmantošanas. Mēs cienām jūsu privātumu un neizmantosim jūsu attēlu bez atļaujas.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">6. Jūsu datu tiesības (VDAR)</h2><p>Ja esat Eiropas Ekonomikas zonas (EEZ) iedzīvotājs, jums ir noteiktas datu aizsardzības tiesības. Jūs varat pieprasīt piekļuvi savai personiskajai informācijai, tās labošanu vai dzēšanu. Lūdzu, sazinieties ar mums, lai iesniegtu šādu pieprasījumu.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">7. Datu drošība</h2><p>Mēs īstenojam saprātīgus drošības pasākumus, lai aizsargātu jūsu informāciju. Tomēr neviena pārraides metode internetā nav 100% droša, un mēs nevaram garantēt tās absolūtu drošību.</p>',
+    ],
   },
   notFoundPage: {
     title: 'Lapa nav atrasta',

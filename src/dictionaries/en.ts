@@ -130,35 +130,14 @@ export const dictionary = {
   privacyPage: {
     title: 'Privacy Policy',
     content: [
-      {
-        heading: '1. Information We Collect',
-        text: 'We may collect personally identifiable information, such as your name, email address, and phone number, when you contact us or make a booking. We also automatically collect non-personal information like your IP address and browser type through our web server logs.'
-      },
-      {
-        heading: '2. How We Use Your Information',
-        text: 'Your information is used to manage your bookings, communicate with you, and improve our services. We will not use your personal information for marketing purposes without your explicit consent.'
-      },
-      {
-        heading: '3. Cookies and Tracking Technologies',
-        text: 'Our website uses cookies to enhance user experience, for functionality, and to gather analytics. This helps us understand how our site is used and improve it. You can control cookie settings through your browser.'
-      },
-      {
-        heading: '4. Third-Party Services',
-        text: 'We embed content and services from third parties like Google (Maps, Calendar, Fonts). These providers may collect data according to their own privacy policies. We are not responsible for the privacy practices of these services.'
-      },
-      {
-        heading: '5. Photos and Media',
-        text: 'We may take photos or videos of the property and its surroundings for promotional purposes. If any guests are identifiable, we will obtain explicit consent before using such media. We respect your privacy and will not use your likeness without permission.'
-      },
-      {
-        heading: '6. Your Data Rights (GDPR)',
-        text: 'If you are a resident of the European Economic Area (EEA), you have certain data protection rights. You may request access to, correction of, or deletion of your personal information. Please contact us to make such a request.'
-      },
-      {
-        heading: '7. Data Security',
-        text: 'We implement reasonable security measures to protect your information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee its absolute security.'
-      }
-    ]
+      '<h2 class="font-headline text-2xl font-bold text-foreground">1. Information We Collect</h2><p>We may collect personally identifiable information, such as your name, email address, and phone number, when you contact us or make a booking. We also automatically collect non-personal information like your IP address and browser type through our web server logs.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">2. How We Use Your Information</h2><p>Your information is used to manage your bookings, communicate with you, and improve our services. We will not use your personal information for marketing purposes without your explicit consent.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">3. Cookies and Tracking Technologies</h2><p>Our website uses cookies to enhance user experience, for functionality, and to gather analytics. This helps us understand how our site is used and improve it. You can control cookie settings through your browser.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">4. Third-Party Services</h2><p>We embed content and services from third parties like Google (Maps, Calendar, Fonts). These providers may collect data according to their own privacy policies. We are not responsible for the privacy practices of these services.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">5. Photos and Media</h2><p>We may take photos or videos of the property and its surroundings for promotional purposes. If any guests are identifiable, we will obtain explicit consent before using such media. We respect your privacy and will not use your likeness without permission.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">6. Your Data Rights (GDPR)</h2><p>If you are a resident of the European Economic Area (EEA), you have certain data protection rights. You may request access to, correction of, or deletion of your personal information. Please contact us to make such a request.</p>',
+      '<h2 class="font-headline text-2xl font-bold text-foreground">7. Data Security</h2><p>We implement reasonable security measures to protect your information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee its absolute security.</p>',
+    ],
   },
   notFoundPage: {
     title: 'Page Not Found',
