@@ -2,11 +2,11 @@
 import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
 
-type Props = {
+export default async function PrivacyPolicyPage({
+  params,
+}: {
   params: { lang: Locale };
-};
-
-export default async function PrivacyPolicyPage({ params }: Props) {
+}) {
   const dictionary = await getDictionary(params.lang);
   const { privacyPage } = dictionary;
 

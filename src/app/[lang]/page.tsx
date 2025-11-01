@@ -2,16 +2,16 @@
 import * as React from 'react';
 import { notFound } from 'next/navigation';
 import { properties, MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
-import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
 import PageClient from './page-client';
 
-type Props = {
+export default async function SinglePropertyPage({
+  params,
+}: {
   params: { lang: Locale };
-};
-
-export default async function SinglePropertyPage({ params }: Props) {
+}) {
   const dictionary = await getDictionary(params.lang);
   
   const property = properties.find(p => p.id === '1');
@@ -19,10 +19,8 @@ export default async function SinglePropertyPage({ params }: Props) {
   if (!property) {
     notFound();
   }
-
-  const propertyImages: ImagePlaceholder[] = PlaceHolderImages;
     
-  const imageUrls = propertyImages.map(p => p.imageUrl);
+  const imageUrls = PlaceHolderImages.map(p => p.imageUrl);
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -56,7 +54,6 @@ export default async function SinglePropertyPage({ params }: Props) {
       <PageClient 
         dictionary={dictionary} 
         imageUrls={imageUrls}
-        propertyImages={propertyImages} 
       />
     </>
   );

@@ -14,10 +14,9 @@ import ContactSection from './contact-section';
 interface PageClientProps {
   dictionary: Awaited<ReturnType<typeof getDictionary>>;
   imageUrls: string[];
-  propertyImages: ImagePlaceholder[];
 }
 
-export default function PageClient({ dictionary, imageUrls, propertyImages }: PageClientProps) {
+export default function PageClient({ dictionary, imageUrls }: PageClientProps) {
   const [sliderOpen, setSliderOpen] = React.useState(false);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
   const [miniGalleryIndex, setMiniGalleryIndex] = React.useState(0);

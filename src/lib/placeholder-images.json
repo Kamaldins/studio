@@ -1,109 +1,107 @@
-{
-  "placeholderImages": [
-    {
-      "id": "mezlici-9",
-      "description": "Mežlīči property exterior view",
-      "imageUrl": "https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg",
-      "imageHint": "house exterior",
-      "category": "yard"
-    },
-    {
-      "id": "mezlici-1",
-      "description": "Mežlīči property exterior with swing",
-      "imageUrl": "https://i.ibb.co/KcmJfL1n/Whats-App-Image-2025-10-25-at-16-40-16.jpg",
-      "imageHint": "house exterior",
-      "category": "yard"
-    },
-    {
-      "id": "mezlici-2",
-      "description": "Kitchen and living room area",
-      "imageUrl": "https://i.ibb.co/NgjfgHkc/Whats-App-Image-2025-10-25-at-16-40-17-1.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-3",
-      "description": "Stairs to the second floor",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-4",
-      "description": "Upstairs sleeping area",
-      "imageUrl": "https://i.ibb.co/Y4gC9R3Q/Whats-App-Image-2025-10-25-at-16-40-18-1.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-5",
-      "description": "Upstairs sleeping area full view",
-      "imageUrl": "https://i.ibb.co/5XwtGY3v/Whats-App-Image-2025-10-25-at-16-40-18-2.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-6",
-      "description": "Sauna interior",
-      "imageUrl": "https://i.ibb.co/hxtqWnNq/Whats-App-Image-2025-10-25-at-16-40-19-4.jpg",
-      "imageHint": "sauna interior",
-      "category": "sauna"
-    },
-    {
-      "id": "mezlici-7",
-      "description": "Terrace area",
-      "imageUrl": "https://i.ibb.co/d4DR596B/Whats-App-Image-2025-10-25-at-16-40-18-4.jpg",
-      "imageHint": "terrace house",
-      "category": "yard"
-    },
-    {
-      "id": "mezlici-8",
-      "description": "Hot tub view",
-      "imageUrl": "https://i.ibb.co/gZMBL05C/Whats-App-Image-2025-10-25-at-16-40-18-5.jpg",
-      "imageHint": "hot tub",
-      "category": "yard"
-    },
-    {
-      "id": "mezlici-10",
-      "description": "View from the river",
-      "imageUrl": "https://i.ibb.co/tp1yRWNX/Whats-App-Image-2025-10-25-at-16-40-19-1.jpg",
-      "imageHint": "river view",
-      "category": "yard"
-    },
-    {
-      "id": "mezlici-11",
-      "description": "Second floor resting area",
-      "imageUrl": "https://i.ibb.co/GQyfN4LS/Whats-App-Image-2025-10-25-at-16-40-19-2.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-12",
-      "description": "Sauna anteroom",
-      "imageUrl": "https://i.ibb.co/fVr4nwTP/Whats-App-Image-2025-10-25-at-16-40-18-3.jpg",
-      "imageHint": "sauna interior",
-      "category": "sauna"
-    },
-    {
-      "id": "mezlici-13",
-      "description": "Living room area",
-      "imageUrl": "https://i.ibb.co/XxTn4dsr/Whats-App-Image-2025-10-25-at-16-40-19-3.jpg",
-      "imageHint": "house interior",
-      "category": "house"
-    },
-    {
-      "id": "mezlici-14",
-      "description": "Sauna view from outside",
-      "imageUrl": "https://i.ibb.co/4wzDncbR/Whats-App-Image-2025-10-25-at-16-40-19-5.jpg",
-      "imageHint": "sauna exterior",
-      "category": "sauna"
-    },
-    {
-      "id": "mezlici-15",
-      "description": "House exterior view from the side",
-      "imageUrl": "https://i.ibb.co/hxztcMBq/Whats-App-Image-2025-10-25-at-16-40-19.jpg",
-      "imageHint": "house exterior",
-      "category": "yard"
-    }
-  ]
-}
+[
+  {
+    "id": "mezlici-9",
+    "description": "Mežlīči property exterior view",
+    "imageUrl": "https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg",
+    "imageHint": "house exterior",
+    "category": "yard"
+  },
+  {
+    "id": "mezlici-1",
+    "description": "Mežlīči property exterior with swing",
+    "imageUrl": "https://i.ibb.co/KcmJfL1n/Whats-App-Image-2025-10-25-at-16-40-16.jpg",
+    "imageHint": "house exterior",
+    "category": "yard"
+  },
+  {
+    "id": "mezlici-2",
+    "description": "Kitchen and living room area",
+    "imageUrl": "https://i.ibb.co/NgjfgHkc/Whats-App-Image-2025-10-25-at-16-40-17-1.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-3",
+    "description": "Stairs to the second floor",
+    "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-4",
+    "description": "Upstairs sleeping area",
+    "imageUrl": "https://i.ibb.co/Y4gC9R3Q/Whats-App-Image-2025-10-25-at-16-40-18-1.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-5",
+    "description": "Upstairs sleeping area full view",
+    "imageUrl": "https://i.ibb.co/5XwtGY3v/Whats-App-Image-2025-10-25-at-16-40-18-2.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-6",
+    "description": "Sauna interior",
+    "imageUrl": "https://i.ibb.co/hxtqWnNq/Whats-App-Image-2025-10-25-at-16-40-19-4.jpg",
+    "imageHint": "sauna interior",
+    "category": "sauna"
+  },
+  {
+    "id": "mezlici-7",
+    "description": "Terrace area",
+    "imageUrl": "https://i.ibb.co/d4DR596B/Whats-App-Image-2025-10-25-at-16-40-18-4.jpg",
+    "imageHint": "terrace house",
+    "category": "yard"
+  },
+  {
+    "id": "mezlici-8",
+    "description": "Hot tub view",
+    "imageUrl": "https://i.ibb.co/gZMBL05C/Whats-App-Image-2025-10-25-at-16-40-18-5.jpg",
+    "imageHint": "hot tub",
+    "category": "yard"
+  },
+  {
+    "id": "mezlici-10",
+    "description": "View from the river",
+    "imageUrl": "https://i.ibb.co/tp1yRWNX/Whats-App-Image-2025-10-25-at-16-40-19-1.jpg",
+    "imageHint": "river view",
+    "category": "yard"
+  },
+  {
+    "id": "mezlici-11",
+    "description": "Second floor resting area",
+    "imageUrl": "https://i.ibb.co/GQyfN4LS/Whats-App-Image-2025-10-25-at-16-40-19-2.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-12",
+    "description": "Sauna anteroom",
+    "imageUrl": "https://i.ibb.co/fVr4nwTP/Whats-App-Image-2025-10-25-at-16-40-18-3.jpg",
+    "imageHint": "sauna interior",
+    "category": "sauna"
+  },
+  {
+    "id": "mezlici-13",
+    "description": "Living room area",
+    "imageUrl": "https://i.ibb.co/XxTn4dsr/Whats-App-Image-2025-10-25-at-16-40-19-3.jpg",
+    "imageHint": "house interior",
+    "category": "house"
+  },
+  {
+    "id": "mezlici-14",
+    "description": "Sauna view from outside",
+    "imageUrl": "https://i.ibb.co/4wzDncbR/Whats-App-Image-2025-10-25-at-16-40-19-5.jpg",
+    "imageHint": "sauna exterior",
+    "category": "sauna"
+  },
+  {
+    "id": "mezlici-15",
+    "description": "House exterior view from the side",
+    "imageUrl": "https://i.ibb.co/hxztcMBq/Whats-App-Image-2025-10-25-at-16-40-19.jpg",
+    "imageHint": "house exterior",
+    "category": "yard"
+  }
+]
