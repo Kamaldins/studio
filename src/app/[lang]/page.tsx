@@ -20,9 +20,7 @@ export default async function SinglePropertyPage({ params }: Props) {
     notFound();
   }
 
-  const propertyImages: ImagePlaceholder[] = property.images
-    .map(id => PlaceHolderImages.find(p => p.id === id))
-    .filter((p): p is ImagePlaceholder => !!p);
+  const propertyImages: ImagePlaceholder[] = PlaceHolderImages;
     
   const imageUrls = propertyImages.map(p => p.imageUrl);
 
