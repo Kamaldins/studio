@@ -5,6 +5,11 @@ import HeroSection from './hero-section';
 import ImageSliderModal from './lightbox';
 import type { getDictionary } from '@/lib/get-dictionary';
 import type { ImagePlaceholder } from '@/lib/placeholder-images';
+import AboutSection from './about-section';
+import CalendarSection from './calendar-section';
+import MapSection from './map-section';
+import InfoSection from './info-section';
+import ContactSection from './contact-section';
 
 interface PageClientProps {
   dictionary: Awaited<ReturnType<typeof getDictionary>>;
@@ -41,15 +46,31 @@ export default function PageClient({ dictionary, imageUrls, propertyImages }: Pa
   };
 
   return (
-    <div className="space-y-12">
-      <HeroSection
-        dictionary={dictionary.hero}
-        images={imageUrls}
-        openSlider={openSlider}
-        miniGalleryIndex={miniGalleryIndex}
-        nextMiniGallery={nextMiniGallery}
-        prevMiniGallery={prevMiniGallery}
-      />
+    <>
+      <div className="space-y-12">
+        <HeroSection
+          dictionary={dictionary.hero}
+          images={imageUrls}
+          openSlider={openSlider}
+          miniGalleryIndex={miniGalleryIndex}
+          nextMiniGallery={nextMiniGallery}
+          prevMiniGallery={prevMiniGallery}
+        />
+      </div>
+
+      <div id="about">
+        <AboutSection dictionary={dictionary.about} />
+      </div>
+      <div id="calendar">
+        <CalendarSection dictionary={dictionary.calendar} />
+      </div>
+      <div id="map">
+        <MapSection dictionary={dictionary.map} />
+      </div>
+      <InfoSection dictionary={dictionary.info} />
+      <div id="contact">
+        <ContactSection dictionary={dictionary.contact} />
+      </div>
 
       <ImageSliderModal
         isOpen={sliderOpen}
@@ -57,6 +78,6 @@ export default function PageClient({ dictionary, imageUrls, propertyImages }: Pa
         images={imageUrls}
         startIndex={currentImageIndex}
       />
-    </div>
+    </>
   );
 }
