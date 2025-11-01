@@ -1,7 +1,7 @@
 
 import * as React from 'react';
 import { notFound } from 'next/navigation';
-import { properties } from '@/lib/data';
+import { properties, MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
 import { PlaceHolderImages, type ImagePlaceholder } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import { type Locale } from '@/i18n-config';
@@ -29,8 +29,35 @@ export default async function SinglePropertyPage({ params }: Props) {
     
   const imageUrls = propertyImages.map(p => p.imageUrl);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'LocalBusiness',
+    name: dictionary.meta.title,
+    description: dictionary.meta.description,
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: MEZLICI_ADDRESS,
+      addressLocality: 'Tomes pagasts',
+      addressRegion: 'Ogres novads',
+      addressCountry: 'LV'
+    },
+    geo: {
+      '@type': 'GeoCoordinates',
+      latitude: MEZLICI_COORDINATES.split(',')[0],
+      longitude: MEZLICI_COORDINATES.split(',')[1]
+    },
+    image: imageUrls,
+    telephone: '+37129294621',
+    priceRange: '€€',
+    url: `https://mezlici.lv/${params.lang}`,
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <PageClient 
         dictionary={dictionary} 
         imageUrls={imageUrls}
