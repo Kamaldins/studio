@@ -6,9 +6,11 @@ export const dictionary = {
     description: 'A quiet place in the forest by the Daugava river to relax and rejuvenate',
   },
   navigation: {
+    home: 'Home',
+    about: 'About',
     photos: 'Photos',
     prices: 'Prices',
-    map: 'Map',
+    location: 'Location',
     calendar: 'Calendar',
     contact: 'Contact',
   },

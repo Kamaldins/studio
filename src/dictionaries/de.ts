@@ -6,9 +6,11 @@ export const dictionary = {
     description: 'Ein ruhiger Ort im Wald am Fluss Daugava zum Entspannen und Erholen',
   },
   navigation: {
+    home: 'Startseite',
+    about: 'Über uns',
     photos: 'Fotos',
     prices: 'Preise',
-    map: 'Karte',
+    location: 'Standort',
     calendar: 'Kalender',
     contact: 'Kontakt',
   },

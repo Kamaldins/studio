@@ -6,9 +6,11 @@ export const dictionary = {
     description: 'Klusa vieta mežā pie Daugavas, kur atgūt spēkus un relaksēties',
   },
   navigation: {
+    home: 'Sākums',
+    about: 'Par mums',
     photos: 'Foto',
     prices: 'Cenas',
-    map: 'Karte',
+    location: 'Atrašanās vieta',
     calendar: 'Kalendārs',
     contact: 'Saziņa',
   },

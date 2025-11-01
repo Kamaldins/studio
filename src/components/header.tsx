@@ -1,9 +1,8 @@
-
 'use client';
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Euro, Navigation as NavigationIcon, Moon, Sun, Phone, Calendar, Globe, Menu } from 'lucide-react';
+import { Camera, Euro, Navigation as NavigationIcon, Moon, Sun, Phone, Calendar, Globe, Menu, Info, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -38,22 +37,23 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   };
 
   const navLinksConfig = [
+    { href: '/', icon: Home, label: dictionary.navigation.home, isNextLink: true },
+    { href: '/about', icon: Info, label: dictionary.navigation.about, isNextLink: true },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.photos, isNextLink: true },
-    { href: '#cenas', icon: Euro, label: dictionary.navigation.prices },
-    { href: '#objekti', icon: NavigationIcon, label: dictionary.navigation.map },
-    { href: '#kalendars', icon: Calendar, label: dictionary.navigation.calendar },
-    { href: '#sazinities', icon: Phone, label: dictionary.navigation.contact },
+    { href: '/pricing', icon: Euro, label: dictionary.navigation.prices, isNextLink: true },
+    { href: '/location', icon: NavigationIcon, label: dictionary.navigation.location, isNextLink: true },
+    { href: '/contact', icon: Phone, label: dictionary.navigation.contact, isNextLink: true },
   ];
 
   const NavLink = ({ href, icon: Icon, label, isMobile = false, isNextLink = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean, isNextLink?: boolean }) => {
-    const Component = isMobile ? SheetClose : 'a';
     const LinkComponent = isNextLink ? Link : 'a';
+    const fullHref = href.startsWith('/') ? `/${lang}${href}` : href;
 
     if (isMobile) {
       return (
         <SheetClose asChild>
           <LinkComponent
-            href={href.startsWith('/') ? `/${lang}${href}` : href}
+            href={fullHref}
             className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
           >
             <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
@@ -65,7 +65,7 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
 
     return (
       <LinkComponent
-        href={href.startsWith('/') ? `/${lang}${href}` : href}
+        href={fullHref}
         className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
       >
         <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />

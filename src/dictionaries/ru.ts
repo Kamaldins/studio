@@ -6,9 +6,11 @@ export const dictionary = {
     description: 'Тихое место в лесу у реки Даугава для отдыха и восстановления сил',
   },
   navigation: {
+    home: 'Главная',
+    about: 'О нас',
     photos: 'Фото',
     prices: 'Цены',
-    map: 'Карта',
+    location: 'Местоположение',
     calendar: 'Календарь',
     contact: 'Контакты',
   },
