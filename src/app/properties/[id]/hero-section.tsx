@@ -56,7 +56,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
 
         {mainImage && (
           <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
-            <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden">
+            <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(0)}>
                <Image
                   src={mainImage}
                   alt="Brīvdienu māja Mežlīči"
@@ -68,7 +68,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <Button 
                   variant="secondary"
-                  onClick={() => openSlider(0)}
+                  onClick={(e) => { e.stopPropagation(); openSlider(0); }}
                   className="absolute top-4 right-4 bg-background/80 backdrop-blur-sm hover:bg-background"
                 >
                   <Camera className="w-4 h-4 mr-2" /> FOTO
