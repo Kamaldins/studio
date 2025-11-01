@@ -8,6 +8,7 @@ interface SiteFooterProps {
     privacy: string;
     owner: string;
     cookies: string;
+    developedBy: string;
   }
 }
 
@@ -39,8 +40,19 @@ export function SiteFooter({ dictionary }: SiteFooterProps) {
           </div>
         </div>
         
-        <div className="mt-4 border-t pt-4 text-center">
-          <p className="text-xs text-muted-foreground/80">
+        <div className="mt-6 border-t pt-6 text-center">
+          <p className="text-sm text-muted-foreground">
+            {dictionary.developedBy}{' '}
+            <a 
+              href="https://kamaltek.com" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="font-semibold text-primary hover:underline"
+            >
+              Kamaltek
+            </a>
+          </p>
+          <p className="mt-2 text-xs text-muted-foreground/80">
             {dictionary.cookies}
           </p>
         </div>

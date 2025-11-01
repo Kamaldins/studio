@@ -113,7 +113,8 @@ export const dictionary = {
     rights: 'All rights reserved',
     privacy: 'Privacy Policy',
     owner: 'Owner: Andrejs',
-    cookies: 'This site uses cookies for a better user experience and functionality'
+    cookies: 'This site uses cookies for a better user experience and functionality',
+    developedBy: 'Website developed by'
   },
   theme: {
     light: 'Light',

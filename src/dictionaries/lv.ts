@@ -113,7 +113,8 @@ export const dictionary = {
     rights: 'Visas tiesības aizsargātas',
     privacy: 'Privātuma politika',
     owner: 'Saimnieks: Andrejs',
-    cookies: 'Šī vietne izmanto sīkdatnes labākai lietošanas pieredzei un funkcionalitātei'
+    cookies: 'Šī vietne izmanto sīkdatnes labākai lietošanas pieredzei un funkcionalitātei',
+    developedBy: 'Mājaslapu izstrādāja'
   },
   theme: {
     light: 'Gaišs',

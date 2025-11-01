@@ -113,7 +113,8 @@ export const dictionary = {
     rights: 'Alle Rechte vorbehalten',
     privacy: 'Datenschutzrichtlinie',
     owner: 'Eigentümer: Andrejs',
-    cookies: 'Diese Website verwendet Cookies für eine bessere Benutzererfahrung und Funktionalität'
+    cookies: 'Diese Website verwendet Cookies für eine bessere Benutzererfahrung und Funktionalität',
+    developedBy: 'Webseite entwickelt von'
   },
   theme: {
     light: 'Hell',
