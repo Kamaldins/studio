@@ -1,6 +1,5 @@
 
 import * as React from 'react';
-import { notFound } from 'next/navigation';
 import { MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
