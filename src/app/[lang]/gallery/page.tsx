@@ -7,7 +7,6 @@ import PageClient from './page-client';
 
 export default async function GalleryPage({
   params,
-  searchParams,
 }: {
   params: { lang: Locale };
   searchParams: { [key: string]: string | string[] | undefined };
