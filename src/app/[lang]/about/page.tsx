@@ -13,7 +13,7 @@ export default async function AboutPage({ params }: Props) {
 
   return (
     <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
-      <section id="par" className="space-y-12 py-12 px-4">
+      <section className="space-y-12 py-12 px-4">
         <h1 className="font-headline text-5xl font-bold text-center">{dictionary.about.title}</h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 text-lg max-w-4xl mx-auto text-muted-foreground">

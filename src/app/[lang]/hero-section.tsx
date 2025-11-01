@@ -48,7 +48,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
 
   return (
-    <section id="foto" className="pt-24 md:pt-32 pb-4 sm:pb-8">
+    <section className="pt-24 md:pt-32 pb-4 sm:pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 lg:mb-12">
            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">

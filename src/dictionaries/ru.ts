@@ -134,5 +134,3 @@ locales: {
     buttonText: 'На главную'
   }
 };
-
-    

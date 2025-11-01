@@ -134,5 +134,3 @@ export const dictionary = {
     buttonText: 'Zur Startseite'
   }
 };
-
-    

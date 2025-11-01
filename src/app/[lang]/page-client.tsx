@@ -41,7 +41,7 @@ export default function PageClient({ dictionary, imageUrls, propertyImages }: Pa
   };
 
   return (
-    <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 space-y-12">
+    <div className="space-y-12">
       <HeroSection
         dictionary={dictionary.hero}
         images={imageUrls}

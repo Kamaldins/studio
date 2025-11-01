@@ -4,10 +4,10 @@ import * as React from 'react';
 import Image from 'next/image';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Button } from '@/components/ui/button';
-import { Camera, Check, MapPin, Navigation } from 'lucide-react';
+import { Camera, Check } from 'lucide-react';
 import ImageSliderModal from '../lightbox';
 import type { getDictionary } from '@/lib/get-dictionary';
-import type { ImagePlaceholder, ImageCategory } from '@/lib/placeholder-images';
+import type { ImagePlaceholder } from '@/lib/placeholder-images';
 import MapSection from '../map-component';
 
 interface PageClientProps {
@@ -18,7 +18,6 @@ interface PageClientProps {
 export default function GalleryClient({ dictionary, propertyImages }: PageClientProps) {
   const [sliderOpen, setSliderOpen] = React.useState(false);
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
-  const [activeTab, setActiveTab] = React.useState<string>('photos');
 
   const openSlider = (index: number) => {
     setCurrentImageIndex(index);
@@ -51,7 +50,7 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
         </p>
       </div>
 
-      <Tabs defaultValue="photos" onValueChange={(value) => setActiveTab(value)} className="w-full">
+      <Tabs defaultValue="photos" className="w-full">
         <TabsList className="mb-8 grid w-full grid-cols-2 sm:grid-cols-4">
             {categories.map(category => (
                  <TabsTrigger key={category.id} value={category.id}>{category.name}</TabsTrigger>
@@ -90,7 +89,7 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
               <p className="mt-2 text-lg text-muted-foreground">{dictionary.sauna.subtitle}</p>
             </div>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
-              {saunaImages.slice(0, 2).map((image, index) => (
+              {saunaImages.slice(0, 2).map((image) => (
                 <div key={image.id} className="group relative aspect-video w-full overflow-hidden rounded-xl">
                   <Image
                     src={image.imageUrl}
@@ -165,4 +164,3 @@ export default function GalleryClient({ dictionary, propertyImages }: PageClient
     </div>
   );
 }
-    
