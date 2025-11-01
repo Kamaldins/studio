@@ -59,6 +59,12 @@
       "description": "A mobile wooden hot tub with a red cover, sitting on a trailer.",
       "imageUrl": "https://images.unsplash.com/photo-1668461363398-1fd41bf2ca79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aG90JTIwdHVifGVufDB8fHx8MTc2MTk2MzA4NXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hot tub"
+    },
+    {
+      "id": "new-local-image",
+      "description": "A beautiful view from the property.",
+      "imageUrl": "/images/0676a997-e82b-457f-a538-81bf93aebb79.png",
+      "imageHint": "property view"
     }
   ]
 }
