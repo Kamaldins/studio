@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Euro, Navigation as NavigationIcon, Moon, Sun, Phone, Calendar, Globe } from 'lucide-react';
+import { Camera, Euro, Navigation as NavigationIcon, Moon, Sun, Phone, Calendar, Globe, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -14,6 +14,8 @@ import {
 import { usePathname, useRouter } from 'next/navigation';
 import { i18n, type Locale } from '@/i18n-config';
 import { type getDictionary } from '@/lib/get-dictionary';
+import { useIsMobile } from '@/hooks/use-mobile';
+import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
 
 interface SiteHeaderProps {
   lang: Locale;
@@ -24,6 +26,8 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
   const { setTheme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
+  const isMobile = useIsMobile();
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   const redirectedPathName = (locale: Locale) => {
     if (!pathname) return '/';
@@ -38,31 +42,63 @@ export function SiteHeader({ lang, dictionary }: SiteHeaderProps) {
     { href: '#objekti', icon: NavigationIcon, label: dictionary.navigation.map },
     { href: '#kalendars', icon: Calendar, label: dictionary.navigation.calendar },
     { href: '#sazinities', icon: Phone, label: dictionary.navigation.contact },
-];
+  ];
 
-  const NavLink = ({ href, icon: Icon, label }: { href: string; icon: React.ElementType; label: string }) => (
-    <a
-      href={href}
-      className="group flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
-    >
-      <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
-      {label}
-    </a>
+  const NavLink = ({ href, icon: Icon, label, isMobile = false }: { href: string; icon: React.ElementType; label: string, isMobile?: boolean }) => {
+    const Component = isMobile ? SheetClose : 'a';
+    return (
+      <Component
+        href={href}
+        className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
+        onClick={() => isMobile && setIsSheetOpen(false)}
+      >
+        <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
+        {label}
+      </Component>
+    );
+  }
+
+  const renderNavLinks = (isMobile = false) => (
+    <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-4 lg:gap-6 md:flex"}>
+       <a href={`/${lang}`} className="mr-6 flex items-center space-x-2">
+            <span className="font-bold sm:inline-block">
+              {dictionary.siteName}
+            </span>
+          </a>
+      {!isMobile && navLinksConfig.map(link => (
+        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} />
+      ))}
+      {isMobile && navLinksConfig.map(link => (
+        <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} isMobile />
+      ))}
+    </nav>
   );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
-        <nav className="flex items-center gap-4 lg:gap-6">
-          <a href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-            <span className="font-bold sm:inline-block">
-              {dictionary.siteName}
-            </span>
-          </a>
-          {navLinksConfig.map(link => (
-            <NavLink key={link.href} href={link.href} icon={link.icon} label={link.label} />
-          ))}
-        </nav>
+        {isMobile ? (
+          <>
+            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
+                  <span className="sr-only">Open menu</span>
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left">
+                {renderNavLinks(true)}
+              </SheetContent>
+            </Sheet>
+             <a href={`/${lang}`} className="ml-4 flex items-center space-x-2">
+                <span className="font-bold">
+                {dictionary.siteName}
+                </span>
+            </a>
+          </>
+        ) : (
+          renderNavLinks()
+        )}
         <div className="flex flex-1 items-center justify-end space-x-2">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
