@@ -107,10 +107,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                     className="object-cover rounded-xl sm:rounded-2xl shadow-lg transition-all duration-300 border-2 border-transparent group-hover:border-primary group-hover:shadow-primary/30 group-hover:shadow-2xl"
                     sizes="15vw"
                   />
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center">
-                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary transition-all duration-300"></div>
-                     <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-300 rounded-xl sm:rounded-2xl"></div>
-                  </div>
+                  <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary transition-all duration-300"></div>
                 </button>
               ))}
             </div>
