@@ -8,7 +8,7 @@ import { type Locale } from '@/i18n-config';
 import PageClient from './page-client';
 import InfoSection from './info-section';
 import ContactSection from './contact-section';
-import AboutPage from './about/page';
+import AboutSection from './about-section';
 
 type Props = {
   params: { lang: Locale };
@@ -34,7 +34,7 @@ export default async function SinglePropertyPage({ params }: Props) {
         imageUrls={imageUrls}
         propertyImages={propertyImages} 
       />
-      <AboutPage params={params} />
+      <AboutSection dictionary={dictionary.about} />
       <InfoSection dictionary={dictionary.info} />
       <ContactSection dictionary={dictionary.contact} />
     </>
