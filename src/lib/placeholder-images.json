@@ -1,69 +1,93 @@
 {
   "placeholderImages": [
     {
-      "id": "cabin-1",
-      "description": "Exterior of a modern wooden cabin by a lake, surrounded by trees.",
+      "id": "mezlici-1",
+      "description": "Mežlīči property view 1",
+      "imageUrl": "https://i.ibb.co/KcmJfL1n/Whats-App-Image-2025-10-25-at-16-40-16.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-2",
+      "description": "Mežlīči property view 2",
+      "imageUrl": "https://i.ibb.co/NgjfgHkc/Whats-App-Image-2025-10-25-at-16-40-17-1.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-3",
+      "description": "Mežlīči property view 3",
+      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-4",
+      "description": "Mežlīči property view 4",
+      "imageUrl": "https://i.ibb.co/Y4gC9R3Q/Whats-App-Image-2025-10-25-at-16-40-18-1.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-5",
+      "description": "Mežlīči property view 5",
+      "imageUrl": "https://i.ibb.co/5XwtGY3v/Whats-App-Image-2025-10-25-at-16-40-18-2.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-6",
+      "description": "Mežlīči property view 6",
+      "imageUrl": "https://i.ibb.co/fVr4nwTP/Whats-App-Image-2025-10-25-at-16-40-18-3.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-7",
+      "description": "Mežlīči property view 7",
+      "imageUrl": "https://i.ibb.co/d4DR596B/Whats-App-Image-2025-10-25-at-16-40-18-4.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-8",
+      "description": "Mežlīči property view 8",
+      "imageUrl": "https://i.ibb.co/gZMBL05C/Whats-App-Image-2025-10-25-at-16-40-18-5.jpg",
+      "imageHint": "property view"
+    },
+    {
+      "id": "mezlici-9",
+      "description": "Mežlīči property view 9",
       "imageUrl": "https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg",
-      "imageHint": "property exterior"
+      "imageHint": "property view"
     },
     {
-      "id": "cabin-2",
-      "description": "Interior of the cabin's living room with a cozy fireplace and large windows overlooking the lake.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "cozy interior"
+      "id": "mezlici-10",
+      "description": "Mežlīči property view 10",
+      "imageUrl": "https://i.ibb.co/tp1yRWNX/Whats-App-Image-2025-10-25-at-16-40-19-1.jpg",
+      "imageHint": "property view"
     },
     {
-      "id": "cabin-3",
-      "description": "Bedroom of the cabin with a large bed and a view of the forest.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "rustic bedroom"
+      "id": "mezlici-11",
+      "description": "Mežlīči property view 11",
+      "imageUrl": "https://i.ibb.co/GQyfN4LS/Whats-App-Image-2025-10-25-at-16-40-19-2.jpg",
+      "imageHint": "property view"
     },
     {
-      "id": "cabin-4",
-      "description": "A wooden deck with two chairs looking out over the calm lake at sunrise.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "lake deck"
+      "id": "mezlici-12",
+      "description": "Mežlīči property view 12",
+      "imageUrl": "https://i.ibb.co/XxTn4dsr/Whats-App-Image-2025-10-25-at-16-40-19-3.jpg",
+      "imageHint": "property view"
     },
     {
-      "id": "forest-1",
-      "description": "A large, modern house nestled in a dense pine forest.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "forest path"
+      "id": "mezlici-13",
+      "description": "Mežlīči property view 13",
+      "imageUrl": "https://i.ibb.co/hxtqWnNq/Whats-App-Image-2025-10-25-at-16-40-19-4.jpg",
+      "imageHint": "property view"
     },
     {
-      "id": "forest-2",
-      "description": "The spacious living room of the forest house with high ceilings and a minimalist design.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "modern living"
+      "id": "mezlici-14",
+      "description": "Mežlīči property view 14",
+      "imageUrl": "https://i.ibb.co/4wzDncbR/Whats-App-Image-2025-10-25-at-16-40-19-5.jpg",
+      "imageHint": "property view"
     },
     {
-      "id": "forest-3",
-      "description": "A wooden sauna with a traditional stove inside the forest house.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "modern sauna"
-    },
-    {
-      "id": "forest-4",
-      "description": "A large outdoor terrace with a dining table surrounded by tall pine trees.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "aerial forest"
-    },
-    {
-      "id": "villa-1",
-      "description": "A sleek, white modern villa with large glass windows and a view of the sea.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
-      "imageHint": "hot tub"
-    },
-    {
-      "id": "hot-tub-1",
-      "description": "A mobile wooden hot tub with a red cover, sitting on a trailer.",
-      "imageUrl": "https://i.ibb.co/VvzS1z9/hot-tub-1.jpg",
-      "imageHint": "hot tub"
-    },
-    {
-      "id": "new-local-image",
-      "description": "A beautiful view from the property.",
-      "imageUrl": "https://i.ibb.co/4gZrSHzK/Whats-App-Image-2025-10-25-at-16-40-17.jpg",
+      "id": "mezlici-15",
+      "description": "Mežlīči property view 15",
+      "imageUrl": "https://i.ibb.co/hxztcMBq/Whats-App-Image-2025-10-25-at-16-40-19.jpg",
       "imageHint": "property view"
     }
   ]
