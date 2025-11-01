@@ -13,9 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    // The lang prop will be picked up by the [lang]/layout.tsx
     <html className="scroll-smooth" suppressHydrationWarning>
-      <body>{children}</body>
+      {children}
     </html>
   );
 }
