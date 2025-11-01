@@ -21,6 +21,11 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
     const startIndex = miniGalleryIndex;
     const visibleImages = [];
     
+    // Ensure there are images to display
+    if (images.length === 0) {
+      return [];
+    }
+    
     for (let i = 0; i < visibleCount; i++) {
       const index = (startIndex + i) % images.length;
       visibleImages.push({ image: images[index], originalIndex: index });
@@ -43,30 +48,12 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
             </p>
         </div>
         
-        <div className="relative max-w-5xl mx-auto mb-6 sm:mb-8">
-          <div className="relative group cursor-pointer" onClick={() => openSlider(0)}>
-            <div className="aspect-w-16 aspect-h-9 relative overflow-hidden rounded-2xl shadow-xl border border-slate-700/50">
-                <Image 
-                src={images[0]}
-                alt="Mežlīči brīvdienu māja"
-                fill
-                className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-                priority
-                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1024px"
-                />
-            </div>
-            <div className="absolute top-2 sm:top-4 right-2 sm:right-4 bg-primary/80 hover:bg-primary text-primary-foreground px-2 sm:px-3 py-1 sm:py-2 rounded-full text-xs sm:text-sm font-bold flex items-center gap-1 sm:gap-2 shadow-lg transition-all duration-300 hover:scale-110 group-hover:bg-primary">
-              <Camera size={isMobile ? 12 : 16} className="group-hover:rotate-12 transition-transform duration-300" />
-              <span>FOTO</span>
-            </div>
-          </div>
-        </div>
-
         <div className="max-w-6xl mx-auto mb-4 sm:mb-8 px-4 sm:px-0">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             <button
               onClick={prevMiniGallery}
-              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700"
+              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={images.length <= 6}
             >
               <ChevronLeft size={isMobile ? 16 : 20} />
             </button>
@@ -86,9 +73,9 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
                     sizes="15vw"
                   />
                   <div className="absolute inset-0 bg-black/40 group-hover:bg-transparent rounded-xl sm:rounded-2xl transition-all duration-300 flex items-center justify-center">
-                    <div className="text-white font-bold text-xs opacity-0 group-hover:opacity-100 group-hover:scale-125 transition-all duration-300">
-                      #{item.originalIndex + 1}
-                    </div>
+                     <div className="absolute inset-0 rounded-xl sm:rounded-2xl ring-1 ring-inset ring-transparent group-hover:ring-primary transition-all duration-300"></div>
+                     <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all duration-300 rounded-xl sm:rounded-2xl"></div>
+                     <Camera className="w-6 h-6 text-white/50 opacity-0 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300" />
                   </div>
                 </button>
               ))}
@@ -96,7 +83,8 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
             
             <button
               onClick={nextMiniGallery}
-              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700"
+              className="flex-shrink-0 bg-slate-800/90 hover:bg-slate-700 text-slate-200 p-2 sm:p-3 rounded-full shadow-xl transition-all duration-300 hover:scale-110 active:scale-95 border border-slate-700 disabled:opacity-50 disabled:cursor-not-allowed"
+              disabled={images.length <= 6}
             >
               <ChevronRight size={isMobile ? 16 : 20} />
             </button>
@@ -108,4 +96,3 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
 };
 
 export default HeroSection;
-
