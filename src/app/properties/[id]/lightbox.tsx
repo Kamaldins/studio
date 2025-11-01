@@ -35,7 +35,7 @@ const Thumb: React.FC<ThumbProps> = ({ selected, imgSrc, onClick }) => {
             selected ? 'ring-2 ring-primary' : ''
           )}
         />
-      </button>d
+      </button>
     </div>
   );
 };
@@ -117,7 +117,7 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
 
   return (
     <div 
-      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/90 p-4 backdrop-blur-md" 
+      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/80 p-4 backdrop-blur-md" 
       onClick={onClose}
     >
       <button 
