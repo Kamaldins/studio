@@ -92,8 +92,14 @@ const ImageSliderModal: React.FC<ImageSliderModalProps> = ({
 
   useEffect(() => {
     if (isOpen) {
+      document.body.style.overflow = 'hidden';
       mainApi?.scrollTo(startIndex, true);
+    } else {
+      document.body.style.overflow = 'auto';
     }
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
   }, [isOpen, startIndex, mainApi]);
   
   const scrollPrev = useCallback(() => mainApi && mainApi.scrollPrev(), [mainApi]);
