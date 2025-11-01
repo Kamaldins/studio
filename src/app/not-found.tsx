@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react';
 import { usePathname, redirect } from 'next/navigation';
-import { i18n } from '@/i18n-config';
+import { i18n, type Locale } from '@/i18n-config';
 import Negotiator from 'negotiator';
 import { match as matchLocale } from '@formatjs/intl-localematcher';
 
