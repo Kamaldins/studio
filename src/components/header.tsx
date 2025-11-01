@@ -5,6 +5,7 @@ import * as React from 'react';
 import { useTheme } from 'next-themes';
 import { Camera, Euro, Navigation as NavigationIcon, Moon, Sun, Phone, Calendar } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from '@/components/ui/button';
 
 export function SiteHeader() {
   const { theme, setTheme } = useTheme();
@@ -18,72 +19,46 @@ export function SiteHeader() {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   };
 
-  const isDarkMode = theme === 'dark';
-
-  if (!mounted) {
-    return (
-      <header className="fixed top-4 sm:top-6 z-50 w-full px-4">
-        <div className="container mx-auto flex h-14 max-w-lg items-center justify-center">
-          <div className="flex items-center justify-between gap-4 rounded-full border bg-card/80 p-2 backdrop-blur-sm shadow-xl w-full">
-            <div className="flex-1 h-8 bg-muted rounded-full animate-pulse"></div>
-          </div>
-        </div>
-      </header>
-    );
-  }
+  const NavLink = ({ href, icon: Icon, label }: { href: string; icon: React.ElementType; label: string }) => (
+    <a
+      href={href}
+      className="group flex items-center gap-2 px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+    >
+      <Icon className="h-4 w-4 transition-transform group-hover:scale-110" />
+      {label}
+    </a>
+  );
 
   return (
-    <header className="fixed top-2 sm:top-4 lg:top-6 w-full px-4 z-50">
-      <div className="container mx-auto flex h-14 items-center justify-center">
-        <nav className={cn(
-          "bg-slate-900/80 backdrop-blur-md rounded-full shadow-lg px-3 py-2 z-50 flex items-center gap-2",
-          "border border-slate-700/50 transition-all duration-300"
-        )}>
-          <div className="flex gap-2 text-sm font-medium">
-            <a href="#foto" className="group flex items-center gap-1 text-slate-300 hover:text-primary transition-all duration-300 transform hover:scale-105 active:scale-95 px-3 py-2 rounded-full hover:bg-primary/10">
-              <Camera size={16} className="group-hover:rotate-12 transition-transform duration-300" />
-              <span className="hidden sm:inline">FOTO</span>
-            </a>
-            <a href="#cenas" className="group flex items-center gap-1 text-slate-300 hover:text-primary transition-all duration-300 transform hover:scale-105 active:scale-95 px-3 py-2 rounded-full hover:bg-primary/10">
-              <Euro size={16} className="group-hover:rotate-12" />
-              <span className="hidden sm:inline">CENAS</span>
-            </a>
-            <a href="#objekti" className="group flex items-center gap-1 text-slate-300 hover:text-primary transition-all duration-300 transform hover:scale-105 active:scale-95 px-3 py-2 rounded-full hover:bg-primary/10">
-              <NavigationIcon size={16} className="group-hover:rotate-45" />
-              <span className="hidden sm:inline">OBJEKTI</span>
-            </a>
-          </div>
-
-          <div className="w-px h-6 bg-slate-600 mx-2"></div>
-
-          <div className="flex items-center gap-2">
-            <span className="text-xs font-medium text-slate-400 hidden lg:inline">
-              {isDarkMode ? 'Tumšs' : 'Gaišs'}
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className="container flex h-14 max-w-screen-2xl items-center">
+        <nav className="flex items-center gap-4 lg:gap-6">
+          <a href="#" className="mr-6 flex items-center space-x-2">
+            <span className="font-bold sm:inline-block">
+              Mežlīči
             </span>
-            <button
-              onClick={toggleDarkMode}
-              className={cn(
-                'relative p-1 w-12 h-7 rounded-full transition-all duration-500 transform hover:scale-110 active:scale-95 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900',
-                isDarkMode
-                  ? 'bg-indigo-600 focus:ring-indigo-500'
-                  : 'bg-amber-400 focus:ring-amber-500'
-              )}
-            >
-              <div
-                className={cn(
-                  "absolute top-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full shadow-lg transform transition-transform duration-300 flex items-center justify-center",
-                  isDarkMode ? 'translate-x-5' : 'translate-x-1'
-                )}
-              >
-                {isDarkMode ? (
-                  <Moon size={12} className="text-indigo-600" />
-                ) : (
-                  <Sun size={12} className="text-amber-500" />
-                )}
-              </div>
-            </button>
-          </div>
+          </a>
+          <NavLink href="#foto" icon={Camera} label="Foto" />
+          <NavLink href="#cenas" icon={Euro} label="Cenas" />
+          <NavLink href="#objekti" icon={NavigationIcon} label="Karte" />
+          <NavLink href="#kalendars" icon={Calendar} label="Kalendārs" />
+          <NavLink href="#sazinities" icon={Phone} label="Saziņa" />
         </nav>
+        <div className="flex flex-1 items-center justify-end space-x-4">
+          {mounted ? (
+            <Button
+              variant="ghost"
+              size="icon"
+              aria-label="Toggle Theme"
+              onClick={toggleDarkMode}
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+              <Moon className="absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+            </Button>
+          ) : (
+            <div className="h-9 w-9 animate-pulse rounded-lg bg-muted" />
+          )}
+        </div>
       </div>
     </header>
   );
