@@ -35,8 +35,7 @@ export default async function RootLayout({
   const dictionary = await getDictionary(params.lang);
 
   return (
-    <>
-      <head>
+    <div lang={params.lang} className="font-body antialiased">
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
@@ -48,24 +47,21 @@ export default async function RootLayout({
             as="image"
           />
         ))}
-      </head>
-      <body className="font-body antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <div className="relative flex min-h-dvh flex-col bg-background">
-            <SiteHeader lang={params.lang} dictionary={dictionary} />
-            <main className="flex-1">
-              {children}
-            </main>
-            <SiteFooter dictionary={dictionary.footer} />
-          </div>
-          <Toaster />
-        </ThemeProvider>
-      </body>
-    </>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem
+        disableTransitionOnChange
+      >
+        <div className="relative flex min-h-dvh flex-col bg-background">
+          <SiteHeader lang={params.lang} dictionary={dictionary} />
+          <main className="flex-1">
+            {children}
+          </main>
+          <SiteFooter dictionary={dictionary.footer} />
+        </div>
+        <Toaster />
+      </ThemeProvider>
+    </div>
   );
 }
