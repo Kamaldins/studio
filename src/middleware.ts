@@ -26,6 +26,9 @@ function getLocale(request: NextRequest): string | undefined {
 export function middleware(request: NextRequest) {
   const pathname = request.nextUrl.pathname;
   
+  const requestHeaders = new Headers(request.headers);
+  requestHeaders.set('x-next-pathname', pathname);
+
   const publicFiles = [
     '/manifest.json',
     '/favicon.ico',
@@ -35,7 +38,11 @@ export function middleware(request: NextRequest) {
 
   // Check if the request is for a public file that should be ignored
   if (publicFiles.some(file => pathname.startsWith(file))) {
-    return;
+    return NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    });
   }
 
   const pathnameIsMissingLocale = i18n.locales.every(
@@ -52,6 +59,12 @@ export function middleware(request: NextRequest) {
       )
     );
   }
+  
+  return NextResponse.next({
+    request: {
+      headers: requestHeaders,
+    },
+  });
 }
 
 export const config = {
