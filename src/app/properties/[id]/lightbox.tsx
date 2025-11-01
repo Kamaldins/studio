@@ -1,110 +1,181 @@
 
 'use client';
 
-import React from 'react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import React, { useState, useEffect, useCallback } from 'react';
+import useEmblaCarousel from 'embla-carousel-react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 import { cn } from '@/lib/utils';
 
-interface ImageSliderModalProps {
-  sliderOpen: boolean;
-  images: string[];
-  currentImageIndex: number;
-  closeSlider: () => void;
-  prevImage: () => void;
-  nextImage: () => void;
-  setCurrentImageIndex: (index: number) => void;
+interface ThumbProps {
+  selected: boolean;
+  imgSrc: string;
+  onClick: () => void;
 }
 
-const ImageSliderModal = ({ 
-  sliderOpen, 
+const Thumb: React.FC<ThumbProps> = ({ selected, imgSrc, onClick }) => {
+  return (
+    <div
+      className={cn(
+        'relative h-20 w-full flex-shrink-0 cursor-pointer overflow-hidden rounded-md transition-opacity duration-200 sm:h-24',
+        selected ? 'opacity-100' : 'opacity-50 hover:opacity-100'
+      )}
+    >
+      <button onClick={onClick} className="relative block h-full w-full">
+        <Image
+          className="object-cover"
+          src={imgSrc}
+          alt="Thumbnail"
+          fill
+          sizes="10vw"
+        />
+        <div
+          className={cn(
+            'absolute inset-0 rounded-md ring-offset-4 ring-offset-black transition-all duration-200',
+            selected ? 'ring-2 ring-primary' : ''
+          )}
+        />
+      </button>d
+    </div>
+  );
+};
+
+
+interface ImageSliderModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+  images: string[];
+  startIndex: number;
+}
+
+const ImageSliderModal: React.FC<ImageSliderModalProps> = ({ 
+  isOpen, 
+  onClose, 
   images, 
-  currentImageIndex, 
-  closeSlider, 
-  prevImage, 
-  nextImage,
-  setCurrentImageIndex 
-}: ImageSliderModalProps) => {
-  const isMobile = useIsMobile();
+  startIndex 
+}) => {
+  const [selectedIndex, setSelectedIndex] = useState(startIndex);
+  const [mainApi, setMainApi] = useState<any>();
+  const [thumbApi, setThumbApi] = useState<any>();
+
+  const [mainRef, mainApiInstance] = useEmblaCarousel({
+    loop: true,
+    startIndex,
+  });
+  const [thumbRef, thumbApiInstance] = useEmblaCarousel({
+    containScroll: 'keepSnaps',
+    dragFree: true,
+  });
+
+  const onThumbClick = useCallback((index: number) => {
+    if (!mainApi || !thumbApi) return;
+    mainApi.scrollTo(index);
+  }, [mainApi, thumbApi]);
+
+  const onSelect = useCallback(() => {
+    if (!mainApi || !thumbApi) return;
+    setSelectedIndex(mainApi.selectedScrollSnap());
+    thumbApi.scrollTo(mainApi.selectedScrollSnap());
+  }, [mainApi, thumbApi, setSelectedIndex]);
   
-  React.useEffect(() => {
+  useEffect(() => {
+    if (!mainApi) return;
+    onSelect();
+    mainApi.on('select', onSelect);
+    mainApi.on('reInit', onSelect);
+  }, [mainApi, onSelect]);
+
+  useEffect(() => {
+    if (mainApiInstance) setMainApi(mainApiInstance);
+    if (thumbApiInstance) setThumbApi(thumbApiInstance);
+  }, [mainApiInstance, thumbApiInstance]);
+
+  useEffect(() => {
+    if (isOpen) {
+      mainApi?.scrollTo(startIndex, true);
+    }
+  }, [isOpen, startIndex, mainApi]);
+  
+  const scrollPrev = useCallback(() => mainApi && mainApi.scrollPrev(), [mainApi]);
+  const scrollNext = useCallback(() => mainApi && mainApi.scrollNext(), [mainApi]);
+
+  useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeSlider();
-      if (e.key === 'ArrowRight') nextImage();
-      if (e.key === 'ArrowLeft') prevImage();
+      if (e.key === 'Escape') onClose();
+      if (e.key === 'ArrowRight') scrollNext();
+      if (e.key === 'ArrowLeft') scrollPrev();
     };
-    if (sliderOpen) {
+    if (isOpen) {
       window.addEventListener('keydown', handleKeyDown);
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [sliderOpen, closeSlider, nextImage, prevImage]);
-  
-  if (!sliderOpen) return null;
+  }, [isOpen, onClose, scrollNext, scrollPrev]);
+
+  if (!isOpen) return null;
 
   return (
     <div 
-      className="fixed inset-0 bg-black/90 flex flex-col items-center justify-center z-[100] p-4 backdrop-blur-md animate-in fade-in-0" 
-      onClick={closeSlider}
+      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/90 p-4 backdrop-blur-md" 
+      onClick={onClose}
     >
       <button 
-        onClick={(e) => { e.stopPropagation(); closeSlider(); }}
-        className="absolute top-4 right-4 text-white/70 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-90 active:scale-95 z-50"
+        onClick={(e) => { e.stopPropagation(); onClose(); }}
+        className="absolute right-4 top-4 z-50 text-white/70 transition-all duration-300 hover:scale-110 hover:rotate-90 hover:text-white active:scale-95"
       >
-        <X size={isMobile ? 28 : 32} />
+        <X size={32} />
       </button>
       
       <div 
-        className="relative w-full h-[calc(100%-120px)] flex items-center justify-center"
+        className="relative flex h-[calc(100%-120px)] w-full items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative w-full h-full max-w-6xl">
-            <Image 
-              key={currentImageIndex}
-              src={images[currentImageIndex]} 
-              alt={`Galerijas attēls ${currentImageIndex + 1}`}
-              fill
-              className="object-contain animate-in fade-in-0 duration-300"
-              sizes="100vw"
-            />
+        <div className="relative h-full w-full max-w-6xl overflow-hidden" ref={mainRef}>
+          <div className="flex h-full">
+            {images.map((src, index) => (
+              <div className="relative h-full flex-[0_0_100%] touch-pan-y" key={index}>
+                <Image 
+                  src={src} 
+                  alt={`Gallery image ${index + 1}`}
+                  fill
+                  className="object-contain"
+                  sizes="100vw"
+                />
+              </div>
+            ))}
+          </div>
         </div>
         
         <button 
-          onClick={(e) => { e.stopPropagation(); prevImage(); }}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white/80 hover:text-white p-2 sm:p-3 rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl border border-white/20"
+          onClick={(e) => { e.stopPropagation(); scrollPrev(); }}
+          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white active:scale-95 sm:left-4 sm:p-4"
         >
-          <ChevronLeft size={isMobile ? 24 : 32} />
+          <ChevronLeft size={32} />
         </button>
         <button 
-          onClick={(e) => { e.stopPropagation(); nextImage(); }}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/60 text-white/80 hover:text-white p-2 sm:p-3 rounded-full transition-all duration-300 transform hover:scale-105 active:scale-95 shadow-xl border border-white/20"
+          onClick={(e) => { e.stopPropagation(); scrollNext(); }}
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white active:scale-95 sm:right-4 sm:p-4"
         >
-          <ChevronRight size={isMobile ? 24 : 32} />
+          <ChevronRight size={32} />
         </button>
       </div>
 
-      <div className="w-full h-[100px] flex-shrink-0 mt-4 px-4">
-        <div className="max-w-xl mx-auto h-full flex items-center justify-center gap-2">
-            {images.map((image, index) => (
-                <button
-                    key={index}
-                    onClick={(e) => { e.stopPropagation(); setCurrentImageIndex(index); }}
-                    className={cn(
-                        "relative w-16 h-16 sm:w-20 sm:h-20 rounded-lg overflow-hidden transition-all duration-300 transform hover:scale-105",
-                        index === currentImageIndex ? "border-2 border-primary shadow-lg scale-105" : "border-2 border-transparent opacity-60 hover:opacity-100"
-                    )}
-                >
-                    <Image
-                        src={image}
-                        alt={`Thumbnail ${index + 1}`}
-                        fill
-                        className="object-cover"
-                        sizes="10vw"
-                    />
-                </button>
-            ))}
+      <div className="mt-4 h-[100px] w-full flex-shrink-0 px-4 sm:h-[120px]">
+        <div className="mx-auto h-full max-w-xl">
+           <div className="h-full overflow-hidden" ref={thumbRef}>
+              <div className="flex h-full items-center gap-3">
+                {images.map((src, index) => (
+                    <div className="relative flex-[0_0_25%] sm:flex-[0_0_20%]" key={index}>
+                        <Thumb
+                        onClick={() => onThumbClick(index)}
+                        selected={index === selectedIndex}
+                        imgSrc={src}
+                        />
+                    </div>
+                ))}
+              </div>
+            </div>
         </div>
       </div>
     </div>

@@ -17,7 +17,7 @@ const HeroSection = ({ images, openSlider, miniGalleryIndex, nextMiniGallery, pr
   const isMobile = useIsMobile();
   
   const getVisibleImages = () => {
-    const visibleCount = 6;
+    const visibleCount = isMobile ? 3 : 6;
     const startIndex = miniGalleryIndex;
     const visibleImages = [];
     

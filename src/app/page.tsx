@@ -49,26 +49,13 @@ export default function SinglePropertyPage() {
   };
   
   const nextMiniGallery = () => {
-    setMiniGalleryIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+    setMiniGalleryIndex((prevIndex) => (prevIndex + 1) % (imageUrls.length - 5));
   };
 
   const prevMiniGallery = () => {
-    setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
+    setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + (imageUrls.length - 5)) % (imageUrls.length - 5));
   };
 
-  React.useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (sliderOpen) {
-        if (e.key === 'Escape') closeSlider();
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
-      }
-    };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [sliderOpen, nextImage, prevImage, closeSlider]);
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4 md:px-8 space-y-12">
@@ -82,13 +69,10 @@ export default function SinglePropertyPage() {
       />
 
       <ImageSliderModal
-        sliderOpen={sliderOpen}
+        isOpen={sliderOpen}
+        onClose={closeSlider}
         images={imageUrls}
-        currentImageIndex={currentImageIndex}
-        closeSlider={closeSlider}
-        prevImage={prevImage}
-        nextImage={nextImage}
-        setCurrentImageIndex={setCurrentImageIndex}
+        startIndex={currentImageIndex}
       />
       
       <Separator className="bg-slate-700"/>
