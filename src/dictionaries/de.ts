@@ -7,11 +7,7 @@ export const dictionary = {
   },
   navigation: {
     home: 'Startseite',
-    about: 'Über uns',
     gallery: 'Galerie',
-    contact: 'Kontakt',
-    location: 'Standort',
-    calendar: 'Kalender',
   },
   hero: {
     title1: 'Ferienhaus',
@@ -134,20 +130,32 @@ export const dictionary = {
     title: 'Datenschutzrichtlinie',
     content: [
       {
-        heading: '1. Einführung',
-        text: 'Willkommen bei Mežlīči. Wir verpflichten uns, Ihre Privatsphäre zu schützen. Diese Datenschutzrichtlinie erklärt, wie wir Ihre persönlichen Daten erfassen, verwenden, offenlegen und schützen.'
+        heading: '1. Von uns erfasste Informationen',
+        text: 'Wir können personenbezogene Daten wie Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer erfassen, wenn Sie uns kontaktieren oder eine Buchung vornehmen. Wir erfassen auch automatisch nicht personenbezogene Informationen wie Ihre IP-Adresse und Ihren Browsertyp über unsere Webserver-Protokolle.'
       },
       {
-        heading: '2. Datenerfassung',
-        text: 'Wir erfassen möglicherweise personenbezogene Daten von Ihnen, wie z. B. Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer, wenn Sie eine Buchung vornehmen oder uns kontaktieren. Wir erfassen auch automatisch einige Informationen, wenn Sie unsere Website besuchen, wie z. B. Ihre IP-Adresse und Ihren Browsertyp.'
+        heading: '2. Wie wir Ihre Informationen verwenden',
+        text: 'Ihre Informationen werden verwendet, um Ihre Buchungen zu verwalten, mit Ihnen zu kommunizieren und unsere Dienstleistungen zu verbessern. Wir werden Ihre personenbezogenen Daten ohne Ihre ausdrückliche Zustimmung nicht für Marketingzwecke verwenden.'
       },
       {
-        heading: '3. Datennutzung',
-        text: 'Wir verwenden Ihre Daten, um Ihre Buchungen zu verwalten, mit Ihnen zu kommunizieren, unsere Dienstleistungen zu verbessern und gesetzlichen Verpflichtungen nachzukommen. Wir verwenden Ihre Daten nicht für Marketingzwecke ohne Ihre Zustimmung.'
+        heading: '3. Cookies und Tracking-Technologien',
+        text: 'Unsere Website verwendet Cookies, um die Benutzererfahrung zu verbessern, für die Funktionalität und um Analysen zu sammeln. Dies hilft uns zu verstehen, wie unsere Website genutzt wird, und sie zu verbessern. Sie können die Cookie-Einstellungen über Ihren Browser steuern.'
       },
       {
-        heading: '4. Datensicherheit',
-        text: 'Wir ergreifen angemessene Maßnahmen, um Ihre personenbezogenen Daten vor unbefugtem Zugriff, unbefugter Verwendung oder Offenlegung zu schützen. Keine Sicherheitsmaßnahme ist jedoch perfekt, und wir können die Sicherheit Ihrer Daten nicht garantieren.'
+        heading: '4. Dienste von Drittanbietern',
+        text: 'Wir binden Inhalte und Dienste von Drittanbietern wie Google (Karten, Kalender, Schriftarten) ein. Diese Anbieter können Daten gemäß ihren eigenen Datenschutzrichtlinien erfassen. Wir sind nicht für die Datenschutzpraktiken dieser Dienste verantwortlich.'
+      },
+      {
+        heading: '5. Fotos und Medien',
+        text: 'Wir können Fotos oder Videos des Grundstücks und seiner Umgebung zu Werbezwecken aufnehmen. Wenn Gäste identifizierbar sind, holen wir vor der Verwendung solcher Medien eine ausdrückliche Zustimmung ein. Wir respektieren Ihre Privatsphäre und werden Ihr Abbild nicht ohne Erlaubnis verwenden.'
+      },
+      {
+        heading: '6. Ihre Datenschutzrechte (DSGVO)',
+        text: 'Wenn Sie im Europäischen Wirtschaftsraum (EWR) ansässig sind, haben Sie bestimmte Datenschutzrechte. Sie können den Zugriff auf, die Berichtigung oder die Löschung Ihrer personenbezogenen Daten verlangen. Bitte kontaktieren Sie uns, um eine solche Anfrage zu stellen.'
+      },
+      {
+        heading: '7. Datensicherheit',
+        text: 'Wir ergreifen angemessene Sicherheitsmaßnahmen, um Ihre Informationen zu schützen. Keine Methode der Übertragung über das Internet ist jedoch 100 % sicher, und wir können deren absolute Sicherheit nicht garantieren.'
       }
     ]
   },

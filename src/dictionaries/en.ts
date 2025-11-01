@@ -7,11 +7,7 @@ export const dictionary = {
   },
   navigation: {
     home: 'Home',
-    about: 'About',
     gallery: 'Gallery',
-    contact: 'Contact',
-    location: 'Location',
-    calendar: 'Calendar',
   },
   hero: {
     title1: 'Holiday House',
@@ -134,20 +130,32 @@ export const dictionary = {
     title: 'Privacy Policy',
     content: [
       {
-        heading: '1. Introduction',
-        text: 'Welcome to Mežlīči. We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information.'
+        heading: '1. Information We Collect',
+        text: 'We may collect personally identifiable information, such as your name, email address, and phone number, when you contact us or make a booking. We also automatically collect non-personal information like your IP address and browser type through our web server logs.'
       },
       {
-        heading: '2. Information Collection',
-        text: 'We may collect personal information from you, such as your name, email address, and phone number when you make a booking or contact us. We also automatically collect some information when you visit our website, such as your IP address and browser type.'
+        heading: '2. How We Use Your Information',
+        text: 'Your information is used to manage your bookings, communicate with you, and improve our services. We will not use your personal information for marketing purposes without your explicit consent.'
       },
       {
-        heading: '3. Information Use',
-        text: 'We use your information to manage your bookings, communicate with you, improve our services, and comply with legal obligations. We will not use your information for marketing purposes without your consent.'
+        heading: '3. Cookies and Tracking Technologies',
+        text: 'Our website uses cookies to enhance user experience, for functionality, and to gather analytics. This helps us understand how our site is used and improve it. You can control cookie settings through your browser.'
       },
       {
-        heading: '4. Data Security',
-        text: 'We take reasonable measures to protect your personal information from unauthorized access, use, or disclosure. However, no security measure is perfect, and we cannot guarantee the security of your information.'
+        heading: '4. Third-Party Services',
+        text: 'We embed content and services from third parties like Google (Maps, Calendar, Fonts). These providers may collect data according to their own privacy policies. We are not responsible for the privacy practices of these services.'
+      },
+      {
+        heading: '5. Photos and Media',
+        text: 'We may take photos or videos of the property and its surroundings for promotional purposes. If any guests are identifiable, we will obtain explicit consent before using such media. We respect your privacy and will not use your likeness without permission.'
+      },
+      {
+        heading: '6. Your Data Rights (GDPR)',
+        text: 'If you are a resident of the European Economic Area (EEA), you have certain data protection rights. You may request access to, correction of, or deletion of your personal information. Please contact us to make such a request.'
+      },
+      {
+        heading: '7. Data Security',
+        text: 'We implement reasonable security measures to protect your information. However, no method of transmission over the Internet is 100% secure, and we cannot guarantee its absolute security.'
       }
     ]
   },

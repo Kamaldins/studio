@@ -7,11 +7,7 @@ export const dictionary = {
   },
   navigation: {
     home: 'Sākums',
-    about: 'Par mums',
     gallery: 'Galerija',
-    contact: 'Saziņa',
-    location: 'Atrašanās vieta',
-    calendar: 'Kalendārs',
   },
   hero: {
     title1: 'Brīvdienu māja',
@@ -134,20 +130,32 @@ export const dictionary = {
     title: 'Privātuma politika',
     content: [
       {
-        heading: '1. Ievads',
-        text: 'Laipni lūdzam Mežlīčos. Mēs esam apņēmušies aizsargāt jūsu privātumu. Šī Privātuma politika izskaidro, kā mēs apkopojam, izmantojam, izpaužam un aizsargājam jūsu informāciju.'
+        heading: '1. Mūsu apkopotā informācija',
+        text: 'Mēs varam apkopot personiski identificējamu informāciju, piemēram, jūsu vārdu, e-pasta adresi un tālruņa numuru, kad jūs sazināties ar mums vai veicat rezervāciju. Mēs arī automātiski apkopojam nepersonisku informāciju, piemēram, jūsu IP adresi un pārlūkprogrammas veidu, izmantojot mūsu tīmekļa servera žurnālus.'
       },
       {
-        heading: '2. Informācijas apkopošana',
-        text: 'Mēs varam apkopot personisku informāciju no jums, piemēram, jūsu vārdu, e-pasta adresi un tālruņa numuru, kad veicat rezervāciju vai sazināties ar mums. Mēs arī automātiski apkopojam noteiktu informāciju, kad apmeklējat mūsu vietni, piemēram, jūsu IP adresi un pārlūkprogrammas veidu.'
+        heading: '2. Kā mēs izmantojam jūsu informāciju',
+        text: 'Jūsu informācija tiek izmantota, lai pārvaldītu jūsu rezervācijas, sazinātos ar jums un uzlabotu mūsu pakalpojumus. Mēs neizmantosim jūsu personas informāciju mārketinga nolūkos bez jūsu nepārprotamas piekrišanas.'
       },
       {
-        heading: '3. Informācijas izmantošana',
-        text: 'Mēs izmantojam jūsu informāciju, lai pārvaldītu jūsu rezervācijas, sazinātos ar jums, uzlabotu mūsu pakalpojumus un izpildītu juridiskās saistības. Mēs neizmantosim jūsu informāciju mārketinga nolūkos bez jūsu piekrišanas.'
+        heading: '3. Sīkdatnes un izsekošanas tehnoloģijas',
+        text: 'Mūsu vietne izmanto sīkdatnes, lai uzlabotu lietotāja pieredzi, nodrošinātu funkcionalitāti un apkopotu analītiku. Tas palīdz mums saprast, kā mūsu vietne tiek izmantota, un to uzlabot. Jūs varat kontrolēt sīkdatņu iestatījumus savā pārlūkprogrammā.'
       },
       {
-        heading: '4. Datu drošība',
-        text: 'Mēs veicam saprātīgus pasākumus, lai aizsargātu jūsu personisko informāciju no nesankcionētas piekļuves, izmantošanas vai izpaušanas. Tomēr neviena drošības metode nav perfekta, un mēs nevaram garantēt jūsu informācijas drošību.'
+        heading: '4. Trešo pušu pakalpojumi',
+        text: 'Mēs iegulstam saturu un pakalpojumus no trešajām pusēm, piemēram, Google (Maps, Calendar, Fonts). Šie pakalpojumu sniedzēji var apkopot datus saskaņā ar savām privātuma politikām. Mēs neesam atbildīgi par šo pakalpojumu privātuma praksi.'
+      },
+      {
+        heading: '5. Fotogrāfijas un mediji',
+        text: 'Mēs varam uzņemt īpašuma un tā apkārtnes fotogrāfijas vai video reklāmas nolūkos. Ja kāds no viesiem ir identificējams, mēs iegūsim nepārprotamu piekrišanu pirms šādu mediju izmantošanas. Mēs cienām jūsu privātumu un neizmantosim jūsu attēlu bez atļaujas.'
+      },
+      {
+        heading: '6. Jūsu datu tiesības (VDAR)',
+        text: 'Ja esat Eiropas Ekonomikas zonas (EEZ) iedzīvotājs, jums ir noteiktas datu aizsardzības tiesības. Jūs varat pieprasīt piekļuvi savai personiskajai informācijai, tās labošanu vai dzēšanu. Lūdzu, sazinieties ar mums, lai iesniegtu šādu pieprasījumu.'
+      },
+      {
+        heading: '7. Datu drošība',
+        text: 'Mēs īstenojam saprātīgus drošības pasākumus, lai aizsargātu jūsu informāciju. Tomēr neviena pārraides metode internetā nav 100% droša, un mēs nevaram garantēt tās absolūtu drošību.'
       }
     ]
   },
