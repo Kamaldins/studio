@@ -23,6 +23,7 @@ export const properties: Property[] = [
     location: { lat: 56.63, lng: 25.35 },
     locationDescription: 'Mežlīči, Tomes pagasts, Ogres novads',
     images: [
+      'mezlici-9',
       'mezlici-1',
       'mezlici-2',
       'mezlici-3',
@@ -31,7 +32,6 @@ export const properties: Property[] = [
       'mezlici-6',
       'mezlici-7',
       'mezlici-8',
-      'mezlici-9',
       'mezlici-10',
       'mezlici-11',
       'mezlici-12',
