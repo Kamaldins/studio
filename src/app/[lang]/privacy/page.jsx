@@ -1,9 +1,7 @@
 
 import { getDictionary } from '@/lib/get-dictionary';
 
-export default async function PrivacyPolicyPage({
-  params,
-}) {
+export default async function PrivacyPolicyPage({ params }) {
   const dictionary = await getDictionary(params.lang);
   const { privacyPage } = dictionary;
 
