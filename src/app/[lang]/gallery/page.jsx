@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import { getDictionary } from '@/lib/get-dictionary';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
