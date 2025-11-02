@@ -5,11 +5,7 @@ import { type Locale } from '@/i18n-config';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
-type GalleryPageProps = {
-  params: { lang: Locale };
-};
-
-export default async function GalleryPage({ params: { lang } }: GalleryPageProps) {
+export default async function GalleryPage({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
   const propertyImages = PlaceHolderImages.map(p => p.imageUrl);
 
