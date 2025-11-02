@@ -1,4 +1,3 @@
-
 import { getDictionary } from '@/lib/get-dictionary';
 
 export default async function PrivacyPolicyPage({ params }) {

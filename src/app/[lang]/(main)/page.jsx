@@ -1,9 +1,8 @@
-
 import * as React from 'react';
 import { MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
-import PageClient from './page-client';
+import PageClient from '../page-client';
 
 export default async function SinglePropertyPage({ params }) {
   const dictionary = await getDictionary(params.lang);
@@ -22,7 +21,7 @@ export default async function SinglePropertyPage({ params }) {
       addressRegion: 'Ogres novads',
       addressCountry: 'LV'
     },
-    geo: {
+geo: {
       '@type': 'GeoCoordinates',
       latitude: MEZLICI_COORDINATES.split(',')[0],
       longitude: MEZLICI_COORDINATES.split(',')[1]
