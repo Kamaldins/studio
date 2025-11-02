@@ -6,7 +6,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Check } from 'lucide-react';
 
 export default async function SaunaPage({ params }) {
-    const { lang } = params;
+  const { lang } = params;
   const dictionary = await getDictionary(lang);
   const saunaImages = PlaceHolderImages.filter(p => p.category === 'sauna');
 
