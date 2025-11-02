@@ -1,0 +1,147 @@
+
+{
+  "siteName": "Mežlīči",
+  "meta": {
+    "title": "Ferienhaus \"Mežlīči\"",
+    "description": "Ein ruhiger Ort im Wald am Fluss Daugava zum Entspannen und Erholen"
+  },
+  "navigation": {
+    "home": "Startseite",
+    "gallery": "Galerie"
+  },
+  "hero": {
+    "title1": "Ferienhaus",
+    "title2": "\"Mežlīči\"",
+    "subtitle": "Ein ruhiger Ort im Wald am Fluss Daugava zum Entspannen und Erholen",
+    "photoButton": "FOTOS"
+  },
+  "about": {
+    "title": "Was Sie erwartet",
+    "amenitiesTitle": "Im Haus verfügbar",
+    "amenities": [
+      "Sauna zur Entspannung",
+      "Voll ausgestattete Küche",
+      "Moderne sanitäre Einrichtungen",
+      "Schlafbereich im Dachgeschoss (bis zu 10 Gäste)"
+    ],
+    "activitiesTitle": "Aktivitäten im Freien",
+    "activities": [
+      "Große Wiese mit Zeltplätzen",
+      "Badeplatz mit Steg",
+      "Bootsanlegestelle und Boot",
+      "Geschlossener Terrassenbereich für Feiern",
+      "Whirlpool mit Hydromassage"
+    ],
+    "locationTitle": "Standort",
+    "locationText": "Am linken Ufer der Daugava in der Nähe des Wasserkraftwerks Ķegums"
+  },
+  "pricing": {
+    "title": "Preisgestaltung",
+    "houseTitle": "Ferienhaus",
+    "housePrice": "200€",
+    "houseDesc": "Pro Nacht (Sauna inbegriffen)",
+    "hotTubTitle": "Hydromassage-Whirlpool",
+    "hotTubPrice": "50€",
+    "hotTubDesc": "Pro Nutzung"
+  },
+  "contact": {
+    "title": "Kontaktieren Sie uns",
+    "subtitle": "Wir helfen Ihnen, den perfekten Urlaubsort zu buchen",
+    "phone": "Telefon",
+    "showNumber": "Nummer anzeigen"
+  },
+  "info": {
+    "availabilityTitle": "Verfügbarkeit",
+    "availabilityText": "Das Haus ist nach vorheriger Absprache von 17:00 bis 13:00 Uhr verfügbar",
+    "addressTitle": "Adresse",
+    "addressText": "Mežlīči, Gemeinde Tome"
+  },
+  "map": {
+    "title": "Standort",
+    "subtitle": "Interessante Orte in der Nähe",
+    "attractionsTitle": "Nahegelegene Sehenswürdigkeiten",
+    "getAttractions": "Empfehlungen erhalten",
+    "loading": "Wird geladen...",
+    "openWaze": "In Waze öffnen",
+    "openGoogleMaps": "In Google Maps öffnen",
+    "directions": "Route"
+  },
+  "calendar": {
+    "title": "Verfügbarkeitskalender"
+  },
+  "gallery": {
+    "title": "Galerie",
+    "subtitle": "Entdecken Sie Fotos von unserem Ferienhaus und der Umgebung",
+    "categories": {
+      "all": "Fotos",
+      "sauna": "Sauna",
+      "pricing": "Preise",
+      "location": "Sehenswürdigkeiten"
+    }
+  },
+  "sauna": {
+    "title": "Sauna zur Entspannung",
+    "subtitle": "Authentische Holzsauna mit allem, was Sie zum Entspannen brauchen",
+    "offerTitle": "Sauna-Angebot",
+    "offers": [
+      "Authentische Holzsauna",
+      "Bequeme Holzbänke",
+      "Hochwertiges Zubehör",
+      "Traditionelle Atmosphäre"
+    ],
+    "setupTitle": "Sauna-Ausstattung",
+    "setupText1": "Unsere Sauna ist mit allem ausgestattet, was Sie zur Entspannung benötigen - von traditionellen Holzbänken bis hin zu modernen Annehmlichkeiten.",
+    "setupText2": "Die Sauna ist im Mietpreis des Hauses inbegriffen und rund um die Uhr verfügbar."
+  },
+  "attractions": {
+    "kegumaHES": {
+      "name": "Wasserkraftwerk Ķegums",
+      "description": "Wasserkraftwerk mit interessanter Architektur"
+    },
+    "lielvardesPils": {
+      "name": "Schloss Lielvārde",
+      "description": "Historische Burgruine mit reicher Geschichte"
+    },
+    "daugavasAtputasZona": {
+      "name": "Erholungsgebiet Daugava",
+      "description": "Schöne Erholungsorte am Fluss Daugava"
+    },
+    "confirmNavigation": "Möchten Sie zu {locationName} in Google Maps navigieren?"
+  },
+  "footer": {
+    "copyright": "Ferienhaus \"Mežlīči\"",
+    "rights": "Alle Rechte vorbehalten",
+    "privacy": "Datenschutzrichtlinie",
+    "owner": "Eigentümer: Andrejs",
+    "cookies": "Diese Website verwendet Cookies für eine bessere Benutzererfahrung und Funktionalität",
+    "developedBy": "Webseite entwickelt von"
+  },
+  "theme": {
+    "light": "Hell",
+    "dark": "Dunkel",
+    "system": "System"
+  },
+  "locales": {
+    "lv": "Latviešu",
+    "ru": "Русский",
+    "en": "English",
+    "de": "Deutsch"
+  },
+  "privacyPage": {
+    "title": "Datenschutzrichtlinie",
+    "content": [
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">1. Von uns erfasste Informationen</h2><p>Wir können personenbezogene Daten wie Ihren Namen, Ihre E-Mail-Adresse und Ihre Telefonnummer erfassen, wenn Sie uns kontaktieren oder eine Buchung vornehmen. Wir erfassen auch automatisch nicht personenbezogene Informationen wie Ihre IP-Adresse und Ihren Browsertyp über unsere Webserver-Protokolle.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">2. Wie wir Ihre Informationen verwenden</h2><p>Ihre Informationen werden verwendet, um Ihre Buchungen zu verwalten, mit Ihnen zu kommunizieren und unsere Dienstleistungen zu verbessern. Wir werden Ihre personenbezogenen Daten ohne Ihre ausdrückliche Zustimmung nicht für Marketingzwecke verwenden.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">3. Cookies und Tracking-Technologien</h2><p>Unsere Website verwendet Cookies, um die Benutzererfahrung zu verbessern, für die Funktionalität und um Analysen zu sammeln. Dies hilft uns zu verstehen, wie unsere Website genutzt wird, und sie zu verbessern. Sie können die Cookie-Einstellungen über Ihren Browser steuern.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">4. Dienste von Drittanbietern</h2><p>Wir binden Inhalte und Dienste von Drittanbietern wie Google (Karten, Kalender, Schriftarten) ein. Diese Anbieter können Daten gemäß ihren eigenen Datenschutzrichtlinien erfassen. Wir sind nicht für die Datenschutzpraktiken dieser Dienste verantwortlich.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">5. Fotos und Medien</h2><p>Wir können Fotos oder Videos des Grundstücks und seiner Umgebung zu Werbezwecken aufnehmen. Wenn Gäste identifizierbar sind, holen wir vor der Verwendung solcher Medien eine ausdrückliche Zustimmung ein. Wir respektieren Ihre Privatsphäre und werden Ihr Abbild nicht ohne Erlaubnis verwenden.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">6. Ihre Datenschutzrechte (DSGVO)</h2><p>Wenn Sie im Europäischen Wirtschaftsraum (EWR) ansässig sind, haben Sie bestimmte Datenschutzrechte. Sie können den Zugriff auf, die Berichtigung oder die Löschung Ihrer personenbezogenen Daten verlangen. Bitte kontaktieren Sie uns, um eine solche Anfrage zu stellen.</p>",
+      "<h2 class=\"font-headline text-2xl font-bold text-foreground\">7. Datensicherheit</h2><p>Wir ergreifen angemessene Sicherheitsmaßnahmen, um Ihre Informationen zu schützen. Keine Methode der Übertragung über das Internet ist jedoch 100 % sicher, und wir können deren absolute Sicherheit nicht garantieren.</p>"
+    ]
+  },
+  "notFoundPage": {
+    "title": "Seite nicht gefunden",
+    "message": "Entschuldigung, wir konnten die gesuchte Seite nicht finden.",
+    "buttonText": "Zur Startseite"
+  }
+}
