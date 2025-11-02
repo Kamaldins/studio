@@ -15,9 +15,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className="scroll-smooth">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="relative flex min-h-dvh flex-col bg-background">
-            <main className="flex-1">{children}</main>
-          </div>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>
