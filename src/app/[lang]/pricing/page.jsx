@@ -1,8 +1,8 @@
-
 import * as React from 'react';
 import { getDictionary } from '@/lib/get-dictionary';
 
-export default async function PricingPage({ params: { lang } }) {
+export default async function PricingPage({ params }) {
+  const { lang } = params;
   const dictionary = await getDictionary(lang);
 
   return (
