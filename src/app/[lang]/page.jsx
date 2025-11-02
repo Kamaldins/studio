@@ -5,9 +5,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import PageClient from './page-client';
 
-export default async function SinglePropertyPage({
-  params,
-}) {
+export default async function SinglePropertyPage({ params }) {
   const dictionary = await getDictionary(params.lang);
     
   const imageUrls = PlaceHolderImages.map(p => p.imageUrl);
