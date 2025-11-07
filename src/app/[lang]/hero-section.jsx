@@ -30,7 +30,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
   const visibleImages = getVisibleImages();
   const mainImage = images[0];
-  const canScroll = images.length > 5;
+  const canScroll = images.length > (isMobile ? 3 : 5);
 
 
   return (
@@ -78,7 +78,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
           </div>
         )}
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             {canScroll && (
               <button
