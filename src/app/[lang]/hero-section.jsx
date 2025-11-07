@@ -58,7 +58,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
         {mainImage && (
           <div className="max-w-5xl mx-auto mb-6 sm:mb-8">
-            <div className="relative group w-full aspect-w-16 aspect-h-9 rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(0)}>
+            <div className="relative group w-full aspect-[16/9] rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(0)}>
                <Image
                   src={mainImage}
                   alt="Brīvdienu māja Mežlīči"
