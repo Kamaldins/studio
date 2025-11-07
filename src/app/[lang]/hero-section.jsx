@@ -34,7 +34,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
 
   return (
-    <section className="relative pt-24 md:pt-32 pb-4 sm:pb-8 text-white overflow-hidden">
+    <section className="relative pt-12 md:pt-16 pb-4 sm:pb-8 text-white overflow-hidden">
       <div className="absolute inset-0 z-[-2]">
         <Image 
           src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
@@ -78,7 +78,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
           </div>
         )}
         
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-0">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             {canScroll && (
               <button
