@@ -1,3 +1,4 @@
+
 'use client';
 
 import React, { useState, useEffect } from 'react';
@@ -8,9 +9,12 @@ export function CookieBanner({ dictionary }) {
   const [showBanner, setShowBanner] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem('cookie_consent');
-    if (consent !== 'true') {
-      setShowBanner(true);
+    // Check if running on the client side
+    if (typeof window !== 'undefined') {
+      const consent = localStorage.getItem('cookie_consent');
+      if (consent !== 'true') {
+        setShowBanner(true);
+      }
     }
   }, []);
 
