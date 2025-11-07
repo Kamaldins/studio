@@ -14,7 +14,7 @@ import {
 import { usePathname, useRouter } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Sheet, SheetContent, SheetTrigger, SheetClose } from '@/components/ui/sheet';
+import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { Logo } from './logo';
 
@@ -25,21 +25,19 @@ export function SiteHeader({ lang, dictionary }) {
   const isMobile = useIsMobile();
   const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
-  const redirectedPathName = (locale) => {
-    if (!pathname) return '/';
-    const segments = pathname.split('/');
-    segments[1] = locale;
-    return segments.join('/');
-  };
-  
-  const isHomePage = pathname === `/${lang}` || pathname === '/';
-
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
     { href: '/sauna', icon: Bath, label: dictionary.gallery.categories.sauna },
     { href: '/pricing', icon: DollarSign, label: dictionary.gallery.categories.pricing },
   ];
+
+  const redirectedPathName = (locale) => {
+    if (!pathname) return '/';
+    const segments = pathname.split('/');
+    segments[1] = locale;
+    return segments.join('/');
+  };
 
   const NavLink = ({ href, icon: Icon, label, isMobile = false }) => {
     const fullHref = `/${lang}${href === '/' ? '' : href}`;
@@ -70,22 +68,16 @@ export function SiteHeader({ lang, dictionary }) {
     );
   }
 
-  const renderNavLinks = (isMobile = false) => (
-    <nav className={isMobile ? "flex flex-col gap-2 p-4" : "hidden items-center gap-1 lg:gap-2 md:flex"}>
+  const renderDesktopNav = () => (
+    <nav className="hidden md:flex md:items-center md:gap-1">
       {navLinksConfig.map(link => (
-        <NavLink key={link.href} {...link} isMobile={isMobile} />
+        <NavLink key={link.href} {...link} />
       ))}
     </nav>
   );
-  
+
   const renderMobileNav = () => (
-    <nav className={"flex flex-col gap-2 p-4"}>
-       <Link href={`/${lang}`} className="mb-4 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
-            <Logo className="fill-foreground" />
-            <span className="font-bold sm:inline-block">
-              {dictionary.siteName}
-            </span>
-          </Link>
+    <nav className={"flex flex-col gap-2 pt-4"}>
       {navLinksConfig.map(link => (
         <NavLink key={link.href} {...link} isMobile={true} />
       ))}
@@ -95,8 +87,8 @@ export function SiteHeader({ lang, dictionary }) {
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
-        {isMobile ? (
-          <>
+        <div className="flex flex-1 items-center justify-start">
+          {isMobile ? (
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button variant="ghost" size="icon">
@@ -105,26 +97,32 @@ export function SiteHeader({ lang, dictionary }) {
                 </Button>
               </SheetTrigger>
               <SheetContent side="left">
+                <SheetHeader>
+                  <SheetTitle className="sr-only">Menu</SheetTitle>
+                </SheetHeader>
+                <Link href={`/${lang}`} className="mb-4 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
+                  <Logo className="fill-foreground" />
+                  <span className="font-bold sm:inline-block">
+                    {dictionary.siteName}
+                  </span>
+                </Link>
                 {renderMobileNav()}
               </SheetContent>
             </Sheet>
-             <Link href={`/${lang}`} className="ml-4 flex items-center space-x-2">
+          ) : (
+            <>
+              <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
                 <Logo className="fill-foreground" />
-                <span className="font-bold">
-                {dictionary.siteName}
+                <span className="font-bold sm:inline-block">
+                  {dictionary.siteName}
                 </span>
-            </Link>
-          </>
-        ) : (
-           <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-            <Logo className="fill-foreground" />
-            <span className="font-bold sm:inline-block">
-              {dictionary.siteName}
-            </span>
-          </Link>
-        )}
+              </Link>
+              {renderDesktopNav()}
+            </>
+          )}
+        </div>
+        
         <div className="flex flex-1 items-center justify-end space-x-2">
-           {renderNavLinks()}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
