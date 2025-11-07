@@ -8,6 +8,8 @@ import { getDictionary } from '@/lib/get-dictionary';
 import { i18n } from '@/i18n-config';
 import { attractions } from '@/lib/attractions';
 import StructuredData from '@/components/structured-data';
+import { CookieBanner } from '@/components/cookie-banner';
+
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -104,6 +106,7 @@ export default async function LangLayout({ children, params }) {
       <SiteHeader lang={lang} dictionary={dictionary} />
       <main className="flex-1">{children}</main>
       <SiteFooter dictionary={dictionary.footer} />
+      <CookieBanner dictionary={dictionary.cookieBanner} />
     </div>
   );
 }

@@ -112,9 +112,7 @@
     "copyright": "Brīvdienu māja \"Mežlīči\"",
     "rights": "Visas tiesības aizsargātas",
     "privacy": "Privātuma politika",
-    "owner": "Saimnieks: Andrejs",
-    "cookies": "Šī vietne izmanto sīkdatnes labākai lietošanas pieredzei un funkcionalitātei",
-    "developedBy": "Mājaslapu izstrādāja"
+    "owner": "Saimnieks: Andrejs"
   },
   "theme": {
     "light": "Gaišs",
@@ -124,8 +122,7 @@
   "locales": {
     "lv": "Latviešu",
     "ru": "Русский",
-    "en": "English",
-    "de": "Deutsch"
+    "en": "English"
   },
   "privacyPage": {
     "title": "Privātuma politika",
@@ -143,5 +140,10 @@
     "title": "Lapa nav atrasta",
     "message": "Atvainojiet, mēs nevarējām atrast jūsu meklēto lapu.",
     "buttonText": "Uz sākumlapu"
+  },
+  "cookieBanner": {
+    "text": "Šī vietne izmanto sīkdatnes, lai uzlabotu lietotāja pieredzi. Lietojot vietni, jūs piekrītat mūsu",
+    "privacyLink": "Privātuma politikai",
+    "accept": "Piekrītu"
   }
 }
