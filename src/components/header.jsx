@@ -3,7 +3,7 @@
 
 import * as React from 'react';
 import { useTheme } from 'next-themes';
-import { Camera, Moon, Sun, Globe, Menu, Home, Bath, DollarSign } from 'lucide-react';
+import { Camera, Moon, Sun, Globe, Menu, Home, Bath, DollarSign, Phone } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
@@ -15,19 +15,21 @@ import { usePathname, useRouter } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Link from 'next/link';
-import { Logo } from './logo';
+import Image from 'next/image';
 
 export function SiteHeader({ lang, dictionary }) {
   const { setTheme } = useTheme();
   const router = useRouter();
   const pathname = usePathname();
   const isMobile = useIsMobile();
+  const isHomePage = pathname === `/${lang}` || (pathname === '/' && lang === i18n.defaultLocale);
 
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
     { href: '/gallery', icon: Camera, label: dictionary.navigation.gallery },
     { href: '/sauna', icon: Bath, label: dictionary.gallery.categories.sauna },
     { href: '/pricing', icon: DollarSign, label: dictionary.gallery.categories.pricing },
+    { href: '#contact', icon: Phone, label: dictionary.navigation.contact, isAnchor: true },
   ];
 
   const redirectedPathName = (locale) => {
@@ -37,26 +39,71 @@ export function SiteHeader({ lang, dictionary }) {
     return segments.join('/');
   };
 
-  const NavLink = ({ href, icon: Icon, label }) => {
-    const fullHref = `/${lang}${href === '/' ? '' : href}`;
-    const isActive = pathname === fullHref || (href === '/' && pathname === `/${lang}`);
+  const NavLink = ({ href, icon: Icon, label, isAnchor }) => {
+    const fullHref = isAnchor ? href : `/${lang}${href === '/' ? '' : href}`;
+    const isActive = !isAnchor && (pathname === fullHref || (href === '/' && pathname === `/${lang}`));
     
-    return (
-      <Link
-        href={fullHref}
-        className={`group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`}
-      >
+    const linkContent = (
+      <>
         <Icon className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
         <span className="relative">
           {label}
           <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
         </span>
+      </>
+    );
+
+    const commonClasses = `group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`;
+
+    if (isAnchor) {
+      if (isHomePage) {
+        return (
+          <a href={fullHref} className={commonClasses}>
+            {linkContent}
+          </a>
+        );
+      }
+      return (
+         <Link href={`/${lang}${fullHref}`} className={commonClasses}>
+           {linkContent}
+         </Link>
+      );
+    }
+    
+    return (
+      <Link
+        href={fullHref}
+        className={commonClasses}
+      >
+        {linkContent}
       </Link>
     );
   };
   
-  const DropdownNavLink = ({ href, icon: Icon, label }) => {
-    const fullHref = `/${lang}${href === '/' ? '' : href}`;
+  const DropdownNavLink = ({ href, icon: Icon, label, isAnchor }) => {
+    const fullHref = isAnchor ? href : `/${lang}${href === '/' ? '' : href}`;
+
+    if (isAnchor) {
+       if (isHomePage) {
+        return (
+          <DropdownMenuItem asChild>
+            <a href={fullHref} className="flex items-center gap-2">
+              <Icon className="h-4 w-4" />
+              <span>{label}</span>
+            </a>
+          </DropdownMenuItem>
+        );
+      }
+      return (
+         <DropdownMenuItem asChild>
+          <Link href={`/${lang}${fullHref}`} className="flex items-center gap-2">
+            <Icon className="h-4 w-4" />
+            <span>{label}</span>
+          </Link>
+         </DropdownMenuItem>
+      );
+    }
+
     return (
       <DropdownMenuItem asChild>
         <Link href={fullHref} className="flex items-center gap-2">
@@ -97,7 +144,13 @@ export function SiteHeader({ lang, dictionary }) {
         <div className="flex flex-1 items-center justify-start gap-4">
           {isMobile ? renderMobileNav() : null}
           <Link href={`/${lang}`} className="flex items-center space-x-2">
-            <Logo className="fill-foreground" />
+            <Image 
+              src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
+              alt="Mežlīči house logo"
+              width={24}
+              height={24}
+              className="h-6 w-6 rounded-full object-cover"
+            />
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>
