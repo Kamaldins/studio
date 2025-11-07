@@ -2,9 +2,11 @@
 'use client';
 import React from 'react';
 import { Car } from 'lucide-react';
-import { MEZLICI_COORDINATES, MEZLICI_LAT, MEZLICI_LNG, MEZLICI_ADDRESS } from '@/lib/data';
+import { MEZLICI_COORDINATES, MEZLICI_ADDRESS } from '@/lib/data';
 
 export default function MapSection({ dictionary }) {
+  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2165.733527264887!2d24.721247!3d56.7223085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e923d7a2873a2d%3A0xf58d263feb00891e!2sMe%C5%BEl%C4%AB%C4%8Di!5e0!3m2!1sen!2slv!4v1624888256561!5m2!1sen!2slv`;
+
   return (
     <section className="py-12 bg-muted/50">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
@@ -13,7 +15,7 @@ export default function MapSection({ dictionary }) {
         </h2>
         <div className="rounded-2xl overflow-hidden shadow-2xl mb-8 border">
           <iframe 
-            src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2233.5!2d${MEZLICI_LNG}!3d${MEZLICI_LAT}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z${encodeURIComponent(`${MEZLICI_LAT}°N ${MEZLICI_LNG}°E`)}!5e0!3m2!1slv!2slv!4v1735740000000!5m2!1slv!2slv&q=${MEZLICI_LAT},${MEZLICI_LNG}(Mežlīči)&z=15`}
+            src={embedUrl}
             width="100%" 
             height="450"
             className="w-full"
