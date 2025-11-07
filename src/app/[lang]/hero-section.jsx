@@ -65,7 +65,6 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   priority
-                  sizes="(max-width: 768px) 100vw, (max-width: 1280px) 80vw, 1024px"
                />
                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <Button 
