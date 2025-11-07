@@ -78,7 +78,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
           </div>
         )}
         
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
             {canScroll && (
               <button
@@ -89,7 +89,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
               </button>
             )}
             
-            <div className="flex gap-1.5 sm:gap-2 lg:gap-3 justify-center overflow-hidden flex-1">
+            <div className="flex-shrink-0 flex gap-1.5 sm:gap-2 lg:gap-3 justify-center overflow-hidden">
               {visibleImages.map((item, index) => (
                 <button
                   key={`${miniGalleryIndex}-${index}`}
