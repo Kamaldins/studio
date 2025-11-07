@@ -79,7 +79,6 @@ export async function generateMetadata({ params }) {
       canonical: `${defaultUrl}/${lang}`,
       languages: {
         'en-US': `${defaultUrl}/en`,
-        'de-DE': `${defaultUrl}/de`,
         'lv-LV': `${defaultUrl}/lv`,
         'ru-RU': `${defaultUrl}/ru`,
         'x-default': `${defaultUrl}/lv`,
