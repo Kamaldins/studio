@@ -14,7 +14,6 @@ import {
 import { usePathname, useRouter } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Sheet, SheetContent, SheetTrigger, SheetClose, SheetHeader, SheetTitle } from '@/components/ui/sheet';
 import Link from 'next/link';
 import { Logo } from './logo';
 
@@ -23,7 +22,6 @@ export function SiteHeader({ lang, dictionary }) {
   const router = useRouter();
   const pathname = usePathname();
   const isMobile = useIsMobile();
-  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
@@ -39,34 +37,46 @@ export function SiteHeader({ lang, dictionary }) {
     return segments.join('/');
   };
 
-  const NavLink = ({ href, icon: Icon, label, isMobile = false }) => {
+  const NavLink = ({ href, icon: Icon, label }) => {
     const fullHref = `/${lang}${href === '/' ? '' : href}`;
-    
-    const linkContent = (
-      <div
+    return (
+      <Link
+        href={fullHref}
         className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
       >
         <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
         {label}
-      </div>
-    );
-
-    if (isMobile) {
-      return (
-        <SheetClose asChild>
-          <Link href={fullHref}>
-            {linkContent}
-          </Link>
-        </SheetClose>
-      )
-    }
-
-    return (
-      <Link href={fullHref}>
-        {linkContent}
       </Link>
     );
-  }
+  };
+  
+  const DropdownNavLink = ({ href, icon: Icon, label }) => {
+    const fullHref = `/${lang}${href === '/' ? '' : href}`;
+    return (
+      <DropdownMenuItem asChild>
+        <Link href={fullHref} className="flex items-center gap-2">
+          <Icon className="h-4 w-4" />
+          <span>{label}</span>
+        </Link>
+      </DropdownMenuItem>
+    );
+  };
+
+  const renderMobileNav = () => (
+     <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button variant="ghost" size="icon">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Open menu</span>
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent align="start">
+           {navLinksConfig.map(link => (
+            <DropdownNavLink key={link.href} {...link} />
+          ))}
+        </DropdownMenuContent>
+      </DropdownMenu>
+  );
 
   const renderDesktopNav = () => (
     <nav className="hidden md:flex md:items-center md:gap-1">
@@ -76,53 +86,21 @@ export function SiteHeader({ lang, dictionary }) {
     </nav>
   );
 
-  const renderMobileNav = () => (
-    <nav className={"flex flex-col gap-2 pt-4"}>
-      {navLinksConfig.map(link => (
-        <NavLink key={link.href} {...link} isMobile={true} />
-      ))}
-    </nav>
-  );
-
   return (
     <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
-        <div className="flex flex-1 items-center justify-start">
-          {isMobile ? (
-            <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
-                  <span className="sr-only">Open menu</span>
-                </Button>
-              </SheetTrigger>
-              <SheetContent side="left">
-                <SheetHeader>
-                  <SheetTitle className="sr-only">Menu</SheetTitle>
-                </SheetHeader>
-                <Link href={`/${lang}`} className="mb-4 flex items-center space-x-2" onClick={() => setIsSheetOpen(false)}>
-                  <Logo className="fill-foreground" />
-                  <span className="font-bold sm:inline-block">
-                    {dictionary.siteName}
-                  </span>
-                </Link>
-                {renderMobileNav()}
-              </SheetContent>
-            </Sheet>
-          ) : (
-            <>
-              <Link href={`/${lang}`} className="mr-6 flex items-center space-x-2">
-                <Logo className="fill-foreground" />
-                <span className="font-bold sm:inline-block">
-                  {dictionary.siteName}
-                </span>
-              </Link>
-              {renderDesktopNav()}
-            </>
-          )}
+        <div className="flex flex-1 items-center justify-start gap-4">
+          {isMobile ? renderMobileNav() : null}
+          <Link href={`/${lang}`} className="flex items-center space-x-2">
+            <Logo className="fill-foreground" />
+            <span className="font-bold sm:inline-block">
+              {dictionary.siteName}
+            </span>
+          </Link>
+           {!isMobile ? renderDesktopNav() : null}
         </div>
         
-        <div className="flex flex-1 items-center justify-end space-x-2">
+        <div className="flex flex-1 items-center justify-end space-x-1">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button variant="ghost" size="icon">
