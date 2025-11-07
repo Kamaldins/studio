@@ -112,7 +112,9 @@
     "copyright": "Holiday House \"Mežlīči\"",
     "rights": "All rights reserved",
     "privacy": "Privacy Policy",
-    "owner": "Owner: Andrejs"
+    "owner": "Owner: Andrejs",
+    "developedBy": "Developed by",
+    "cookies": "This website was developed using cookies."
   },
   "theme": {
     "light": "Light",
@@ -142,8 +144,10 @@
     "buttonText": "Go to Homepage"
   },
   "cookieBanner": {
+    "title": "We use cookies",
     "text": "This site uses cookies to enhance user experience. By using the site, you agree to our",
     "privacyLink": "Privacy Policy",
-    "accept": "Accept"
+    "accept": "Accept",
+    "deny": "Deny"
   }
 }
