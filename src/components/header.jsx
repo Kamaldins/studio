@@ -44,12 +44,12 @@ export function SiteHeader({ lang, dictionary }) {
     return (
       <Link
         href={fullHref}
-        className={`group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-accent/80 hover:text-primary active:scale-95 ${isActive ? 'text-primary' : 'text-muted-foreground'}`}
+        className={`group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`}
       >
         <Icon className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
         <span className="relative">
           {label}
-          <span className={`absolute -bottom-1 left-0 h-0.5 w-full scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''}`}></span>
+          <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
         </span>
       </Link>
     );
