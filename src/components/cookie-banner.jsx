@@ -48,7 +48,7 @@ export function CookieBanner({ dictionary }) {
                 .
               </p>
             </div>
-            <div className="flex w-full flex-shrink-0 gap-2 sm:w-auto sm:flex-col">
+            <div className="flex w-full flex-shrink-0 flex-col gap-2 sm:w-auto">
               <Button onClick={handleAccept} className="w-full sm:w-auto">
                 {dictionary.accept}
               </Button>
