@@ -5,7 +5,7 @@ import { Car } from 'lucide-react';
 import { MEZLICI_COORDINATES, MEZLICI_ADDRESS } from '@/lib/data';
 
 export default function MapSection({ dictionary }) {
-  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2165.733527264887!2d24.721247!3d56.7223085!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e923d7a2873a2d%3A0xf58d263feb00891e!2sMe%C5%BEl%C4%AB%C4%8Di!5e0!3m2!1sen!2slv!4v1624888256561!5m2!1sen!2slv`;
+  const embedUrl = `https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1082.864752115169!2d24.7230915282583!3d56.72236399625395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f75!3m3!1m2!1s0x46e923d7a2873a2d%3A0xf58d263feb00891e!2sMe%C5%BEl%C4%AB%C4%8Di!5e1!3m2!1sen!2slv!4v1721763185348!5m2!1sen!2slv&t=k`;
 
   return (
     <section className="py-12 bg-muted/50">
