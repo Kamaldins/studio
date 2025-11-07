@@ -7,6 +7,7 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import { i18n } from '@/i18n-config';
 import { attractions } from '@/lib/attractions';
+import StructuredData from '@/components/structured-data';
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -100,6 +101,7 @@ export default async function LangLayout({ children, params }) {
 
   return (
     <div className="relative flex min-h-dvh flex-col bg-background">
+      <StructuredData dictionary={dictionary} />
       <SiteHeader lang={lang} dictionary={dictionary} />
       <main className="flex-1">{children}</main>
       <SiteFooter dictionary={dictionary.footer} />
