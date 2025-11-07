@@ -39,13 +39,18 @@ export function SiteHeader({ lang, dictionary }) {
 
   const NavLink = ({ href, icon: Icon, label }) => {
     const fullHref = `/${lang}${href === '/' ? '' : href}`;
+    const isActive = pathname === fullHref || (href === '/' && pathname === `/${lang}`);
+    
     return (
       <Link
         href={fullHref}
-        className="group flex items-center gap-3 px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:text-primary sm:text-sm sm:gap-2"
+        className={`group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-all duration-300 ease-in-out hover:bg-accent/80 hover:text-primary active:scale-95 ${isActive ? 'text-primary' : 'text-muted-foreground'}`}
       >
-        <Icon className="h-5 w-5 transition-transform group-hover:scale-110 sm:h-4 sm:w-4" />
-        {label}
+        <Icon className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
+        <span className="relative">
+          {label}
+          <span className={`absolute -bottom-1 left-0 h-0.5 w-full scale-x-0 bg-primary transition-transform duration-300 ease-out group-hover:scale-x-100 ${isActive ? 'scale-x-100' : ''}`}></span>
+        </span>
       </Link>
     );
   };
@@ -87,7 +92,7 @@ export function SiteHeader({ lang, dictionary }) {
   );
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-14 max-w-screen-2xl items-center">
         <div className="flex flex-1 items-center justify-start gap-4">
           {isMobile ? renderMobileNav() : null}
