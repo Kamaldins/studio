@@ -116,18 +116,19 @@ const ImageSliderModal = ({
 
   return createPortal(
     <div 
-      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/60 p-4 backdrop-blur-xl" 
+      className="fixed inset-0 z-[100] flex animate-in fade-in-0 flex-col items-center justify-center bg-black/80 p-4 backdrop-blur-lg" 
       onClick={onClose}
     >
       <button 
         onClick={(e) => { e.stopPropagation(); onClose(); }}
-        className="absolute right-4 top-4 z-50 text-white/70 transition-all duration-300 hover:scale-110 hover:rotate-90 hover:text-white active:scale-95"
+        className="absolute right-4 top-4 z-50 rounded-full bg-black/40 p-2 text-white/70 transition-all duration-300 hover:scale-110 hover:bg-black/60 hover:text-white active:scale-95"
       >
-        <X size={32} />
+        <X size={24} />
+        <span className="sr-only">Close</span>
       </button>
       
       <div 
-        className="relative flex h-[calc(100%-120px)] w-full items-center justify-center"
+        className="group relative flex h-[calc(100%-120px)] w-full items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="relative h-full w-full max-w-6xl overflow-hidden" ref={mainRef}>
@@ -148,15 +149,17 @@ const ImageSliderModal = ({
         
         <button 
           onClick={(e) => { e.stopPropagation(); scrollPrev(); }}
-          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white active:scale-95 sm:left-4 sm:p-4"
+          className="absolute left-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl opacity-0 transition-all duration-300 group-hover:opacity-100 hover:scale-105 hover:bg-black/60 hover:text-white active:scale-95 sm:left-4 sm:p-4"
         >
           <ChevronLeft size={32} />
+           <span className="sr-only">Previous Image</span>
         </button>
         <button 
           onClick={(e) => { e.stopPropagation(); scrollNext(); }}
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl transition-all duration-300 hover:scale-105 hover:bg-primary hover:text-white active:scale-95 sm:right-4 sm:p-4"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-full bg-black/40 p-3 text-white/80 shadow-xl opacity-0 transition-all duration-300 group-hover:opacity-100 hover:scale-105 hover:bg-black/60 hover:text-white active:scale-95 sm:right-4 sm:p-4"
         >
           <ChevronRight size={32} />
+          <span className="sr-only">Next Image</span>
         </button>
       </div>
 
