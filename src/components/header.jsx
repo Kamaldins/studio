@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { usePathname, useRouter } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -24,7 +24,7 @@ export function SiteHeader({ lang, dictionary }) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const isHomePage = pathname === `/${lang}` || (pathname === '/' && lang === i18n.defaultLocale);
-  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
+  const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
@@ -42,7 +42,7 @@ export function SiteHeader({ lang, dictionary }) {
   };
 
   const handleLinkClick = (isAnchor, href) => {
-    setIsSheetOpen(false);
+    setIsDrawerOpen(false);
     if (isAnchor) {
       if (isHomePage) {
         document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
@@ -100,19 +100,16 @@ export function SiteHeader({ lang, dictionary }) {
   };
   
   const renderMobileNav = () => (
-     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-        <SheetTrigger asChild>
+     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} direction="left">
+        <DrawerTrigger asChild>
           <Button variant="ghost" size="icon">
             <Menu className="h-6 w-6" />
             <span className="sr-only">Open menu</span>
           </Button>
-        </SheetTrigger>
-        <SheetContent side="left">
-          <SheetHeader>
-            <SheetTitle className="sr-only">{dictionary.navigation.menuTitle}</SheetTitle>
-          </SheetHeader>
-          <nav className="grid gap-2 text-lg font-medium">
-            <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold mb-4" onClick={() => setIsSheetOpen(false)}>
+        </DrawerTrigger>
+        <DrawerContent className="h-full w-3/4">
+           <nav className="grid gap-2 p-4 text-lg font-medium">
+            <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold mb-4" onClick={() => setIsDrawerOpen(false)}>
                <Image 
                 src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
                 alt="Mežlīči house logo"
@@ -126,8 +123,8 @@ export function SiteHeader({ lang, dictionary }) {
               <NavLink key={link.href} {...link} isSheet={true} />
             ))}
           </nav>
-        </SheetContent>
-      </Sheet>
+        </DrawerContent>
+      </Drawer>
   );
 
   const renderDesktopNav = () => (
