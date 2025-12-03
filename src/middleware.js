@@ -42,6 +42,11 @@ export function middleware(request) {
     });
   }
 
+  // Always redirect the root path to /lv
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL('/lv', request.url));
+  }
+  
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
