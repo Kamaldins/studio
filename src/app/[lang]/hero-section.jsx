@@ -70,7 +70,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                 <Button 
                   variant="secondary"
                   onClick={(e) => { e.stopPropagation(); openSlider(0); }}
-                  className="absolute top-4 right-4 bg-white/80 text-foreground backdrop-blur-sm hover:bg-white"
+                  className="absolute top-4 right-4 backdrop-blur-sm"
                 >
                   <Camera className="w-4 h-4 mr-2" /> {dictionary.photoButton}
                 </Button>
