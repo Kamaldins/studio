@@ -27,26 +27,24 @@ export function middleware(request) {
   const requestHeaders = new Headers(request.headers);
   requestHeaders.set('x-next-pathname', pathname);
 
+  // --- Check for public files and ignore them ---
   const publicFiles = [
     '/manifest.json',
     '/favicon.ico',
     '/next.svg',
     '/vercel.svg',
+    // Add other public assets here if needed
   ];
-
   if (publicFiles.some(file => pathname.startsWith(file))) {
-    return NextResponse.next({
-      request: {
-        headers: requestHeaders,
-      },
-    });
+    return NextResponse.next({ request: { headers: requestHeaders } });
   }
 
-  // Always redirect the root path to /lv
+  // --- Always redirect the root path to /lv ---
   if (pathname === '/') {
     return NextResponse.redirect(new URL('/lv', request.url));
   }
   
+  // --- Check if the path is missing a locale ---
   const pathnameIsMissingLocale = i18n.locales.every(
     (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
   );
@@ -54,6 +52,7 @@ export function middleware(request) {
   if (pathnameIsMissingLocale) {
     const locale = getLocale(request);
 
+    // --- Redirect to the detected locale ---
     return NextResponse.redirect(
       new URL(
         `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
