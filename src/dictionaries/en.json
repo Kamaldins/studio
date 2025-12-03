@@ -145,10 +145,24 @@
     "buttonText": "Go to Homepage"
   },
   "cookieBanner": {
-    "title": "We use cookies",
-    "text": "This site uses cookies to enhance user experience. By using the site, you agree to our",
+    "title": "This website uses cookies",
+    "text": "By using our site, you agree to our use of cookies to enhance your experience. See our",
     "privacyLink": "Privacy Policy",
-    "accept": "Accept",
-    "deny": "Deny"
+    "accept": "Accept all",
+    "deny": "Deny all",
+    "customize": "Customize",
+    "settings": {
+      "title": "Cookie Preferences",
+      "description": "Manage your cookie settings. You can enable or disable different types of cookies below.",
+      "save": "Save Preferences",
+      "necessary": {
+        "title": "Strictly Necessary Cookies",
+        "description": "These cookies are essential for the website to function and cannot be disabled."
+      },
+      "analytics": {
+        "title": "Analytics Cookies",
+        "description": "These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site."
+      }
+    }
   }
 }

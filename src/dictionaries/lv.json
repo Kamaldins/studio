@@ -145,10 +145,24 @@
     "buttonText": "Uz sākumlapu"
   },
   "cookieBanner": {
-    "title": "Mēs izmantojam sīkdatnes",
-    "text": "Šī vietne izmanto sīkdatnes, lai uzlabotu lietotāja pieredzi. Lietojot vietni, jūs piekrītat mūsu",
-    "privacyLink": "Privātuma politikai",
-    "accept": "Piekrītu",
-    "deny": "Noraidīt"
+    "title": "Šī vietne izmanto sīkdatnes",
+    "text": "Lietojot mūsu vietni, jūs piekrītat sīkdatņu izmantošanai, lai uzlabotu jūsu pieredzi. Skatiet mūsu",
+    "privacyLink": "Privātuma politiku",
+    "accept": "Pieņemt visas",
+    "deny": "Noraidīt visas",
+    "customize": "Pielāgot",
+    "settings": {
+      "title": "Sīkdatņu preferences",
+      "description": "Pārvaldiet savus sīkdatņu iestatījumus. Zemāk varat iespējot vai atspējot dažādu veidu sīkdatnes.",
+      "save": "Saglabāt preferences",
+      "necessary": {
+        "title": "Nenovēršami nepieciešamās sīkdatnes",
+        "description": "Šīs sīkdatnes ir būtiskas, lai vietne darbotos, un tās nevar atspējot."
+      },
+      "analytics": {
+        "title": "Analītiskās sīkdatnes",
+        "description": "Šīs sīkdatnes ļauj mums uzskaitīt apmeklējumus un datplūsmas avotus, lai mēs varētu mērīt un uzlabot mūsu vietnes veiktspēju."
+      }
+    }
   }
 }
