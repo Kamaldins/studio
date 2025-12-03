@@ -11,6 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { usePathname, useRouter } from 'next/navigation';
 import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
@@ -23,6 +24,7 @@ export function SiteHeader({ lang, dictionary }) {
   const pathname = usePathname();
   const isMobile = useIsMobile();
   const isHomePage = pathname === `/${lang}` || (pathname === '/' && lang === i18n.defaultLocale);
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
 
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
@@ -39,7 +41,18 @@ export function SiteHeader({ lang, dictionary }) {
     return segments.join('/');
   };
 
-  const NavLink = ({ href, icon: Icon, label, isAnchor }) => {
+  const handleLinkClick = (isAnchor, href) => {
+    setIsSheetOpen(false);
+    if (isAnchor) {
+      if (isHomePage) {
+        document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        router.push(`/${lang}${href}`);
+      }
+    }
+  };
+
+  const NavLink = ({ href, icon: Icon, label, isAnchor, isSheet = false }) => {
     const fullHref = isAnchor ? href : `/${lang}${href === '/' ? '' : href}`;
     const isActive = !isAnchor && (pathname === fullHref || (href === '/' && pathname === `/${lang}`));
     
@@ -48,86 +61,70 @@ export function SiteHeader({ lang, dictionary }) {
         <Icon className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
         <span className="relative">
           {label}
-          <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
+          {!isSheet && (
+            <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
+          )}
         </span>
       </>
     );
 
     const commonClasses = `group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`;
+    const sheetClasses = `flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${isActive ? 'text-primary bg-muted' : ''}`;
 
     if (isAnchor) {
-      if (isHomePage) {
-        return (
-          <a href={fullHref} className={commonClasses}>
-            {linkContent}
-          </a>
-        );
-      }
       return (
-         <Link href={`/${lang}${fullHref}`} className={commonClasses}>
-           {linkContent}
-         </Link>
+        <a 
+          href={fullHref} 
+          className={isSheet ? sheetClasses : commonClasses}
+          onClick={(e) => {
+            if (isHomePage) {
+              e.preventDefault();
+            }
+            handleLinkClick(isAnchor, href);
+          }}
+        >
+          {linkContent}
+        </a>
       );
     }
     
     return (
       <Link
         href={fullHref}
-        className={commonClasses}
+        className={isSheet ? sheetClasses : commonClasses}
+        onClick={() => handleLinkClick(false, href)}
       >
         {linkContent}
       </Link>
     );
   };
   
-  const DropdownNavLink = ({ href, icon: Icon, label, isAnchor }) => {
-    const fullHref = isAnchor ? href : `/${lang}${href === '/' ? '' : href}`;
-
-    if (isAnchor) {
-       if (isHomePage) {
-        return (
-          <DropdownMenuItem asChild>
-            <a href={fullHref} className="flex items-center gap-2">
-              <Icon className="h-4 w-4" />
-              <span>{label}</span>
-            </a>
-          </DropdownMenuItem>
-        );
-      }
-      return (
-         <DropdownMenuItem asChild>
-          <Link href={`/${lang}${fullHref}`} className="flex items-center gap-2">
-            <Icon className="h-4 w-4" />
-            <span>{label}</span>
-          </Link>
-         </DropdownMenuItem>
-      );
-    }
-
-    return (
-      <DropdownMenuItem asChild>
-        <Link href={fullHref} className="flex items-center gap-2">
-          <Icon className="h-4 w-4" />
-          <span>{label}</span>
-        </Link>
-      </DropdownMenuItem>
-    );
-  };
-
   const renderMobileNav = () => (
-     <DropdownMenu>
-        <DropdownMenuTrigger asChild>
+     <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+        <SheetTrigger asChild>
           <Button variant="ghost" size="icon">
             <Menu className="h-6 w-6" />
             <span className="sr-only">Open menu</span>
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent align="start">
-           {navLinksConfig.map(link => (
-            <DropdownNavLink key={link.href} {...link} />
-          ))}
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </SheetTrigger>
+        <SheetContent side="left">
+          <nav className="grid gap-2 text-lg font-medium">
+            <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold mb-4" onClick={() => setIsSheetOpen(false)}>
+               <Image 
+                src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
+                alt="Mežlīči house logo"
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-full object-cover"
+              />
+              <span className="font-bold">{dictionary.siteName}</span>
+            </Link>
+            {navLinksConfig.map(link => (
+              <NavLink key={link.href} {...link} isSheet={true} />
+            ))}
+          </nav>
+        </SheetContent>
+      </Sheet>
   );
 
   const renderDesktopNav = () => (
