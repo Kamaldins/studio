@@ -8,7 +8,8 @@
   "navigation": {
     "home": "Главная",
     "gallery": "Галерея",
-    "contact": "Контакты"
+    "contact": "Контакты",
+    "menuTitle": "Навигационное меню"
   },
   "hero": {
     "title1": "Дом отдыха",

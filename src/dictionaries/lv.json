@@ -8,7 +8,8 @@
   "navigation": {
     "home": "Sākums",
     "gallery": "Galerija",
-    "contact": "Kontakti"
+    "contact": "Kontakti",
+    "menuTitle": "Navigācijas izvēlne"
   },
   "hero": {
     "title1": "Brīvdienu māja",
