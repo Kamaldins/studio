@@ -21,7 +21,8 @@ const Thumb = ({ selected, imgSrc, onClick }) => {
           className="object-cover"
           src={imgSrc}
           alt="Thumbnail"
-          fill
+          width={100}
+          height={100}
           sizes="10vw"
         />
         <div

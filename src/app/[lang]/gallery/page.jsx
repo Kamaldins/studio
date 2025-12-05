@@ -37,7 +37,8 @@ export default async function GalleryPage({ params }) {
             <Image
               src={imageUrl}
               alt={`Gallery image ${index + 1}`}
-              fill
+              width={600}
+              height={400}
               sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
               className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
