@@ -14,7 +14,7 @@ export default function AboutSection({ dictionary }) {
   return (
     <div className="max-w-7xl mx-auto py-12 px-4 md:px-8">
       <section className="space-y-12 py-12 px-4">
-        <h1 className="font-headline text-5xl font-bold text-center">{dictionary.title}</h1>
+        <h2 className="font-headline text-5xl font-bold text-center">{dictionary.title}</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-lg max-w-6xl mx-auto">
           <Card className="flex flex-col">
