@@ -2,17 +2,14 @@ import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/header';
 import { SiteFooter } from '@/components/footer';
-import { ThemeProvider } from '@/components/theme-provider';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { getDictionary } from '@/lib/get-dictionary';
 import { i18n } from '@/i18n-config';
-import { attractions } from '@/lib/attractions';
 import StructuredData from '@/components/structured-data';
 import { CookieBanner } from '@/components/cookie-banner';
 
-
 const defaultUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
+  ? `https://mezlici.lv`
   : 'http://localhost:3000';
 
 export async function generateMetadata({ params }) {
@@ -98,7 +95,6 @@ export async function generateMetadata({ params }) {
 export default async function LangLayout({ children, params }) {
   const lang = params.lang && i18n.locales.includes(params.lang) ? params.lang : i18n.defaultLocale;
   const dictionary = await getDictionary(lang);
-  const allImages = [...PlaceHolderImages.map((img) => img.imageUrl), ...attractions.map((attr) => attr.image)];
 
   return (
     <div className="relative flex min-h-dvh flex-col bg-background">

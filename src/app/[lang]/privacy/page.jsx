@@ -1,5 +1,14 @@
 import { getDictionary } from '@/lib/get-dictionary';
 
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+  const dictionary = await getDictionary(lang);
+  return {
+    title: dictionary.privacyPage.title,
+    description: dictionary.privacyPage.content[0].replace(/<[^>]*>/g, '').substring(0, 150),
+  };
+}
+
 export default async function PrivacyPolicyPage({ params }) {
   const dictionary = await getDictionary(params.lang);
   const { privacyPage } = dictionary;

@@ -3,6 +3,15 @@ import { getDictionary } from '@/lib/get-dictionary';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+  const dictionary = await getDictionary(lang);
+  return {
+    title: dictionary.gallery.title,
+    description: dictionary.gallery.subtitle,
+  };
+}
+
 export default async function GalleryPage({ params }) {
   const { lang } = params;
   const dictionary = await getDictionary(lang);

@@ -1,6 +1,15 @@
 import * as React from 'react';
 import { getDictionary } from '@/lib/get-dictionary';
 
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+  const dictionary = await getDictionary(lang);
+  return {
+    title: dictionary.pricing.title,
+    description: `${dictionary.pricing.houseDesc} ${dictionary.pricing.housePrice}, ${dictionary.pricing.hotTubDesc} ${dictionary.pricing.hotTubPrice}`,
+  };
+}
+
 export default async function PricingPage({ params }) {
   const { lang } = params;
   const dictionary = await getDictionary(lang);

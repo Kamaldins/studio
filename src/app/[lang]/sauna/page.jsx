@@ -4,6 +4,15 @@ import { getDictionary } from '@/lib/get-dictionary';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Check } from 'lucide-react';
 
+export async function generateMetadata({ params }) {
+  const { lang } = params;
+  const dictionary = await getDictionary(lang);
+  return {
+    title: dictionary.sauna.title,
+    description: dictionary.sauna.subtitle,
+  };
+}
+
 export default async function SaunaPage({ params }) {
   const { lang } = params;
   const dictionary = await getDictionary(lang);
