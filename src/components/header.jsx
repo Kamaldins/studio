@@ -1,3 +1,4 @@
+
 'use client';
 
 import * as React from 'react';
@@ -16,6 +17,7 @@ import { i18n } from '@/i18n-config';
 import { useIsMobile } from '@/hooks/use-mobile';
 import Link from 'next/link';
 import Image from 'next/image';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 export function SiteHeader({ lang, dictionary }) {
   const { setTheme } = useTheme();
@@ -24,6 +26,8 @@ export function SiteHeader({ lang, dictionary }) {
   const isMobile = useIsMobile();
   const isHomePage = pathname === `/${lang}` || (pathname === '/' && lang === i18n.defaultLocale);
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
+
+  const logoImage = PlaceHolderImages.find((img) => img.id === 'logo');
 
   const navLinksConfig = [
     { href: '/', icon: Home, label: dictionary.navigation.home },
@@ -111,13 +115,15 @@ export function SiteHeader({ lang, dictionary }) {
           </DrawerHeader>
            <nav className="grid gap-2 p-4 text-lg font-medium">
             <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold mb-4" onClick={() => setIsDrawerOpen(false)}>
-               <Image 
-                src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
-                alt="Mežlīči house logo"
-                width={24}
-                height={24}
-                className="h-6 w-6 rounded-full object-cover"
-              />
+               {logoImage && (
+                <Image 
+                  src={logoImage.imageUrl}
+                  alt="Mežlīči house logo"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6 rounded-full object-cover"
+                />
+               )}
               <span className="font-bold">{dictionary.siteName}</span>
             </Link>
             {navLinksConfig.map(link => (
@@ -142,13 +148,15 @@ export function SiteHeader({ lang, dictionary }) {
         <div className="flex flex-1 items-center justify-start gap-4">
           {isMobile ? renderMobileNav() : null}
           <Link href={`/${lang}`} className="flex items-center space-x-2">
-            <Image 
-              src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
-              alt="Mežlīči house logo"
-              width={24}
-              height={24}
-              className="h-6 w-6 rounded-full object-cover"
-            />
+            {logoImage && (
+              <Image 
+                src={logoImage.imageUrl}
+                alt="Mežlīči house logo"
+                width={24}
+                height={24}
+                className="h-6 w-6 rounded-full object-cover"
+              />
+            )}
             <span className="font-bold sm:inline-block">
               {dictionary.siteName}
             </span>

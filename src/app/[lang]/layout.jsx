@@ -1,3 +1,4 @@
+
 import '../globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { SiteHeader } from '@/components/header';
@@ -34,6 +35,7 @@ export async function generateMetadata({ params }) {
     'daugava',
   ];
 
+  const logoImage = PlaceHolderImages.find((img) => img.id === 'logo')?.imageUrl || `${defaultUrl}/og-image.png`;
   const ogImage = PlaceHolderImages.find((img) => img.id === 'mezlici-9')?.imageUrl || `${defaultUrl}/og-image.png`;
 
   return {
@@ -84,9 +86,9 @@ export async function generateMetadata({ params }) {
       },
     },
     icons: {
-      icon: '/favicon.ico',
-      shortcut: '/favicon-16x16.png',
-      apple: '/apple-touch-icon.png',
+      icon: logoImage,
+      shortcut: logoImage,
+      apple: logoImage,
     },
     manifest: `${defaultUrl}/site.webmanifest`,
   };

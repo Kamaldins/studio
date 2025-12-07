@@ -1,8 +1,10 @@
+
 import { MEZLICI_ADDRESS, MEZLICI_COORDINATES } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 
 function StructuredData({ dictionary }) {
   const imageUrls = PlaceHolderImages.map((p) => p.imageUrl);
+  const logoImage = PlaceHolderImages.find((p) => p.id === 'logo')?.imageUrl;
 
   const data = {
     '@context': 'https://schema.org',
@@ -10,7 +12,7 @@ function StructuredData({ dictionary }) {
     name: dictionary.meta.title,
     description: dictionary.meta.description,
     url: 'https://mezlici.lv',
-    identifier: 'https://mezlici.lv',
+    logo: logoImage,
     image: imageUrls,
     address: {
       '@type': 'PostalAddress',
