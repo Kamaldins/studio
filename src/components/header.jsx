@@ -61,26 +61,22 @@ export function SiteHeader({ lang, dictionary }) {
     
     const linkContent = (
       <>
-        <Icon className={`h-4 w-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
-        <span className="relative">
-          {label}
-          {!isSheet && (
-            <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
-          )}
-        </span>
+        <Icon className={`h-5 w-5 transition-transform duration-300 group-hover:scale-110 ${isActive ? 'text-primary' : ''}`} />
+        <span className="font-medium">{label}</span>
       </>
     );
 
-    const commonClasses = `group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`;
-    const sheetClasses = `flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary ${isActive ? 'text-primary bg-muted' : ''}`;
+    const desktopClasses = `group relative flex items-center gap-2 rounded-lg px-4 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${isActive ? 'text-primary' : 'text-muted-foreground'}`;
+    
+    const mobileClasses = `group flex items-center gap-3 rounded-lg border border-transparent px-4 py-3 text-base transition-colors hover:bg-accent hover:text-accent-foreground ${isActive ? 'bg-primary/10 border-primary/20 text-primary' : 'text-foreground'}`;
 
     if (isAnchor) {
       return (
         <a 
           href={fullHref} 
-          className={isSheet ? sheetClasses : commonClasses}
+          className={isSheet ? mobileClasses : desktopClasses}
           onClick={(e) => {
-            if (isHomePage) {
+            if (isHomePage && !isSheet) { // only prevent default for desktop smooth scroll
               e.preventDefault();
             }
             handleLinkClick(isAnchor, href);
@@ -94,10 +90,15 @@ export function SiteHeader({ lang, dictionary }) {
     return (
       <Link
         href={fullHref}
-        className={isSheet ? sheetClasses : commonClasses}
+        className={isSheet ? mobileClasses : desktopClasses}
         onClick={() => handleLinkClick(false, href)}
       >
-        {linkContent}
+        <div className="relative flex items-center gap-2">
+            {linkContent}
+            {!isSheet && (
+                <span className={`absolute -bottom-1 left-1/2 h-0.5 w-0 -translate-x-1/2 bg-primary transition-all duration-300 ease-out group-hover:w-full ${isActive ? 'w-full' : ''}`}></span>
+            )}
+        </div>
       </Link>
     );
   };
@@ -109,23 +110,24 @@ export function SiteHeader({ lang, dictionary }) {
             <Menu className="h-6 w-6" />
           </Button>
         </DrawerTrigger>
-        <DrawerContent className="h-full w-3/4">
+        <DrawerContent className="h-full w-3/4 max-w-xs">
           <DrawerHeader>
-            <DrawerTitle className="sr-only">{dictionary.navigation.menuTitle}</DrawerTitle>
+            <DrawerTitle>
+                <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold" onClick={() => setIsDrawerOpen(false)}>
+                {logoImage && (
+                    <Image 
+                    src={logoImage.imageUrl}
+                    alt="Mežlīči house logo"
+                    width={28}
+                    height={28}
+                    className="h-7 w-7 rounded-full object-cover"
+                    />
+                )}
+                <span className="font-bold">{dictionary.siteName}</span>
+                </Link>
+            </DrawerTitle>
           </DrawerHeader>
-           <nav className="grid gap-2 p-4 text-lg font-medium">
-            <Link href={`/${lang}`} className="flex items-center gap-2 text-lg font-semibold mb-4" onClick={() => setIsDrawerOpen(false)}>
-               {logoImage && (
-                <Image 
-                  src={logoImage.imageUrl}
-                  alt="Mežlīči house logo"
-                  width={24}
-                  height={24}
-                  className="h-6 w-6 rounded-full object-cover"
-                />
-               )}
-              <span className="font-bold">{dictionary.siteName}</span>
-            </Link>
+           <nav className="grid gap-2 p-4">
             {navLinksConfig.map(link => (
               <NavLink key={link.href} {...link} isSheet={true} />
             ))}
