@@ -31,12 +31,17 @@ export default function PageContent({ dictionary, imageUrls }) {
     setMiniGalleryIndex((prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length);
   };
   
+  const handleImageClick = (e, index) => {
+    e.stopPropagation();
+    openSlider(index);
+  }
+
   return (
     <>
       <HeroSection 
         dictionary={dictionary.hero} 
         images={imageUrls}
-        openSlider={openSlider}
+        openSlider={handleImageClick}
         miniGalleryIndex={miniGalleryIndex}
         nextMiniGallery={nextMiniGallery}
         prevMiniGallery={prevMiniGallery}
