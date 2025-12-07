@@ -129,11 +129,11 @@ const ImageSliderModal = ({
       </button>
       
       <div 
-        className="group relative flex h-[calc(100%-120px)] w-full items-center justify-center"
+        className="group relative flex h-[calc(100%-120px)] w-full flex-col items-center justify-center"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="relative h-full w-full max-w-6xl overflow-hidden" ref={mainRef}>
-          <div className="flex h-full">
+        <div className="relative h-full w-full max-w-6xl overflow-hidden rounded-lg" ref={mainRef}>
+          <div className="flex h-full rounded-lg">
             {images.map((src, index) => (
               <div className="relative h-full flex-[0_0_100%] touch-pan-y" key={index}>
                 <Image 
@@ -164,7 +164,7 @@ const ImageSliderModal = ({
         </button>
       </div>
 
-      <div className="mt-4 h-[100px] w-full flex-shrink-0 px-4 sm:h-[120px]">
+      <div className="mt-4 h-[100px] w-full flex-shrink-0 px-4 sm:h-[120px]" onClick={(e) => e.stopPropagation()}>
         <div className="mx-auto h-full max-w-xl">
            <div className="h-full overflow-hidden" ref={thumbRef}>
               <div className="flex h-full items-center gap-3">
