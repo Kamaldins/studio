@@ -63,12 +63,7 @@ function StructuredData({ dictionary }) {
         "reviewCount": "88"
     },
     numberOfRooms: 2,
-    occupation: {
-      "@type": "QuantitativeValue",
-      "minValue": 1,
-      "maxValue": 10,
-      "unitText": "cilvēki"
-    },
+    permittedUsage: "cilvēki",
     containsPlace: [
         {
           "@type": "Accommodation",
