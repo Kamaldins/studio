@@ -39,7 +39,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
 
   return (
-    <section className="relative pt-12 md:pt-16 pb-4 sm:pb-8 text-white overflow-hidden">
+    <section className="relative pt-12 md:pt-16 pb-4 sm:pb-8 text-primary-foreground overflow-hidden">
       <div className="absolute inset-0 z-[-2]">
         <Image 
           src="https://i.ibb.co/mVH0z4S8/Whats-App-Image-2025-10-25-at-16-40-18.jpg"
@@ -54,9 +54,9 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-8 lg:mb-12">
            <h1 className="font-headline text-5xl md:text-7xl font-black tracking-tight">
-                <span className="text-white">{dictionary.title1}</span><br/> <span className="text-primary">{dictionary.title2}</span>
+                <span className="text-primary-foreground">{dictionary.title1}</span><br/> <span className="text-primary">{dictionary.title2}</span>
             </h1>
-            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-white/80">
+            <p className="mt-4 max-w-2xl mx-auto text-lg md:text-xl text-primary-foreground/80">
                 {dictionary.subtitle}
             </p>
         </div>
@@ -75,7 +75,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                 <Button 
                   variant="secondary"
                   onClick={(e) => handleOpenSlider(e, images.indexOf(mainImage))}
-                  className="absolute top-4 right-4 backdrop-blur-sm"
+                  className="absolute top-4 right-4 backdrop-blur-sm text-secondary-foreground"
                 >
                   <Camera className="w-4 h-4 mr-2" /> {dictionary.photoButton}
                 </Button>
@@ -88,7 +88,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={prevMiniGallery}
-                className="flex-shrink-0 bg-background/50 hover:bg-primary text-primary-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-background/50 hover:bg-primary text-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronLeft size={isMobile ? 16 : 20} />
               </button>
@@ -116,7 +116,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
             {canScroll && (
               <button
                 onClick={nextMiniGallery}
-                className="flex-shrink-0 bg-background/50 hover:bg-primary text-primary-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="flex-shrink-0 bg-background/50 hover:bg-primary text-foreground p-2 sm:p-3 rounded-full shadow-lg transition-all duration-300 active:scale-95 border border-white/20 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <ChevronRight size={isMobile ? 16 : 20} />
               </button>
