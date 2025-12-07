@@ -1,10 +1,9 @@
-
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Playfair_Display, PT_Sans } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import { GoogleAnalytics } from '@next/third-parties/google'
+import Clarity from '@/components/clarity';
 
 const ptSans = PT_Sans({
   subsets: ['latin'],
@@ -27,7 +26,7 @@ export default function RootLayout({ children }) {
           <Toaster />
         </ThemeProvider>
       </body>
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID} />
+      <Clarity />
     </html>
   );
 }
