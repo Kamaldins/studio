@@ -28,6 +28,11 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
     return visibleImages;
   };
 
+  const handleOpenSlider = (e, index) => {
+    e.stopPropagation();
+    openSlider(index);
+  }
+
   const visibleImages = getVisibleImages();
   const mainImage = images[0];
   const canScroll = images.length > (isMobile ? 3 : 5);
@@ -58,7 +63,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
         {mainImage && (
           <div className="max-w-5xl mx-auto mb-6 sm:mb-8">
-            <div className="relative group w-full aspect-[16/9] rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={() => openSlider(0)}>
+            <div className="relative group w-full aspect-[16/9] rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={(e) => handleOpenSlider(e, 0)}>
                <Image
                   src={mainImage}
                   alt="Brīvdienu māja Mežlīči"
@@ -69,7 +74,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <Button 
                   variant="secondary"
-                  onClick={(e) => { e.stopPropagation(); openSlider(0); }}
+                  onClick={(e) => handleOpenSlider(e, 0)}
                   className="absolute top-4 right-4 backdrop-blur-sm"
                 >
                   <Camera className="w-4 h-4 mr-2" /> {dictionary.photoButton}
@@ -93,7 +98,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
               {visibleImages.map((item, index) => (
                 <button
                   key={`${miniGalleryIndex}-${index}`}
-                  onClick={() => openSlider(item.originalIndex)}
+                  onClick={(e) => handleOpenSlider(e, item.originalIndex)}
                   className="flex-shrink-0 relative group w-20 h-20 md:w-24 md:h-24 lg:w-32 lg:h-32"
                 >
                   <Image
