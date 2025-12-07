@@ -40,11 +40,13 @@ export function CookieBanner({ dictionary }) {
   }, []);
 
   const saveConsent = (newConsent) => {
+    const currentConsent = consent;
     setConsent(newConsent);
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(newConsent));
     setDialogOpen(false);
+    
     // Reload if analytics consent has changed to apply script changes
-    if (consent && consent.analytics !== newConsent.analytics) {
+    if (currentConsent && currentConsent.analytics !== newConsent.analytics) {
       window.location.reload();
     }
   };
