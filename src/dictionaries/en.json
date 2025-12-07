@@ -68,6 +68,7 @@
     "openGoogleMaps": "Open in Google Maps",
     "directions": "Route"
   },
+
   "calendar": {
     "title": "Availability Calendar"
   },
@@ -166,5 +167,9 @@
         "description": "These cookies allow us to count visits and traffic sources, so we can measure and improve the performance of our site."
       }
     }
+  },
+  "sitemap": {
+    "title": "Sitemap",
+    "description": "An overview of all pages on the Mežlīči website."
   }
 }

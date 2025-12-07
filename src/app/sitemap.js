@@ -3,10 +3,10 @@ import { i18n } from '@/i18n-config';
 
 export default function sitemap() {
   const defaultUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
+    ? `https://mezlici.lv`
     : 'http://localhost:3000';
 
-  const pages = ['', '/gallery', '/sauna', '/pricing', '/privacy'];
+  const pages = ['', '/gallery', '/sauna', '/pricing', '/privacy', '/sitemap'];
 
   const sitemapEntries = i18n.locales.flatMap((locale) =>
     pages.map((page) => ({

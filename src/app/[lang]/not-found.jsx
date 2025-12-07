@@ -1,3 +1,4 @@
+
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Home, TriangleAlert } from 'lucide-react';
@@ -5,6 +6,7 @@ import { getDictionary } from '@/lib/get-dictionary';
 import { i18n } from '@/i18n-config';
 
 export default async function NotFound({ params }) {
+  // Ensure lang is defined, falling back to default locale if needed.
   const lang = params?.lang && i18n.locales.includes(params.lang) ? params.lang : i18n.defaultLocale;
   const dictionary = await getDictionary(lang);
   const { notFoundPage } = dictionary;

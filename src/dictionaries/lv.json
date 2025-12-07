@@ -166,5 +166,9 @@
         "description": "Šīs sīkdatnes ļauj mums uzskaitīt apmeklējumus un datplūsmas avotus, lai mēs varētu mērīt un uzlabot mūsu vietnes veiktspēju."
       }
     }
+  },
+  "sitemap": {
+    "title": "Vietnes karte",
+    "description": "Pārskats par visām Mežlīči vietnes lapām."
   }
 }
