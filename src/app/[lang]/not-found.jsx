@@ -25,12 +25,10 @@ export default async function NotFound({ params }) {
         </h2>
         <p className="text-muted-foreground">{notFoundPage.message}</p>
       </div>
-      <Button asChild>
-        <Link href={`/${lang}`}>
-          <>
-            <Home className="mr-2 h-4" />
-            {notFoundPage.buttonText}
-          </>
+      <Button>
+        <Link href={`/${lang}`} className="flex items-center">
+          <Home className="mr-2 h-4" />
+          {notFoundPage.buttonText}
         </Link>
       </Button>
     </div>

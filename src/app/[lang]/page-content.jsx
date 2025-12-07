@@ -32,7 +32,9 @@ export default function PageContent({ dictionary, imageUrls }) {
   };
   
   const handleImageClick = (e, index) => {
-    e.stopPropagation();
+    if (e && typeof e.stopPropagation === 'function') {
+      e.stopPropagation();
+    }
     openSlider(index);
   }
 
@@ -40,7 +42,7 @@ export default function PageContent({ dictionary, imageUrls }) {
     <>
       <HeroSection 
         dictionary={dictionary.hero} 
-        images={imageUrls}
+        images={imageUrls.map(p => p.imageUrl)}
         openSlider={handleImageClick}
         miniGalleryIndex={miniGalleryIndex}
         nextMiniGallery={nextMiniGallery}
@@ -55,7 +57,7 @@ export default function PageContent({ dictionary, imageUrls }) {
       <ImageSliderModal 
         isOpen={sliderOpen} 
         onClose={closeSlider} 
-        images={imageUrls}
+        images={imageUrls.map(p => p.imageUrl)}
         startIndex={startIndex}
       />
     </>

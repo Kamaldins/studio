@@ -30,11 +30,11 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
   const handleOpenSlider = (e, index) => {
     e.stopPropagation();
-    openSlider(index);
+    openSlider(e, index);
   }
 
   const visibleImages = getVisibleImages();
-  const mainImage = images[0];
+  const mainImage = images.find(img => img.includes('Whats-App-Image-2025-10-25-at-16-40-18.jpg')) || images[0];
   const canScroll = images.length > (isMobile ? 3 : 5);
 
 
@@ -63,7 +63,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
 
         {mainImage && (
           <div className="max-w-5xl mx-auto mb-6 sm:mb-8">
-            <div className="relative group w-full aspect-[16/9] rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={(e) => handleOpenSlider(e, 0)}>
+            <div className="relative group w-full aspect-[16/9] rounded-2xl shadow-2xl overflow-hidden cursor-pointer" onClick={(e) => handleOpenSlider(e, images.indexOf(mainImage))}>
                <Image
                   src={mainImage}
                   alt="Brīvdienu māja Mežlīči"
@@ -74,7 +74,7 @@ const HeroSection = ({ dictionary, images, openSlider, miniGalleryIndex, nextMin
                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
                 <Button 
                   variant="secondary"
-                  onClick={(e) => handleOpenSlider(e, 0)}
+                  onClick={(e) => handleOpenSlider(e, images.indexOf(mainImage))}
                   className="absolute top-4 right-4 backdrop-blur-sm"
                 >
                   <Camera className="w-4 h-4 mr-2" /> {dictionary.photoButton}
