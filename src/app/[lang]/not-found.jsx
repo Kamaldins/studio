@@ -1,4 +1,3 @@
-
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Home, TriangleAlert } from 'lucide-react';
@@ -25,12 +24,12 @@ export default async function NotFound({ params }) {
         </h2>
         <p className="text-muted-foreground">{notFoundPage.message}</p>
       </div>
-      <Button>
-        <Link href={`/${lang}`} className="flex items-center">
+      <Link href={`/${lang}`}>
+        <Button>
           <Home className="mr-2 h-4" />
           {notFoundPage.buttonText}
-        </Link>
-      </Button>
+        </Button>
+      </Link>
     </div>
   );
 }
