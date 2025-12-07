@@ -28,7 +28,9 @@ export function CookieBanner({ dictionary }) {
     try {
       const storedConsent = localStorage.getItem(COOKIE_CONSENT_KEY);
       if (storedConsent) {
-        setConsent(JSON.parse(storedConsent));
+        const parsedConsent = JSON.parse(storedConsent);
+        setConsent(parsedConsent);
+        setAnalyticsEnabled(parsedConsent.analytics);
       } else {
         setConsent(initialConsent);
       }
@@ -41,6 +43,10 @@ export function CookieBanner({ dictionary }) {
     setConsent(newConsent);
     localStorage.setItem(COOKIE_CONSENT_KEY, JSON.stringify(newConsent));
     setDialogOpen(false);
+    // Reload if analytics consent has changed to apply script changes
+    if (consent && consent.analytics !== newConsent.analytics) {
+      window.location.reload();
+    }
   };
   
   const handleAcceptAll = () => {
